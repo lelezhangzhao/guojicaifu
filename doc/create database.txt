@@ -1,0 +1,98 @@
+drop table if exists international_user;
+
+/*==============================================================*/
+/* Table: international_user                                    */
+/*==============================================================*/
+create table international_user
+(
+   id                   int not null auto_increment,
+   username             varchar(30),
+   password             varchar(30),
+   tel                  varchar(11),
+   name                 varchar(10),
+   alipaynum            varchar(30),
+   referee              int,
+   status               int,
+   role                 int,
+   usualydc             float,
+   signydc              float,
+   signuptime           timestamp,
+   latestlogintime      timestamp,
+   primary key (id)
+);
+
+drop table if exists international_loginrecord;
+
+/*==============================================================*/
+/* Table: international_loginrecord                             */
+/*==============================================================*/
+create table international_loginrecord
+(
+   id                   int not null auto_increment,
+   logintime            timestamp,
+   ip                   varchar(15),
+   user_id              int,
+   leavetime            timestamp,
+   primary key (id)
+);
+
+drop table if exists international_ydcrecord;
+
+/*==============================================================*/
+/* Table: international_ydcrecord                               */
+/*==============================================================*/
+create table international_ydcrecord
+(
+   id                   int not null auto_increment,
+   user_id              int,
+   status               int,
+   primary key (id)
+);
+
+drop table if exists international_withdrawrecord;
+
+/*==============================================================*/
+/* Table: international_withdrawrecord                          */
+/*==============================================================*/
+create table international_withdrawrecord
+(
+   id                   int not null auto_increment,
+   widthdrawtime        timestamp,
+   confirmtime          timestamp,
+   status               int,
+   user_id              int,
+   reason               varchar(50),
+   primary key (id)
+);
+
+drop table if exists international_refereeprofit;
+
+/*==============================================================*/
+/* Table: international_refereeprofit                           */
+/*==============================================================*/
+create table international_refereeprofit
+(
+   id                   int not null auto_increment,
+   refereeone           float,
+   refereetwo           float,
+   refereethree         float,
+   primary key (id)
+);
+
+drop table if exists international_project;
+
+/*==============================================================*/
+/* Table: international_project                                 */
+/*==============================================================*/
+create table international_project
+(
+   id                   int not null auto_increment,
+   caption              varchar(30),
+   investydc            int,
+   profitydc            int,
+   curinvest            int,
+   remaininvest         int,
+   status               int,
+   primary key (id)
+);
+
