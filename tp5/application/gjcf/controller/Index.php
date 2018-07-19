@@ -1,10 +1,37 @@
 <?php
 namespace app\gjcf\controller;
 
-class Index
-{
-    public function index()
-    {
-        return '<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
+use think\Controller;
+
+use app\gjcf\model\Project as ProjectModel;
+use app\gjcf\api\Helper as HelperApi;
+
+
+class Index extends Controller{
+    public function index(){
+        HelperApi::TestLoginAndStatus($this);
+
+        echo '<body>';
+        echo '<form method="post" />';
+        $projects = ProjectModel::all();
+        foreach($projects as $project){
+            echo '项目名称：'.$project['caption'].'<br/>';
+            echo '投资金额：'.$project['investydc'].'<br/>';
+            echo '收益金额：'.$project['profitydc'].'<br/>';
+            echo '当前投资额：'.$project['curinvest'].'<br/>';
+            echo '剩余投资额：'.$project['remaininvest'].'<br/>';
+            $status = $project['status'];
+            if((int)$status === 0){
+                echo '<input type="submit" value="投资" formaction="{:url(gjcf/invest/InvestProject?projectid='.$project['id'].')}" /><br/>';
+            }else if((int)$status === 1){
+                echo '<input type="button" disabled value="投资未开始" /><br/>';
+            }else if((int)$status === 2){
+                echo '<input type="button" disabled value="投资已结束" /><br/>';
+            }
+
+        }
+        echo '</form>';
+        echo '</body>';
     }
+
 }

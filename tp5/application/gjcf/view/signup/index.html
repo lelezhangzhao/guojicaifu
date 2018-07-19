@@ -1,0 +1,21 @@
+{include file="layout" title="注册"/}
+<script text="javascript">
+    var referee = $.getUrlParam('referee');
+    window.onload = function(){
+        $("#referee").val(referee);
+    }
+</script>
+
+<body>
+<form method="post" action="{:url('gjcf/signup/signup')}">
+    用户名 <input type="text" name="username" />*<br />
+    密码 <input type="text" name="password" />*<br />
+    手机号 <input type="text" name="tel" />*<br />
+    推荐人ID <input type="text" id="referee" name="referee" />*<br />
+    验证码 <input type="text" name="capcha" />*<br/>
+    <img src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
+    <input type="submit" value="注册" name="signup" />
+
+</form>
+
+</body>
