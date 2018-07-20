@@ -11,13 +11,14 @@ create table international_user
    tel                  varchar(11),
    name                 varchar(10),
    alipaynum            varchar(30),
-   referee              int,
+   referee              varchar(30),
    status               int,
    role                 int,
    usualydc             float,
    signydc              float,
    signuptime           timestamp,
    latestlogintime      timestamp,
+   statusinfo           varchar(50),
    primary key (id)
 );
 
@@ -46,8 +47,27 @@ create table international_ydcrecord
    id                   int not null auto_increment,
    user_id              int,
    status               int,
+   ydc                  float,
    primary key (id)
 );
+
+drop table if exists international_chargerecord;
+
+/*==============================================================*/
+/* Table: international_chargerecord                            */
+/*==============================================================*/
+create table international_chargerecord
+(
+   id                   int not null,
+   chargetime           timestamp,
+   confirmtime          timestamp,
+   status               int,
+   reason               varchar(50),
+   primary key (id)
+);
+
+alter table international_chargerecord comment '充值记录';
+
 
 drop table if exists international_withdrawrecord;
 
@@ -92,7 +112,12 @@ create table international_project
    profitydc            int,
    curinvest            int,
    remaininvest         int,
+   begintime            timestamp,
    status               int,
    primary key (id)
 );
 
+
+insert into international_project(caption, investydc, profitydc, curinvest, remaininvest, begintime, status)
+values
+("谨源农场", 10, 20, 0, 10000, "2018-07-19 14:00:00", 0);
