@@ -2,18 +2,24 @@
 
 namespace app\gjcf\api;
 
+use app\gjcf\model\WithdrawRecord;
 use think\Session;
+use think\Controller;
 
 use app\gjcf\model\User as UserModel;
+use app\gjcf\model\Invest as InvestModel;
+use app\gjcf\model\Chargerecord as ChargerecordModel;
+use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 
 
-class Helper{
-    static public function IsCurAdmin(){
-        $user = UserModel::where('id', Session::get('id'))->find();
+
+class Helper extends Controller{
+    static public function IsAdmin(){
+        $user = UserModel::where('id', Session::get('user_id'))->find();
         if(empty($user)){
             return false;
         }else{
-            if($user->role <> 1){
+            if($user->role !== 1){
                 return false;
             }else{
                 return true;
@@ -22,18 +28,39 @@ class Helper{
     }
 
     static public function IsLoginUp(){
-        return Session::has('id');
+        return Session::has('user_id');
     }
 
     static public function LoginFirst($controller){
         $controller->error('先登录', '/index.php/gjcf/login/index');
     }
 
-    static public function SetCurUserDisabled($info){
-        $user = UserModel::get(Session::get('user_id'));
+    static public function SetUserDisabled($userid, $info){
+        //user
+        $user = UserModel::get($userid);
         $user->status = 1;
         $user->statusinfo = $info;
         $user->allowField(true)->save();
+
+        //invest
+        $invest = InvestModel::where('user_id', $userid)->select();
+        foreach($invest as $oneinvest){
+            $oneinvest->status = 2;
+            $oneinvest->allowField(true)->save();
+        }
+        //withdrawrecord
+        $withdrawrecord = WithdrawrecordModel::where('user_id', $userid)->select();
+        foreach($withdrawrecord as $onewithdrawrecord){
+            $onewithdrawrecord->status = 2;
+            $onewithdrawrecord->allowField(true)->save();
+        }
+        //chargerecord
+        $chargerecord = ChargerecordModel::where('user_id', $userid)->select();
+        foreach($chargerecord as $onechargerecord){
+            $onechargerecord->sattus = 2;
+            $onewithdrawrecord->allowField(true)->save();
+        }
+
     }
 
     static public function IsCurUserEnable(){
@@ -47,7 +74,7 @@ class Helper{
 
     static public function TestLoginAndStatus($controller){
         if(!self::IsLoginUp()){
-            self::LoginUpFirst($controller);
+            self::LoginFirst($controller);
         }
         if(!self::IsCurUserEnable()){
             $controller->error('用户状态错误，请联系管理员');
@@ -59,11 +86,12 @@ class Helper{
     static public function TestAccountInfo($controller){
         self::TestLoginAndStatus($controller);
 
-        $user = UserModel::get(Session::get('id'));
+        $user = UserModel::get(Session::get('user_id'));
         if(empty($user->name)){
             $controller->error('完善账户信息', '/index.php/gjcf/accountinfo/index');
         }
         return true;
     }
+
 
 }

@@ -1,13 +1,13 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1531967302;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531964332;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1531967212;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1531967302;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532073990;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
 <html>
 <head>
-    <title></title>
+    <title>注册</title>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js?version=1"></script>
 
-    <script type="text/javascript" src="/static/js/action.js?version=1"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=4"></script>
 
     <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-
+    <link rel="stylesheet" href="/static/layui/css/layui.css?t=1531663423583" media="all">
     <script type="text/javascript">
 
     </script>

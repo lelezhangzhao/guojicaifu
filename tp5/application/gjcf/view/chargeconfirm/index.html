@@ -1,0 +1,21 @@
+{include file="layout" title="确认充值"/}
+<body >
+
+<div id="bottom">
+    <form method="post" action="" target="exec_target">
+        <h2>确认充值</h2>
+        {volist name="chargelist" id="charge"}
+        <div>
+            姓名：{$charge.name}<br/>
+            支付宝账号：{$charge.alipaynum}<br/>
+            充值额度：{$charge.ydc}<br/>
+            充值时间：{$charge.confirmtime}<br/>
+            <input type="submit" value="确定" id="chargeconfirmok{$charge.id}" onclick="ChargeConfirmSuccess({$charge.id})"  />
+            <input type="submit" value="取消" id="chargeconfirmcancel{$charge.id}" onclick="ChargeConfirmFailed({$charge.id})" />
+        </div>
+        {/volist}
+    </form>
+    <iframe hidden id="exec_target" name="exec_target"></iframe>
+</div>
+
+</body>

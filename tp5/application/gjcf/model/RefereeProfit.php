@@ -3,7 +3,7 @@ namespace app\gjcf\model;
 
 use think\Model;
 
-class RefereeProfit extends Model
+class Refereeprofit extends Model
 {
 
 }

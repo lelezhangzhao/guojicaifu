@@ -10,9 +10,10 @@ use app\gjcf\api\Helper as HelperApi;
 class Index extends Controller{
     public function index(){
         HelperApi::TestLoginAndStatus($this);
+        return $this->fetch();
+    }
 
-        echo '<body>';
-        echo '<form method="post" />';
+    public function GetProject(){
         $projects = ProjectModel::all();
         foreach($projects as $project){
             echo '项目名称：'.$project['caption'].'<br/>';
@@ -28,10 +29,9 @@ class Index extends Controller{
             }else if((int)$status === 2){
                 echo '<input type="button" disabled value="投资已结束" /><br/>';
             }
-
         }
-        echo '</form>';
-        echo '</body>';
     }
+
+
 
 }

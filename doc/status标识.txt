@@ -9,7 +9,10 @@ withdrawrecord
 status => [0 => 正在提现， 1 => 成功， 2 => 失败]
 
 chargerecord
-status => [0 => 正在提现， 1 => 成功， 2 => 失败]
+status => [0 => 正在充值， 1 => 成功， 2 => 失败]
 
 project
 status => [0 => 正常， 1 => 未开始，2 => 结束]
+
+invest
+status => [0 => 收益中，1 => 完成， 2 => 中止]

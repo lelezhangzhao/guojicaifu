@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1531970622;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1531970789;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1531970622;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532054782;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
 <html>
 <head>
     <title>登录</title>
@@ -7,7 +7,7 @@
     <script type="text/javascript" src="/static/js/action.js?version=1"></script>
 
     <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-
+    <link rel="stylesheet" href="/static/layui/css/layui.css?t=1531663423583" media="all">
     <script type="text/javascript">
 
     </script>

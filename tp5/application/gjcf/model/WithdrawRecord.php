@@ -3,7 +3,7 @@ namespace app\gjcf\model;
 
 use think\Model;
 
-class WithdrawRecord extends Model
+class Withdrawrecord extends Model
 {
 
 }

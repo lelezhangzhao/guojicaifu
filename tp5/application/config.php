@@ -142,6 +142,8 @@ return [
     'view_replace_str'       => [
         '__CSS__' => '/static/css',
         '__JS__' => '/static/js',
+        '__IMAGE__' => '/static/image',
+        '__LAYUI__' => '/static/layui',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

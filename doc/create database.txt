@@ -14,10 +14,10 @@ create table international_user
    referee              varchar(30),
    status               int,
    role                 int,
-   usualydc             float,
-   signydc              float,
-   signuptime           timestamp,
-   latestlogintime      timestamp,
+   usableydc            float,
+   freezenydc           float,
+   signuptime           timestamp null default current_timestamp,
+   latestlogintime      timestamp null,
    statusinfo           varchar(50),
    primary key (id)
 );
@@ -30,24 +30,41 @@ drop table if exists international_loginrecord;
 create table international_loginrecord
 (
    id                   int not null auto_increment,
-   logintime            timestamp,
+   logintime            timestamp null default current_timestamp,
    ip                   varchar(15),
    user_id              int,
-   leavetime            timestamp,
+   leavetime            timestamp null,
    primary key (id)
 );
 
-drop table if exists international_ydcrecord;
+drop table if exists international_signrecord;
 
 /*==============================================================*/
-/* Table: international_ydcrecord                               */
+/* Table: international_signrecord                               */
 /*==============================================================*/
-create table international_ydcrecord
+create table international_signrecord
+(
+   id                   int not null auto_increment,
+   user_id              int,
+   signtime             timestamp null default current_timestamp,
+   primary key (id)
+);
+
+drop table if exists international_refereerecord;
+
+/*==============================================================*/
+/* Table: international_refereerecord                               */
+/*==============================================================*/
+create table international_refereerecord
 (
    id                   int not null auto_increment,
    user_id              int,
    status               int,
+   anotherid            int,
+   projectid            int,
    ydc                  float,
+   statusinfo           varchar(50),
+   refereetime          timestamp null default current_timestamp,
    primary key (id)
 );
 
@@ -58,11 +75,13 @@ drop table if exists international_chargerecord;
 /*==============================================================*/
 create table international_chargerecord
 (
-   id                   int not null,
-   chargetime           timestamp,
-   confirmtime          timestamp,
+   id                   int not null auto_increment,
+   chargetime           timestamp null default current_timestamp,
+   confirmtime          timestamp null default current_timestamp on update current_timestamp,
    status               int,
-   reason               varchar(50),
+   ydc                  float,
+   statusinfo           varchar(50),
+   user_id              int,
    primary key (id)
 );
 
@@ -77,10 +96,11 @@ drop table if exists international_withdrawrecord;
 create table international_withdrawrecord
 (
    id                   int not null auto_increment,
-   widthdrawtime        timestamp,
-   confirmtime          timestamp,
+   widthdrawtime        timestamp null default current_timestamp,
+   confirmtime          timestamp null default current_timestamp on update current_timestamp,
    status               int,
    user_id              int,
+   ydc                  float,
    reason               varchar(50),
    primary key (id)
 );
@@ -112,12 +132,42 @@ create table international_project
    profitydc            int,
    curinvest            int,
    remaininvest         int,
-   begintime            timestamp,
+   begintime            timestamp null,
    status               int,
    primary key (id)
 );
 
 
+drop table if exists international_invest;
+
+/*==============================================================*/
+/* Table: international_invest                                 */
+/*==============================================================*/
+create table international_invest
+(
+   id                   int not null auto_increment,
+   investydc            int,
+   investtime           timestamp null default current_timestamp,
+   remainbalance        int,
+   balanceperday        float,
+   projectid            int,
+   user_id              int,
+   status               int,
+   statusinfo           varchar(50),
+   primary key (id)
+);
+
+
+
+insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc)
+values
+("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "lelezhangzhao", 0, 1, 10000, 10000);
+
 insert into international_project(caption, investydc, profitydc, curinvest, remaininvest, begintime, status)
 values
 ("谨源农场", 10, 20, 0, 10000, "2018-07-19 14:00:00", 0);
+
+
+insert into international_withdrawrecord(status, user_id)
+values
+(0, 1);
