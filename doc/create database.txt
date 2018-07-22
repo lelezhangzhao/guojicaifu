@@ -167,7 +167,7 @@ create table international_bonusrecord
    id                   int not null auto_increment,
    bonustime            timestamp null default current_timestamp,
    userid               int,
-   type                 int,
+   bonustype                 int,
    ydc                  float,
    primary key (id)
 );
@@ -196,10 +196,23 @@ create table international_ydcrecord
    createtime            timestamp null default current_timestamp,
    userid           int,
    ydc              float,
-   type             int,
+   ydcrecordtype             int,
    primary key (id)
 );
 
+drop table if exists international_refereeone;
+
+/*==============================================================*/
+/* Table: international_refereeone                                 */
+/*==============================================================*/
+create table international_refereeone
+(
+   id                   int not null auto_increment,
+   refereecount            timestamp null default current_timestamp,
+   today             timestamp,
+   userid            int,
+   primary key (id)
+);
 
 insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc)
 values
@@ -219,7 +232,7 @@ insert into international_refereeprofit(refereeone, refereetwo, refereethree)
 values
 (0.1, 0.05, 0.03);
 
-insert into international_ydcrecord(userid, ydc, type)
+insert into international_ydcrecord(userid, ydc, ydcrecordtype)
 values
 (1, 100, 3);
 

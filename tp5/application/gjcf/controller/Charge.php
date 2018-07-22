@@ -6,9 +6,9 @@ use think\Controller;
 use think\Request;
 use think\Session;
 
-
-
 use app\gjcf\model\Chargerecord as ChargerecordModel;
+use app\gjcf\model\Ydcrecord as YdcrecordModel;
+
 use app\gjcf\api\Helper as HelperApi;
 
 class Charge extends Controller{
@@ -38,5 +38,8 @@ class Charge extends Controller{
         $chargerecord -> userid = Session::get('userid');
         $chargerecord->allowField(true)->save();
         $this->success('提交成功，等待后台确认', 'gjcf/index/index', 0, 1);
+
+        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), Session::get('userid'), $ydc, 0);
+
     }
 }

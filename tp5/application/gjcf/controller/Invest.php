@@ -12,6 +12,7 @@ use app\gjcf\model\Project as ProjectModel;
 use app\gjcf\model\Investrecord as InvestrecordModel;
 use app\gjcf\model\Refereeprofit as RefereeprofitModel;
 use app\gjcf\model\Refereerecord as RefereerecordModel;
+use app\gjcf\model\Ydcrecord as YdcrecordModel;
 
 
 class Invest extends Controller{
@@ -65,29 +66,32 @@ class Invest extends Controller{
         $investrecord->paydays = 0;
         $investrecord->allowField(true)->save();
 
-
         //三级推荐奖
         $refereeprofit = RefereeprofitModel::where('id', 1)->find();
         $refereeoneuser = UserModel::where('username', $user->referee)->find();
         if(!empty($refereeoneuser)){
             $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
-            $this->AddRefereerecord($refereeoneuser->id, 0, $user->id, $project_id, $refereeoneydc);
+            RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $project_id, $refereeoneydc);
             $refereeoneuser->usableydc += $refereeoneydc;
             $refereeoneuser->allowField(true)->save();
+            YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
+            dump(4);
 
             $refereetwouser = UserModel::where('username', $refereeoneuser->referee)->find();
             if(!empty($refereetwouser)){
                 $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
-                $this->AddRefereerecord($refereetwouser->id, 1, $user->id, $project_id, $refereetwoydc);
+                RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $project_id, $refereetwoydc);
                 $refereetwouser->usableydc += $refereetwoydc;
                 $refereetwouser->allowField(true)->save();
+                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereetwouser->id, $refereetwoydc, 5);
 
                 $refereethreeuser = UserModel::where('username', $refereetwouser->referee)->find();
                 if(!empty($refereethreeuser)){
                     $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
-                    $this->AddRefereerecord($refereethreeuser->id, 1, $user->id, $project_id, $refereethreeydc);
+                    RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $project_id, $refereethreeydc);
                     $refereethreeuser->usableydc += $refereethreeydc;
                     $refereethreeuser->allowField(true)->save();
+                    YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereethreeuser->id, $refereethreeydc, 6);
                 }
             }
         }
@@ -95,16 +99,4 @@ class Invest extends Controller{
 
         $this->success('投资成功', 'gjcf/index/index', 0, 1);
     }
-
-
-    private function AddRefereerecord($userid, $status, $anotherid, $projectid, $ydc){
-        $refereerecord = new RefereerecordModel();
-        $refereerecord->userid = $userid;
-        $refereerecord->status = $status;
-        $refereerecord->anotherid = $anotherid;
-        $refereerecord->projectid = $projectid;
-        $refereerecord->ydc = $ydc;
-        $refereerecord->allowField(true)->save();
-    }
-
 }
