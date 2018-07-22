@@ -1,0 +1,1997 @@
+---------------------------------------------------------------
+[ 2018-07-22T08:49:37+08:00 ] 127.0.0.1 GET /index.php/gjcf/login/index.html
+[ info ] tp5.com/index.php/gjcf/login/index.html [运行时间：0.209012s][吞吐率：4.78req/s] [内存消耗：1,767.87kb] [文件加载：51]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T08:49:38+08:00 ] 127.0.0.1 GET /index.php/captcha.html
+[ info ] tp5.com/index.php/captcha.html [运行时间：0.044002s][吞吐率：22.73req/s] [内存消耗：1,418.95kb] [文件加载：39]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ H:\share\project\trunk\tp5\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T08:49:54+08:00 ] 127.0.0.1 GET /index.php/gjcf/post/index?mobile=13113310202
+[ info ] tp5.com/index.php/gjcf/post/index?mobile=13113310202 [运行时间：0.428024s][吞吐率：2.34req/s] [内存消耗：1,724.41kb] [文件加载：49]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'post',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'mobile' => '13113310202',
+)
+[ info ] [ RUN ] app\gjcf\controller\Post->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Post.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:04:17+08:00 ] 127.0.0.1 GET /index.php/captcha.html
+[ info ] tp5.com/index.php/captcha.html [运行时间：0.024001s][吞吐率：41.67req/s] [内存消耗：1,419.00kb] [文件加载：39]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ H:\share\project\trunk\tp5\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:13:34+08:00 ] 127.0.0.1 POST /index.php/gjcf/login/login.html
+[ info ] tp5.com/index.php/gjcf/login/login.html [运行时间：0.142009s][吞吐率：7.04req/s] [内存消耗：2,826.13kb] [文件加载：59]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '79',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://tp5.com',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'lelezhangzhao',
+  'password' => 'zhangzhao',
+  'capcha' => 'YEDLW',
+  'login' => '登录',
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Login[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)[H:\share\project\trunk\tp5\thinkphp\library\think\db\Connection.php:295]
+---------------------------------------------------------------
+[ 2018-07-22T09:16:28+08:00 ] 127.0.0.1 POST /index.php/gjcf/login/login.html
+[ info ] tp5.com/index.php/gjcf/login/login.html [运行时间：0.046003s][吞吐率：21.74req/s] [内存消耗：1,772.24kb] [文件加载：52]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '79',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'origin' => 'http://tp5.com',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'lelezhangzhao',
+  'password' => 'zhangzhao',
+  'capcha' => 'YEDLW',
+  'login' => '登录',
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Login[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:16:29+08:00 ] 0.0.0.0 GET /
+[ info ] localhost/ [运行时间：0.029002s][吞吐率：34.48req/s] [内存消耗：1,436.05kb] [文件加载：43]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:16:29+08:00 ] 127.0.0.1 GET /
+[ info ] tp5.com/ [运行时间：0.025001s][吞吐率：40.00req/s] [内存消耗：1,436.03kb] [文件加载：43]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:16:29+08:00 ] 127.0.0.1 GET /index.php
+[ info ] tp5.com/index.php [运行时间：0.029002s][吞吐率：34.48req/s] [内存消耗：1,436.73kb] [文件加载：43]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'accept-encoding' => 'compress,gzip',
+  'connection' => 'Close',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:16:31+08:00 ] 127.0.0.1 GET /index.php/captcha.html
+[ info ] tp5.com/index.php/captcha.html [运行时间：0.027002s][吞吐率：37.03req/s] [内存消耗：1,419.05kb] [文件加载：39]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ H:\share\project\trunk\tp5\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T09:16:38+08:00 ] 127.0.0.1 POST /index.php/gjcf/login/login.html
+[ info ] tp5.com/index.php/gjcf/login/login.html [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：2,825.88kb] [文件加载：59]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '79',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://tp5.com',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=b1qppn7arojlfe6s10slf05hd0',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'lelezhangzhao',
+  'password' => 'zhangzhao',
+  'capcha' => 'PMWNF',
+  'login' => '登录',
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Login[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [1049]SQLSTATE[HY000] [1049] Unknown database 'gjcf'[H:\share\project\trunk\tp5\thinkphp\library\think\db\Connection.php:295]
+---------------------------------------------------------------
+[ 2018-07-22T09:24:35+08:00 ] 0.0.0.0 GET /phpMyAdmin/
+[ info ] localhost/phpMyAdmin/ [运行时间：0.073005s][吞吐率：13.70req/s] [内存消耗：1,443.99kb] [文件加载：43]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'phpMyAdmin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T10:32:18+08:00 ] 127.0.0.1 GET /index.php
+[ info ] tp5.com/index.php [运行时间：0.123008s][吞吐率：8.13req/s] [内存消耗：2,255.93kb] [文件加载：40]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T10:32:23+08:00 ] 127.0.0.1 GET /index.php/gjcf/login/index.html
+[ info ] tp5.com/index.php/gjcf/login/index.html [运行时间：0.084203s][吞吐率：11.88req/s] [内存消耗：2,752.65kb] [文件加载：48]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T10:32:23+08:00 ] 127.0.0.1 GET /index.php/captcha.html
+[ info ] tp5.com/index.php/captcha.html [运行时间：0.079004s][吞吐率：12.66req/s] [内存消耗：2,214.51kb] [文件加载：36]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ H:\share\project\trunk\tp5\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T10:32:30+08:00 ] 127.0.0.1 POST /index.php/gjcf/login/login.html
+[ info ] tp5.com/index.php/gjcf/login/login.html [运行时间：0.197011s][吞吐率：5.08req/s] [内存消耗：4,612.81kb] [文件加载：59]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '79',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://tp5.com',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'lelezhangzhao',
+  'password' => 'zhangzhao',
+  'capcha' => 'GBUBI',
+  'login' => '登录',
+)
+[ info ] [ RUN ] app\gjcf\controller\Login->Login[ H:\share\project\trunk\tp5\application\gjcf\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `username` = 'lelezhangzhao'  AND `password` = 'zhangzhao' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `international_user`  SET `latestlogintime`='2018-07-22 10:32:30'  WHERE  `id` = 1 [ RunTime:0.071004s ]
+---------------------------------------------------------------
+[ 2018-07-22T10:32:31+08:00 ] 127.0.0.1 GET /index.php/gjcf/index/index.html
+[ info ] tp5.com/index.php/gjcf/index/index.html [运行时间：0.082005s][吞吐率：12.19req/s] [内存消耗：4,355.80kb] [文件加载：55]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Index->index[ H:\share\project\trunk\tp5\application\gjcf\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T10:32:31+08:00 ] 127.0.0.1 POST /index.php/gjcf/index/getproject
+[ info ] tp5.com/index.php/gjcf/index/getproject [运行时间：0.054003s][吞吐率：18.52req/s] [内存消耗：4,308.22kb] [文件加载：53]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'index',
+    2 => 'getproject',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'origin' => 'http://tp5.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Index->GetProject[ H:\share\project\trunk\tp5\application\gjcf\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_project` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_project` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T10:32:44+08:00 ] 127.0.0.1 GET /index.php/gjcf/transfer_record/index
+[ info ] tp5.com/index.php/gjcf/transfer_record/index [运行时间：0.065004s][吞吐率：15.38req/s] [内存消耗：2,267.92kb] [文件加载：43]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'transfer_record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-22T14:27:40+08:00 ] 127.0.0.1 GET /index.php/gjcf/index/index.html
+[ info ] tp5.com/index.php/gjcf/index/index.html [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：4,571.84kb] [文件加载：57]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Index->index[ H:\share\project\trunk\tp5\application\gjcf\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:27:40+08:00 ] 127.0.0.1 POST /index.php/gjcf/index/getproject
+[ info ] tp5.com/index.php/gjcf/index/getproject [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：4,308.22kb] [文件加载：53]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'index',
+    2 => 'getproject',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'origin' => 'http://tp5.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Index->GetProject[ H:\share\project\trunk\tp5\application\gjcf\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_project` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_project` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:27:42+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.079005s][吞吐率：12.66req/s] [内存消耗：4,478.27kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gjcf.international_ydcrecord' doesn't exist[H:\share\project\trunk\tp5\thinkphp\library\think\db\Connection.php:390]
+---------------------------------------------------------------
+[ 2018-07-22T14:27:57+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.094005s][吞吐率：10.64req/s] [内存消耗：4,630.66kb] [文件加载：58]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:28:47+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.195011s][吞吐率：5.13req/s] [内存消耗：4,717.31kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.000000s ]
+[ error ] [1]Call to a member function render() on array[H:\share\project\trunk\tp5\runtime\temp\3d4f43493752e1490588333f517588fc.php:32]
+---------------------------------------------------------------
+[ 2018-07-22T14:29:59+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：4,696.72kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: result[H:\share\project\trunk\tp5\runtime\temp\3d4f43493752e1490588333f517588fc.php:32]
+---------------------------------------------------------------
+[ 2018-07-22T14:30:28+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.095005s][吞吐率：10.53req/s] [内存消耗：4,696.71kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: ydcrecord[H:\share\project\trunk\tp5\runtime\temp\3d4f43493752e1490588333f517588fc.php:32]
+---------------------------------------------------------------
+[ 2018-07-22T14:30:39+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.090005s][吞吐率：11.11req/s] [内存消耗：4,717.30kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.000000s ]
+[ error ] [1]Call to a member function render() on array[H:\share\project\trunk\tp5\runtime\temp\3d4f43493752e1490588333f517588fc.php:32]
+---------------------------------------------------------------
+[ 2018-07-22T14:31:25+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.081004s][吞吐率：12.35req/s] [内存消耗：4,717.66kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.000000s ]
+[ error ] [1]Call to a member function total() on array[H:\share\project\trunk\tp5\runtime\temp\3d4f43493752e1490588333f517588fc.php:25]
+---------------------------------------------------------------
+[ 2018-07-22T14:32:47+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.466027s][吞吐率：2.15req/s] [内存消耗：4,656.77kb] [文件加载：63]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.322018s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+[ error ] [2]call_user_func_array() expects parameter 1 to be a valid callback, class 'think\Collection' does not have a method 'select'[H:\share\project\trunk\tp5\thinkphp\library\think\Paginator.php:400]
+---------------------------------------------------------------
+[ 2018-07-22T14:33:21+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.081005s][吞吐率：12.34req/s] [内存消耗：4,488.19kb] [文件加载：59]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC [ RunTime:0.001001s ]
+[ error ] [1]Call to a member function paginate() on array[H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php:25]
+---------------------------------------------------------------
+[ 2018-07-22T14:34:20+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.085005s][吞吐率：11.76req/s] [内存消耗：4,598.63kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:35:27+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.079005s][吞吐率：12.66req/s] [内存消耗：4,819.70kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:02+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.082005s][吞吐率：12.19req/s] [内存消耗：4,642.18kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:13+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.098006s][吞吐率：10.20req/s] [内存消耗：4,643.33kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:15+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=2
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=2 [运行时间：0.115606s][吞吐率：8.65req/s] [内存消耗：4,614.00kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 10,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:17+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.114606s][吞吐率：8.73req/s] [内存消耗：4,643.77kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:19+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=2
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=2 [运行时间：0.132607s][吞吐率：7.54req/s] [内存消耗：4,613.76kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 10,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:36:21+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.112606s][吞吐率：8.88req/s] [内存消耗：4,643.77kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:40:09+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.091006s][吞吐率：10.99req/s] [内存消耗：4,861.68kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:40:10+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.089005s][吞吐率：11.24req/s] [内存消耗：4,644.27kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:40:11+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.108006s][吞吐率：9.26req/s] [内存消耗：4,644.27kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:40:11+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.099006s][吞吐率：10.10req/s] [内存消耗：4,644.27kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:41:58+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.088005s][吞吐率：11.36req/s] [内存消耗：4,861.78kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:42:18+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.104006s][吞吐率：9.61req/s] [内存消耗：4,862.15kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:44:36+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.086005s][吞吐率：11.63req/s] [内存消耗：4,862.22kb] [文件加载：62]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:44:39+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：4,644.20kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T14:50:30+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index?page=1
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index?page=1 [运行时间：0.078005s][吞吐率：12.82req/s] [内存消耗：4,644.20kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/ydcrecord/index?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T18:07:17+08:00 ] 127.0.0.1 GET /index.php/gjcf/ydcrecord/index
+[ info ] tp5.com/index.php/gjcf/ydcrecord/index [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：4,643.34kb] [文件加载：60]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'ydcrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Ydcrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Ydcrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html [ array (
+  0 => 'ydcrecordlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_ydcrecord` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `international_ydcrecord` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_ydcrecord` WHERE  `userid` = 1 ORDER BY `createtime` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-07-22T18:07:36+08:00 ] 127.0.0.1 GET /index.php/gjcf/investrecord/index
+[ info ] tp5.com/index.php/gjcf/investrecord/index [运行时间：0.107006s][吞吐率：9.35req/s] [内存消耗：4,582.02kb] [文件加载：57]
+[ info ] [ LANG ] H:\share\project\trunk\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'gjcf',
+    1 => 'investrecord',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp5.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tp5.com/index.php/gjcf/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=5pesp0g1tgqlci1ktts8fjkpu1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\gjcf\controller\Investrecord->Index[ H:\share\project\trunk\tp5\application\gjcf\controller\Investrecord.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] H:\share\project\trunk\tp5\public/../application/gjcf\view\investrecord\index.html [ array (
+  0 => 'investlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=gjcf;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_user` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `international_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `international_investrecord` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `investrecord`.*,`project`.`caption`,project. investydc,project. profitydc,project. balancedays,project. balanceperday FROM `international_investrecord` `investrecord` INNER JOIN `international_project` `project` ON `project`.`id`=`investrecord`.`projectid` WHERE  `investrecord`.`userid` = 1 [ RunTime:0.023001s ]

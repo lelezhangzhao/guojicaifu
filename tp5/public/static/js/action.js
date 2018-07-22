@@ -15,11 +15,11 @@ function OpenNewUrl(url) {
 
 $(function(){
 
-    $("li#match").click(function(){
-        GetMatch();
+    $("li#project").click(function(){
+        GetProject();
     });
     $("li#investrecord").click(function(){
-        OpenNewUrl("/index.php/gjcf/invest_record/index");
+        OpenNewUrl("/index.php/gjcf/investrecord/index");
     });
     $("li#charge").click(function(){
         OpenNewUrl("/index.php/gjcf/charge/index");
@@ -30,19 +30,15 @@ $(function(){
     $("li#transfer").click(function(){
         OpenNewUrl("/index.php/gjcf/transfer/index");
     });
-    $("li#transferrecord").click(function(){
-        OpenNewUrl("/index.php/gjcf/transfer_record/index");
+    $("li#ydcrecord").click(function(){
+        OpenNewUrl("/index.php/gjcf/ydcrecord/index");
     });
-    $("li#displaypersoninfo").click(function(){
-        OpenNewUrl("/index.php/gjcf/account_info/index");
+    $("li#fixaccountinfo").click(function(){
+        OpenNewUrl("/index.php/gjcf/accountinfo/index");
     });
     $("li#fixpassword").click(function(){
-        OpenNewUrl("/index.php/gjcf/fix_password/index");
+        OpenNewUrl("/index.php/gjcf/fixpassword/index");
     });
-    $("li#fixsecondpassword").click(function(){
-        OpenNewUrl("/index.php/gjcf/fix_second_password/index");
-    });
-
     $("li#xitonggonggao").click(function(){
         alert("xitonggonggao");
     });
@@ -102,8 +98,8 @@ function ChargeConfirmFailed(chargeid){
 function WithdrawConfirmSuccess(withdrawid){
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdrawconfirmok"+chargeid).disabled = "disabled";
-            document.getElementById("withdrawconfirmcancel"+chargeid).disabled = "disabled";
+            document.getElementById("withdrawconfirmok"+withdrawid).disabled = "disabled";
+            document.getElementById("withdrawconfirmcancel"+withdrawid).disabled = "disabled";
         }
     }
     xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmsuccess?withdrawid="+withdrawid);
@@ -113,8 +109,8 @@ function WithdrawConfirmSuccess(withdrawid){
 function WithdrawConfirmFailed(withdrawid){
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdrawconfirmok"+chargeid).disabled = "disabled";
-            document.getElementById("withdrawconfirmcancel"+chargeid).disabled = "disabled";
+            document.getElementById("withdrawconfirmok"+withdrawid).disabled = "disabled";
+            document.getElementById("withdrawconfirmcancel"+withdrawid).disabled = "disabled";
         }
     }
     xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmfailed?withdrawid="+withdrawid);

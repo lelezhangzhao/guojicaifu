@@ -15,7 +15,7 @@ use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 
 class Helper extends Controller{
     static public function IsAdmin(){
-        $user = UserModel::where('id', Session::get('user_id'))->find();
+        $user = UserModel::where('id', Session::get('userid'))->find();
         if(empty($user)){
             return false;
         }else{
@@ -28,7 +28,7 @@ class Helper extends Controller{
     }
 
     static public function IsLoginUp(){
-        return Session::has('user_id');
+        return Session::has('userid');
     }
 
     static public function LoginFirst($controller){
@@ -43,19 +43,19 @@ class Helper extends Controller{
         $user->allowField(true)->save();
 
         //invest
-        $invest = InvestModel::where('user_id', $userid)->select();
+        $invest = InvestModel::where('userid', $userid)->select();
         foreach($invest as $oneinvest){
             $oneinvest->status = 2;
             $oneinvest->allowField(true)->save();
         }
         //withdrawrecord
-        $withdrawrecord = WithdrawrecordModel::where('user_id', $userid)->select();
+        $withdrawrecord = WithdrawrecordModel::where('userid', $userid)->select();
         foreach($withdrawrecord as $onewithdrawrecord){
             $onewithdrawrecord->status = 2;
             $onewithdrawrecord->allowField(true)->save();
         }
         //chargerecord
-        $chargerecord = ChargerecordModel::where('user_id', $userid)->select();
+        $chargerecord = ChargerecordModel::where('userid', $userid)->select();
         foreach($chargerecord as $onechargerecord){
             $onechargerecord->sattus = 2;
             $onewithdrawrecord->allowField(true)->save();
@@ -64,8 +64,8 @@ class Helper extends Controller{
     }
 
     static public function IsCurUserEnable(){
-        $user_id = Session::get('user_id');
-        $user = UserModel::get($user_id);
+        $userid = Session::get('userid');
+        $user = UserModel::get($userid);
         if((int)$user->status === 0){
             return true;
         }
@@ -86,7 +86,7 @@ class Helper extends Controller{
     static public function TestAccountInfo($controller){
         self::TestLoginAndStatus($controller);
 
-        $user = UserModel::get(Session::get('user_id'));
+        $user = UserModel::get(Session::get('userid'));
         if(empty($user->name)){
             $controller->error('完善账户信息', '/index.php/gjcf/accountinfo/index');
         }

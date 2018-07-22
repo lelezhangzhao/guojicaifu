@@ -21,7 +21,7 @@ class Withdraw extends Controller{
         HelperApi::TestAccountInfo($this);
         HelperApi::TestAccountInfo($this);
 
-        $user = UserModel::get(Session::get('user_id'));
+        $user = UserModel::get(Session::get('userid'));
 
         return $user->usableydc;
     }
@@ -39,18 +39,19 @@ class Withdraw extends Controller{
             $this->error('5元起提', 'gjcf/withdraw/index', 0, 1);
         }
 
-        $user = UserModel::get(Session::get('user_id'));
+        $user = UserModel::get(Session::get('userid'));
         if($withdrawydc > $user->usableydc){
             $this->error('可用额度不足', 'gjcf/withdraw/index', 0, 1);
         }
 
         //user
         $user->usableydc -= $withdrawydc;
+        $user->allowField(true)->save();
         //withdrawrecord
-        $withdrawrecord = new WithdrawRecordModel();
+        $withdrawrecord = new WithdrawrecordModel();
         $withdrawrecord -> status = 0;
         $withdrawrecord -> ydc = $withdrawydc;
-        $withdrawrecord -> user_id = $user->id;
+        $withdrawrecord -> userid = $user->id;
         $withdrawrecord->allowField(true)->save();
 
         $this->success('操作成功，等待后台处理', 'gjcf/withdraw/index', 0, 1);

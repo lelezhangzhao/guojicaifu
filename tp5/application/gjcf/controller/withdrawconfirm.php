@@ -10,21 +10,22 @@ use think\Request;
 
 use app\gjcf\model\User as UserModel;
 use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
+use app\gjcf\api\Helper as HelperApi;
 
 
 
 class Withdrawconfirm extends Controller{
     public function Index(){
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         $result = Db::view('withdrawrecord')
-            ->view('user', false, 'user.id = withdrawrecord.user_id')
-            ->where('withdrawrecord', 0)
+            ->view('user', ['name', 'alipaynum'], 'user.id = withdrawrecord.userid')
+            ->where('withdrawrecord.status', 0)
             ->select();
 
-        $this->assign('withdrawlist', count($result));
+        $this->assign('withdrawlist', $result);
 
         return $this->fetch();
     }
@@ -32,7 +33,7 @@ class Withdrawconfirm extends Controller{
     public function WithdrawConfirmSuccess(Request $request){
         //withdraw
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
 
@@ -46,17 +47,17 @@ class Withdrawconfirm extends Controller{
         //user
         //withdraw
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
 
         $withdrawid = $request->param('withdrawid');
         $withdrawrecord = WithdrawRecordModel::get($withdrawid);
         $withdrawrecord->status = 2;
-        $withdrawrecord->satausinfo = '管理员处理';
+        $withdrawrecord->statusinfo = '管理员处理';
         $withdrawrecord->allowField(true)->save();
 
-        $user = UserModel::get($withdrawrecord->user_id);
+        $user = UserModel::get($withdrawrecord->userid);
         $user->usableydc += $withdrawrecord->ydc;
         $user->allowField(true)->save();
     }

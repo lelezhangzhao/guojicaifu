@@ -16,11 +16,11 @@ use app\gjcf\api\Helper as HelperApi;
 class Chargeconfirm extends Controller{
     public function Index(){
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         $result = Db::view('chargerecord')
-            ->view('user',['name', 'alipaynum'] ,'user.id = chargerecord.user_id')
+            ->view('user',['name', 'alipaynum'] ,'user.id = chargerecord.userid')
             ->where('chargerecord.status', 0)
             ->select();
 
@@ -31,7 +31,7 @@ class Chargeconfirm extends Controller{
 
     public function ChargeConfirmSuccess(Request $request){
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         //更新数据库
@@ -42,14 +42,14 @@ class Chargeconfirm extends Controller{
         $chargerecord->status = 1;
         $chargerecord->allowField(true)->save();
 
-        $user = UserModel::get($chargerecord->user_id);
+        $user = UserModel::get($chargerecord->userid);
         $user->usableydc += $chargerecord->ydc;
         $user->allowField(true)->save();
     }
 
     public function ChargeConfirmFailed(Request $request){
         if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('user_id'), '违规访问chargeconfirm');
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         //更新数据库

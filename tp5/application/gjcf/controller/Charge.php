@@ -35,7 +35,7 @@ class Charge extends Controller{
         $chargerecord = new ChargerecordModel();
         $chargerecord -> ydc = $ydc;
         $chargerecord -> status = 0;
-        $chargerecord -> user_id = Session::get('user_id');
+        $chargerecord -> userid = Session::get('userid');
         $chargerecord->allowField(true)->save();
         $this->success('提交成功，等待后台确认', 'gjcf/index/index', 0, 1);
     }

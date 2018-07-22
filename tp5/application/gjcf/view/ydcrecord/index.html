@@ -1,0 +1,19 @@
+{include file="layout" title="收益记录"/}
+<body >
+
+<div id="bottom">
+    <form method="post" action="" target="exec_target">
+        <h2>收益记录</h2>
+        {volist name="ydcrecordlist" id="ydcrecord"}
+        <div class="pagination">
+            {$ydcrecord.type} ：{$ydcrecord.ydc}<br/>
+            结算时间：{$ydcrecord.createtime}<br/>
+            ---------------------------------<br/>
+        </div>
+        {/volist}
+        {$ydcrecordlist->render()}
+    </form>
+    <iframe hidden id="exec_target" name="exec_target"></iframe>
+</div>
+
+</body>

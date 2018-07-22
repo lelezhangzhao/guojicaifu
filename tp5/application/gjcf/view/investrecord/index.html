@@ -1,0 +1,24 @@
+{include file="layout" title="投资记录"/}
+<body >
+
+<div id="bottom">
+    <form method="post" action="" target="exec_target">
+        <h2>投资记录</h2>
+        {volist name="investlist" id="invest"}
+        <div>
+            投资项目：{$invest.caption}<br/>
+            投资时间：{$invest.investtime}<br/>
+            投资本金：{$invest.investydc}<br/>
+            投资利润：{$invest.profitydc}<br/>
+            返现天数：{$invest.balancedays}<br/>
+            已返天数：{$invest.paydays}<br/>
+            已返金额：{$invest.paydays * $invest.balanceperday}<br/>
+            未返天数：{$invest.balancedays - $invest.paydays}<br/>
+            未返金额：{$invest.profitydc - $invest.paydays * $invest.balanceperday}<br/>
+        </div>
+        {/volist}
+    </form>
+    <iframe hidden id="exec_target" name="exec_target"></iframe>
+</div>
+
+</body>

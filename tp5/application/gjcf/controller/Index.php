@@ -23,7 +23,7 @@ class Index extends Controller{
             echo '剩余投资额：'.$project['remaininvest'].'<br/>';
             $status = $project['status'];
             if((int)$status === 0){
-                echo '<input type="submit" value="投资" formaction="{:url(gjcf/invest/InvestProject?projectid='.$project['id'].')}" /><br/>';
+                echo '<input type="submit" value="投资" formaction="/index.php/gjcf/invest/InvestProject?projectid='.$project['id'].'" /><br/>';
             }else if((int)$status === 1){
                 echo '<input type="button" disabled value="投资未开始" /><br/>';
             }else if((int)$status === 2){

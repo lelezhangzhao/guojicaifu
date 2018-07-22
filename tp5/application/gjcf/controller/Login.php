@@ -20,10 +20,12 @@ class Login extends Controller{
         $username = $request->param('username');
         $password = $request->param('password');
         $user = UserModel::where(['username' => $username, 'password' => $password])->find();
-        if(empty($user)){
+        if(empty($user)) {
             $this->error('用户名或密码错误');
         }
-        Session::set('user_id', $user->id);
+        $user->latestlogintime = date('Y-m-d H:i:s');
+        $user->allowField(true)->save();
+        Session::set('userid', $user->id);
         $this->success('登录成功', 'gjcf/index/index');
     }
 

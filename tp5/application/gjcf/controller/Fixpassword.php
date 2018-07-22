@@ -18,7 +18,7 @@ class Fixpassword extends Controller{
             HelperApi::LoginUpFirst($this);
         }
 
-        $userid = Session::get('user_id');
+        $userid = Session::get('userid');
         $oldpassword = $request->param('oldpassword');
         $newpassword = $request->param('newpassword');
 

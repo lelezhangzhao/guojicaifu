@@ -6,12 +6,12 @@
         <h2>确认提现</h2>
         {volist name="withdrawlist" id="withdraw"}
         <div>
-            姓名：{withdraw.name}<br/>
-            支付宝账号：{withdraw.alipaynum}<br/>
-            提现额度：{withdraw.ydc}<br/>
-            提现时间：{withdraw.confirmtime}<br/>
-            <input type="submit" value="确定" id="withdrawconfirmok{withdraw.id}" onclick="WithdrawConfirmSuccess({withdraw.id})"  />
-            <input type="submit" value="取消" id="withdrawconfirmcancel{withdraw.id}" onclick="WithdrawConfirmFailed({withdraw.id})" />
+            姓名：{$withdraw.name}<br/>
+            支付宝账号：{$withdraw.alipaynum}<br/>
+            提现额度：{$withdraw.ydc}<br/>
+            提现时间：{$withdraw.confirmtime}<br/>
+            <input type="submit" value="确定" id="withdrawconfirmok{$withdraw.id}" onclick="WithdrawConfirmSuccess({$withdraw.id})"  />
+            <input type="submit" value="取消" id="withdrawconfirmcancel{$withdraw.id}" onclick="WithdrawConfirmFailed({$withdraw.id})" />
         </div>
         {/volist}
     </form>
