@@ -2,12 +2,13 @@
 
 namespace app\gjcf\controller;
 
+use think\Controller;
 use think\Session;
 
 
 
-class Telidentify extends controller{
-    public function GetTelIdentify($tel){
+class Telidentify extends Controller{
+    static public function GetTelIdentify($tel){
         $url = 'http://tp5.com/index.php/gjcf/post/index?mobile='.$tel;
         $ch = curl_init ();
         curl_setopt ( $ch, CURLOPT_URL, $url );
@@ -22,9 +23,12 @@ class Telidentify extends controller{
 
     }
 
-    public function TelIdentifyOk($identify){
+    static public function TelIdentifyOk($identify){
+        if(!Session::has('identify')){
+            return false;
+        }
         if((int)$identify !== (int)Session::get('identify')) {
-            return '验证码错误';
+            return false;
         } else {
             Session::delete('identify');
             return true;

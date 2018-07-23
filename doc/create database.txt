@@ -208,7 +208,7 @@ drop table if exists international_refereeone;
 create table international_refereeone
 (
    id                   int not null auto_increment,
-   refereecount            timestamp null default current_timestamp,
+   refereecount            int,
    today             timestamp,
    userid            int,
    primary key (id)
@@ -231,5 +231,6 @@ values
 
 insert into international_ydcrecord(userid, ydc, ydcrecordtype)
 values
-(1, 100, 3);
+(1, 100, 3),
+(2, 100, 3);
 

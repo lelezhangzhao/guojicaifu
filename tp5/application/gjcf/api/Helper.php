@@ -32,7 +32,7 @@ class Helper extends Controller{
     }
 
     static public function LoginFirst($controller){
-        $controller->error('先登录', '/index.php/gjcf/login/index');
+        $controller->error('先登录', 'gjcf/login/index');
     }
 
     static public function SetUserDisabled($userid, $info){
@@ -88,7 +88,7 @@ class Helper extends Controller{
 
         $user = UserModel::get(Session::get('userid'));
         if(empty($user->name)){
-            $controller->error('完善账户信息', '/index.php/gjcf/accountinfo/index');
+            $controller->error('完善账户信息', 'gjcf/accountinfo/index');
         }
         return true;
     }
