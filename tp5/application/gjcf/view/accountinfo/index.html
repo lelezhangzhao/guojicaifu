@@ -2,8 +2,8 @@
 
 <body>
 <form method="post" target="exec_target">
-    姓名 <input type="text" name="name" id="name"/><br />
-    支付宝账户 <input type="text" name="alipaynum" id="alipaynum"/><br />
+    姓名 <input type="text" name="name" id="name" value="{$accountinfoname}" /><br />
+    支付宝账户 <input type="text" name="alipaynum" id="alipaynum" value="{$accountinfoalipaynum}" /><br />
     验证码 <input type="text" name="telidentify" id="telidentify"/><input type="submit" value="获取手机验证码" id="getaccountinfotelidentify" onclick="GetAccountInfoTelIdentify()"/><br/>
     <label id="accountinfohidden" ></label><br/>
     <input type="submit" value="保存" onclick="SaveAccountInfo(document.getElementById('name').value, document.getElementById('alipaynum').value, document.getElementById('telidentify').value)" name="signup"/>

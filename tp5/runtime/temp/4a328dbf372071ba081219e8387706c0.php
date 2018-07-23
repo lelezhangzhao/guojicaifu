@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"E:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1532334451;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532334088;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"E:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1532336243;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532334088;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
 <html>
 <head>
     <title>账户</title>
@@ -21,8 +21,8 @@
 
 <body>
 <form method="post" target="exec_target">
-    姓名 <input type="text" name="name" id="name"/><br />
-    支付宝账户 <input type="text" name="alipaynum" id="alipaynum"/><br />
+    姓名 <input type="text" name="name" id="name" value="<?php echo $accountinfoname; ?>" /><br />
+    支付宝账户 <input type="text" name="alipaynum" id="alipaynum" value="<?php echo $accountinfoalipaynum; ?>" /><br />
     验证码 <input type="text" name="telidentify" id="telidentify"/><input type="submit" value="获取手机验证码" id="getaccountinfotelidentify" onclick="GetAccountInfoTelIdentify()"/><br/>
     <label id="accountinfohidden" ></label><br/>
     <input type="submit" value="保存" onclick="SaveAccountInfo(document.getElementById('name').value, document.getElementById('alipaynum').value, document.getElementById('telidentify').value)" name="signup"/>

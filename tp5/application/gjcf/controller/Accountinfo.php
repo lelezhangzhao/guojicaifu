@@ -15,6 +15,11 @@ class Accountinfo extends Controller{
     public function Index(){
         HelperApi::TestLoginAndStatus($this);
 
+        $user = UserModel::get(Session::get('userid'));
+
+        $this->assign('accountinfoname', $user->name);
+        $this->assign('accountinfoalipaynum', $user->alipaynum);
+
         return $this->fetch();
     }
 
@@ -37,6 +42,7 @@ class Accountinfo extends Controller{
             $user = UserModel::get(Session::get('userid'));
             $user->name = $name;
             $user->alipaynum = $alipaynum;
+            $user->allowField(true)->save();
             return '保存成功';
         }
         return '验证码错误';
