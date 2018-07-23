@@ -75,7 +75,6 @@ class Invest extends Controller{
             $refereeoneuser->usableydc += $refereeoneydc;
             $refereeoneuser->allowField(true)->save();
             YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
-            dump(4);
 
             $refereetwouser = UserModel::where('username', $refereeoneuser->referee)->find();
             if(!empty($refereetwouser)){
@@ -95,8 +94,6 @@ class Invest extends Controller{
                 }
             }
         }
-
-
         $this->success('投资成功', 'gjcf/index/index', 0, 1);
     }
 }

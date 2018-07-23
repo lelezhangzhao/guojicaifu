@@ -35,16 +35,20 @@ class Chargeconfirm extends Controller{
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         //更新数据库
-        //user
         //chargerecord
         $chargeid = $request->param('chargeid');
         $chargerecord = ChargeRecordModel::get($chargeid);
         $chargerecord->status = 1;
         $chargerecord->allowField(true)->save();
 
+        //user
         $user = UserModel::get($chargerecord->userid);
         $user->usableydc += $chargerecord->ydc;
         $user->allowField(true)->save();
+
+        //ydcrecord
+        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $chargerecord->userid, $chargerecord->ydc, 0);
+
     }
 
     public function ChargeConfirmFailed(Request $request){
@@ -53,7 +57,6 @@ class Chargeconfirm extends Controller{
             return $this->error('违规访问，已封号', 'index.php/gjcf/signup/index', 0, 1);
         }
         //更新数据库
-        //user
         //chargerecord
         $chargeid = $request->param('chargeid');
         $chargerecord = ChargeRecordModel::get($chargeid);

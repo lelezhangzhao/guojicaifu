@@ -42,9 +42,12 @@ class Balance extends Controller{
             $user->usableydc += $project->balanceperday;
             $user->allowField(true)->save();
 
+            //ydcrecord
+            YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $project->balanceperday, 2);
+
         }
 
-        $this->success('结算完成', 'gjcf/balance/index', 0, 1);
+        $this->success('结算完成', 'gjcf/admin/index', 0, 1);
 
     }
 }

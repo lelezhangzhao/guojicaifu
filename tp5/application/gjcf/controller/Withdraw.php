@@ -48,11 +48,7 @@ class Withdraw extends Controller{
         $user->usableydc -= $withdrawydc;
         $user->allowField(true)->save();
         //withdrawrecord
-        $withdrawrecord = new WithdrawrecordModel();
-        $withdrawrecord -> status = 0;
-        $withdrawrecord -> ydc = $withdrawydc;
-        $withdrawrecord -> userid = $user->id;
-        $withdrawrecord->allowField(true)->save();
+        WithdrawrecordModel::AddWithdrawrecord($user->id, $withdrawydc, 0);
 
         $this->success('操作成功，等待后台处理', 'gjcf/withdraw/index', 0, 1);
 

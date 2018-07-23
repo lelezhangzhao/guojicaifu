@@ -27,9 +27,6 @@ $(function(){
     $("li#withdraw").click(function(){
         OpenNewUrl("/index.php/gjcf/withdraw/index");
     });
-    $("li#transfer").click(function(){
-        OpenNewUrl("/index.php/gjcf/transfer/index");
-    });
     $("li#ydcrecord").click(function(){
         OpenNewUrl("/index.php/gjcf/ydcrecord/index");
     });
@@ -39,8 +36,11 @@ $(function(){
     $("li#fixpassword").click(function(){
         OpenNewUrl("/index.php/gjcf/fixpassword/index");
     });
-    $("li#xitonggonggao").click(function(){
-        alert("xitonggonggao");
+    $("li#myteam").click(function(){
+        OpenNewUrl("/index.php/gjcf/team/index");
+    });
+    $("li#systemad").click(function(){
+        alert("systemad");
     });
 });
 
@@ -116,8 +116,6 @@ function WithdrawConfirmFailed(withdrawid){
     xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmfailed?withdrawid="+withdrawid);
     xmlhttp.send();
 }
-
-
 
 
 

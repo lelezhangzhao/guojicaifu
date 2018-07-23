@@ -6,9 +6,11 @@ use think\Request;
 use think\Session;
 
 use app\gjcf\model\User as UserModel;
+use app\gjcf\api\Helper as HelperApi;
 
 class Login extends Controller{
     public function Index(){
+
         return $this->fetch();
     }
 
@@ -26,7 +28,11 @@ class Login extends Controller{
         $user->latestlogintime = date('Y-m-d H:i:s');
         $user->allowField(true)->save();
         Session::set('userid', $user->id);
-        $this->success('登录成功', 'gjcf/index/index');
+        if(HelperApi::IsAdmin()){
+            $this->success('登录成功', 'gjcf/admin/index');
+        }else{
+            $this->success('登录成功', 'gjcf/index/index');
+        }
     }
 
     public function ForgetPassword(){

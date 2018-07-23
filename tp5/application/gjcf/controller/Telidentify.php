@@ -18,7 +18,7 @@ class Telidentify extends controller{
         Session::set('identify', $file_contents);
         curl_close ( $ch );
 
-        return Session::get('identify');
+        return true;
 
     }
 

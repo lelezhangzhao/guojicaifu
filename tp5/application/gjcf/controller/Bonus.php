@@ -5,6 +5,7 @@ namespace app\gjcf\controller;
 
 use think\Session;
 use think\Controller;
+use think\Request;
 
 use app\gjcf\model\Refereeone as RefereeoneModel;
 use app\gjcf\model\Dayprofit as DayprofitModel;
@@ -15,113 +16,94 @@ use app\gjcf\model\User as UserModel;
 use app\gjcf\api\Helper as HelperApi;
 
 class Bonus extends Controller{
-    public function Index(){
+    public function Index(Request $request){
         HelperApi::TestLoginAndStatus($this);
         if(!HelperApi::IsAdmin()){
-            HelperApi::SetUserDisabled(Session::get('userid'), $this);
+            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问bonus');
         }
 
-        $todayprofit = DayprofitModel::where('today' >= 'today')->select();
+        $bonusprofit = $request->param('bonusprofit');
+        DayprofitModel::AddDayProfit($bonusprofit);
 
-        $threeprofit = $todayprofit * 0.2;
-        $sixprofit = $todayprofit * 0.3;
-        $nineprofit = $todayprofit * 0.5;
+        $threeprofit = $bonusprofit * 0.2;
+        $sixprofit = $bonusprofit * 0.3;
+        $nineprofit = $bonusprofit * 0.5;
 
-        $this->BonusThree($threeprofit);
-        $this->BonusSix($sixprofit);
-        $this->BonusNine($nineprofit);
+        $datetime = date('Y-m-d H:i:s');
+
+        $this->BonusThree($datetime, $threeprofit);
+        $this->BonusSix($datetime, $sixprofit);
+        $this->BonusNine($datetime, $nineprofit);
+
+        $this->success('分红完成', 'gjcf/admin/index', 0, 1);
     }
 
-    private function BonusThree($threeprofittotal){
+    private function BonusThree($datetime, $threeprofittotal){
     $refereethree = RefereeoneModel::where('today', '>=', 'today')
         ->where('refereecount', 'between', [3, 5])
         ->select();
 
-    $threeprofit = $threeprofittotal / count($refereethree);
+    if(!empty($refereethree)){
+        $threeprofit = $threeprofittotal / count($refereethree);
 
-    foreach ($refereethree as $onerefereethree) {
-        //user
-        $user = UserModel::where('id', $onerefereethree->userid)->find();
-        $user->usableydc += $threeprofit;
-        $user->allowField(true)->save();
+        foreach ($refereethree as $onerefereethree) {
+            //user
+            $user = UserModel::where('id', $onerefereethree->userid)->find();
+            $user->usableydc += $threeprofit;
+            $user->allowField(true)->save();
 
-        //bonusrecord
-        $bonusrecord = new BonusrecordModel();
-        $bonusrecord->bonustime = date('Y-m-d H:i:s');
-        $bonusrecord->userid = $user->id;
-        $bonusrecord->type = 0;
-        $bonusrecord->ydc = $threeprofit;
-        $bonusrecord->allowField(true)->save();
+            //bonusrecord
+            BonusrecordModel::AddBonusrecord($datetime, $user->id, $threeprofit, 0);
 
-        //ydcrecord
-        $ydcrecord = new YdcrecordModel();
-        $ydcrecord->createtime = date('Y-m-d H:i:s');
-        $ydcrecord->userid = $user->id;
-        $ydcrecord->ydc = $threeprofit;
-        $ydcrecord->type = 7;
-        $ydcrecord->allowField(true)->save();
+            //ydcrecord
+            YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $threeprofit, 7);
+        }
     }
 }
 
-    private function BonusSix($sixprofittotal){
+    private function BonusSix($datetime, $sixprofittotal){
         $refereesix = RefereeoneModel::where('today', '>=', 'today')
         ->where('refereecount', 'between', [6, 8])
         ->select();
 
-        $sixprofit = $sixprofittotal / count($refereesix);
+        if(!empty($refereesix)){
+            $sixprofit = $sixprofittotal / count($refereesix);
 
-        foreach ($refereesix as $onerefereesix) {
-            //user
-            $user = UserModel::where('id', $onerefereesix->userid)->find();
-            $user->usableydc += $sixprofit;
-            $user->allowField(true)->save();
+            foreach ($refereesix as $onerefereesix) {
+                //user
+                $user = UserModel::where('id', $onerefereesix->userid)->find();
+                $user->usableydc += $sixprofit;
+                $user->allowField(true)->save();
 
-            //bonusrecord
-            $bonusrecord = new BonusrecordModel();
-            $bonusrecord->bonustime = date('Y-m-d H:i:s');
-            $bonusrecord->userid = $user->id;
-            $bonusrecord->type = 0;
-            $bonusrecord->ydc = $sixprofit;
-            $bonusrecord->allowField(true)->save();
+                //bonusrecord
+                BonusrecordModel::AddBonusrecord($datetime, $user->id, $sixprofit, 0);
 
-            //ydcrecord
-            $ydcrecord = new YdcrecordModel();
-            $ydcrecord->createtime = date('Y-m-d H:i:s');
-            $ydcrecord->userid = $user->id;
-            $ydcrecord->ydc = $sixprofit;
-            $ydcrecord->type = 7;
-            $ydcrecord->allowField(true)->save();
+                //ydcrecord
+                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $sixprofit, 7);
+            }
         }
     }
 
-    private function BonusNine($nineprofittotal){
+    private function BonusNine($datetime, $nineprofittotal){
         $refereenine = RefereeoneModel::where('today', '>=', 'today')
         ->where('refereecount', '>=', 9)
         ->select();
 
-        $nineprofit = $nineprofittotal / count($refereenine);
+        if(!empty($refereenine)){
+            $nineprofit = $nineprofittotal / count($refereenine);
 
-        foreach ($refereenine as $onerefereenine) {
-            //user
-            $user = UserModel::where('id', $onerefereenine->userid)->find();
-            $user->usableydc += $nineprofit;
-            $user->allowField(true)->save();
+            foreach ($refereenine as $onerefereenine) {
+                //user
+                $user = UserModel::where('id', $onerefereenine->userid)->find();
+                $user->usableydc += $nineprofit;
+                $user->allowField(true)->save();
 
-            //bonusrecord
-            $bonusrecord = new BonusrecordModel();
-            $bonusrecord->bonustime = date('Y-m-d H:i:s');
-            $bonusrecord->userid = $user->id;
-            $bonusrecord->type = 0;
-            $bonusrecord->ydc = $nineprofit;
-            $bonusrecord->allowField(true)->save();
+                //bonusrecord
+                BonusrecordModel::AddBonusrecord($datetime, $user->id, $nineprofit, 0);
 
-            //ydcrecord
-            $ydcrecord = new YdcrecordModel();
-            $ydcrecord->createtime = date('Y-m-d H:i:s');
-            $ydcrecord->userid = $user->id;
-            $ydcrecord->ydc = $nineprofit;
-            $ydcrecord->type = 7;
-            $ydcrecord->allowField(true)->save();
+                //ydcrecord
+                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $nineprofit, 7);
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ create table international_user
    tel                  varchar(11),
    name                 varchar(10),
    alipaynum            varchar(30),
-   referee              varchar(30),
+   referee              int,
    status               int,
    role                 int,
    usableydc            float,
@@ -216,17 +216,14 @@ create table international_refereeone
 
 insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc)
 values
-("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "lelezhangzhao", 0, 1, 10000, 10000),
-("zhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "lelezhangzhao", 0, 1, 10000, 10000);
+("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "0", 0, 1, 10000, 10000),
+("zhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "1", 0, 1, 10000, 10000);
 
 insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, begintime, status)
 values
 ("谨源农场", 10, 20, 5, 4, 0, 10000, "2018-07-19 14:00:00", 0);
 
 
-insert into international_withdrawrecord(status, userid)
-values
-(0, 1);
 
 insert into international_refereeprofit(refereeone, refereetwo, refereethree)
 values

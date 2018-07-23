@@ -5,6 +5,7 @@ use think\Controller;
 use think\Request;
 
 use app\gjcf\model\User as UserModel;
+use app\gjcf\model\Refereeone as RefereeoneModel;
 
 class Signup extends Controller{
     public function Index(){
@@ -21,7 +22,7 @@ class Signup extends Controller{
         $tel = $request->param('tel');
         $referee = $request->param('referee');
         if(!empty($referee)) {
-            if(empty(UserModel::where('username', $referee)->find())) {
+            if(empty(UserModel::where('id', $referee)->find())) {
                 $this->error('推荐码有误');
             }
         }
@@ -42,6 +43,10 @@ class Signup extends Controller{
             return $result;
         }
         $user->allowField(true)->save();
+
+        //refereeone
+        RefereeoneModel::AddRefereeone($user->referee);
+
         $this->success('注册成功', 'gjcf/login/index');
     }
 }

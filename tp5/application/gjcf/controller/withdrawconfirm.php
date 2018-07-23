@@ -41,6 +41,10 @@ class Withdrawconfirm extends Controller{
         $withdrawrecord = WithdrawRecordModel::get($withdrawid);
         $withdrawrecord->status = 1;
         $withdrawrecord->allowField(true)->save();
+
+        //ydcrecord
+        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $withdrawrecord->userid, $withdrawrecord->ydc, 1);
+
     }
 
     public function WithdrawConfirmFailed(Request $request){

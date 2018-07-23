@@ -14,6 +14,8 @@ class Index extends Controller{
     }
 
     public function GetProject(){
+        HelperApi::TestLoginAndStatus($this);
+
         $projects = ProjectModel::all();
         foreach($projects as $project){
             echo '项目名称：'.$project['caption'].'<br/>';
