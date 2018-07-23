@@ -16,6 +16,7 @@ class Team extends Controller{
 
         $this->assign('refereeonecount', count($refereeone));
 
+
         $refereetwocount = 0;
         $refereethreecount = 0;
         foreach($refereeone as $oneitem){

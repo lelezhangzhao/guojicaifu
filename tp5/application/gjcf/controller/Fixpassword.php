@@ -28,12 +28,12 @@ class Fixpassword extends Controller{
             $this->error('账户状态错误');
         }
         if($user->password !== $oldpassword){
-            $this->error('原密码错误');
+            $this->error('原密码错误', 'gjcf/fixpassword/index', 0, 1);
         }
 
         //新旧密码不能相同
         if($oldpassword === $newpassword){
-            $this->error('新旧密码不能相同');
+            $this->error('新旧密码不能相同', 'gjcf/fixpassword/index', 0, 1);
         }
         $user->password = $newpassword;
         $result = $this->validate($user, 'User');
@@ -41,7 +41,7 @@ class Fixpassword extends Controller{
             return $result;
         }
         $user->allowField(true)->save();
-        $this->success('更新成功');
+        $this->success('更新成功', 'gjcf/index/index', 0, 1);
     }
 
 }

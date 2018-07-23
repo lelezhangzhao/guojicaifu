@@ -180,7 +180,7 @@ drop table if exists international_dayprofit;
 create table international_dayprofit
 (
    id                   int not null auto_increment,
-   today            timestamp null default current_timestamp,
+   dayprofittoday            timestamp null default current_timestamp,
    ydc              float,
    primary key (id)
 );
@@ -209,7 +209,7 @@ create table international_refereeone
 (
    id                   int not null auto_increment,
    refereecount            int,
-   today             timestamp,
+   refereeonetoday             timestamp,
    userid            int,
    primary key (id)
 );
@@ -217,7 +217,7 @@ create table international_refereeone
 insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc)
 values
 ("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "0", 0, 1, 10000, 10000),
-("zhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "1", 0, 1, 10000, 10000);
+("zhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "1", 0, 0, 10000, 10000);
 
 insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, begintime, status)
 values

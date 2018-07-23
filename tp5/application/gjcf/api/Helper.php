@@ -32,7 +32,7 @@ class Helper extends Controller{
     }
 
     static public function LoginFirst($controller){
-        $controller->error('先登录', 'gjcf/login/index');
+        $controller->error('先登录', 'gjcf/login/index', 0, 1);
     }
 
     static public function SetUserDisabled($userid, $info){

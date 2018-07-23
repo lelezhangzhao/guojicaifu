@@ -29,9 +29,9 @@ class Login extends Controller{
         $user->allowField(true)->save();
         Session::set('userid', $user->id);
         if(HelperApi::IsAdmin()){
-            $this->success('登录成功', 'gjcf/admin/index');
+            $this->success('登录成功', 'gjcf/admin/index', 0, 1);
         }else{
-            $this->success('登录成功', 'gjcf/index/index');
+            $this->success('登录成功', 'gjcf/index/index', 0, 1);
         }
     }
 

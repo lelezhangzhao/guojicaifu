@@ -16,8 +16,7 @@ use app\gjcf\model\Ydcrecord as YdcrecordModel;
 
 
 class Invest extends Controller{
-    public function InvestProject(Request $request)
-    {
+    public function InvestProject(Request $request){
         HelperApi::TestLoginAndStatus($this);
 
         $project_id = $request->param('projectid');
