@@ -45,6 +45,7 @@ class Signup extends Controller{
         $user->freezenydc = 100;
         $user->singnuptime = date('Y-m-d H:i:s');
         $user->latestlogintime = date('Y-m-d H:i:s');
+        $user->hasinvest = 0;
         $result = $this->validate($user, 'User');
         if(true !== $result){
             return $result;
@@ -54,8 +55,6 @@ class Signup extends Controller{
         //ydcrecord
         YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $user->freezenydc, 8);
 
-        //refereeone
-        RefereeoneModel::AddRefereeone($user->referee);
 
         $this->success('注册成功', 'gjcf/login/index', 0, 1);
     }

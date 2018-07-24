@@ -5,17 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js?version=1"></script>
-    <script type="text/javascript" src="__JS__/action.js?version=18"></script>
+
     <link rel="stylesheet" href="__CSS__/style.css?version=1" type="text/css" />
     <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all" />
     <script type="text/javascript" src="__LAYUI__/layui.js"></script>
+    <script type="text/javascript" src="__JS__/action.js?version=18"></script>
     <script type="text/javascript">
 
     </script>
 
 </head>
 <body class="layui-layout-body">
-<div class="layui-header">
+
+<div id="top_info" class="layui-header">
+    <div id="userinfo" >
+        <form method="post">
+            <span float="left">
+                <label id="username"></label>
+                <label id="usableydc">YDC：</label>
+            </span>
+                <span float="right">
+                    <input type="submit" value="签到" formaction="{:url('gjcf/sign/sign')}"/>
+                    <input type="submit" value="退出" formaction="{:url('gjcf/logout/logout')}"/>
+                </span>
+        </form>
+
+    </div>
+
     <ul class="layui-nav" >
         <li class="layui-nav-item">
             <a href="javascript:;">项目信息</a>
@@ -48,19 +64,13 @@
         <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
     </ul>
 
-    <ul class="layui-nav layui-layout-right">
-        <li class="layui-nav-item">
-            YDC:<label id="ydc" >10000</label>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;" id="sign">签到</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;" id="logout">退出</a>
-        </li>
-    </ul>
-</div>
 
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <script>
     //注意：导航 依赖 element 模块，否则无法进行功能性操作
     layui.use('element', function(){

@@ -21,18 +21,24 @@ class Team extends Controller{
         $refereethreecount = 0;
 
         //一级代理
-        $refereeone = UserModel::where('referee', Session::get('userid'))->select();
+        $refereeone = UserModel::where('referee', Session::get('userid'))
+            ->where('hasinvest', 1)
+            ->select();
         $refereeonecount = count($refereeone);
 
         $this->assign('refereeonecount', $refereeonecount);
         foreach($refereeone as $oneitem){
             //二级代理
-            $refereetwo = UserModel::where('referee', $oneitem->id)->select();
+            $refereetwo = UserModel::where('referee', $oneitem->id)
+                ->where('hasinvest', 1)
+                ->select();
             $refereetwocount += count($refereetwo);
 
             foreach($refereetwo as $twoitem){
                 //三级代理
-                $refereethree = UserModel::where('referee', $twoitem->id)->select();
+                $refereethree = UserModel::where('referee', $twoitem->id)
+                    ->where('hasinvest', 1)
+                    ->select();
                 $refereethreecount += count($refereethree);
             }
         }

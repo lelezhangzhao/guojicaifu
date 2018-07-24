@@ -19,6 +19,7 @@ create table international_user
    signuptime           timestamp null default current_timestamp,
    latestlogintime      timestamp null,
    statusinfo           varchar(50),
+   hasinvest            int,
    primary key (id)
 );
 

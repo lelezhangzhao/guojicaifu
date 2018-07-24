@@ -10,13 +10,13 @@ use app\gjcf\model\User as UserModel;
 
 class Fixpassword extends Controller{
     public function Index(){
+        HelperApi::TestLoginAndStatus($this);
+
         return $this->fetch();
     }
 
     public function FixPassword(Request $request){
-        if(!HelperApi::IsLoginUp()){
-            HelperApi::LoginUpFirst($this);
-        }
+        HelperApi::TestLoginAndStatus($this);
 
         $userid = Session::get('userid');
         $oldpassword = $request->param('oldpassword');

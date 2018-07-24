@@ -12,22 +12,23 @@ use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 class Withdraw extends Controller{
     public function Index(){
         HelperApi::TestAccountInfo($this);
-        HelperApi::TestAccountInfo($this);
 
         return $this->fetch();
     }
 
     public function GetWithdrawYdc(){
         HelperApi::TestAccountInfo($this);
-        HelperApi::TestAccountInfo($this);
 
         $user = UserModel::get(Session::get('userid'));
+
+        if($user->hasinvest === 0){
+            return '未投资，不可提现';
+        }
 
         return $user->usableydc;
     }
 
     public function Withdraw(Request $request){
-        HelperApi::TestAccountInfo($this);
         HelperApi::TestAccountInfo($this);
 
         $withdrawydc = $request->param('withdraw');
@@ -44,6 +45,9 @@ class Withdraw extends Controller{
             $this->error('可用额度不足', 'gjcf/withdraw/index', 0, 1);
         }
 
+        if($user->hasinvest === 0){
+            $this->error('用户未投资，不可提现', 'gjcf/invest/index', 0, 1);
+        }
         //user
         $user->usableydc -= $withdrawydc;
         $user->allowField(true)->save();

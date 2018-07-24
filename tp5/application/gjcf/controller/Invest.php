@@ -13,6 +13,7 @@ use app\gjcf\model\Investrecord as InvestrecordModel;
 use app\gjcf\model\Refereeprofit as RefereeprofitModel;
 use app\gjcf\model\Refereerecord as RefereerecordModel;
 use app\gjcf\model\Ydcrecord as YdcrecordModel;
+use app\gjcf\model\Refereeone as RefereeoneModel;
 
 
 class Invest extends Controller{
@@ -52,9 +53,14 @@ class Invest extends Controller{
             Db::rollback();
             throw $e;
         }
+        if($user->hasinvest === 0){
+            //refereeone
+            RefereeoneModel::AddRefereeone($user->referee);
+        }
 
         //用户余额
         $user->usableydc -= $project->investydc;
+        $user->hasinvest = 1;
         $user->allowField(true)->save();
 
         //invest
@@ -72,6 +78,16 @@ class Invest extends Controller{
             $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
             RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $project_id, $refereeoneydc);
             $refereeoneuser->usableydc += $refereeoneydc;
+            $releasefreezenydc = 0;
+            if($refereeoneuser->freezenydc > 0){
+                if($refereeoneuser->freezenydc > $refereeoneydc){
+                    $releasefreezenydc = $refereeoneydc;
+                }else{
+                    $releasefreezenydc = $refereeoneuser->freezenydc;
+                }
+                $refereeoneuser->freezenydc -= $releasefreezenydc;
+                $refereeoneuser->usableydc += $releasefreezenydc;
+            }
             $refereeoneuser->allowField(true)->save();
             YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
 
@@ -80,6 +96,17 @@ class Invest extends Controller{
                 $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
                 RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $project_id, $refereetwoydc);
                 $refereetwouser->usableydc += $refereetwoydc;
+                $releasefreezenydc = 0;
+                if($refereetwouser->freezenydc > 0) {
+                    if ($refereetwouser->freezenydc > $refereetwoydc) {
+                        $releasefreezenydc = $refereetwoydc;
+                    } else {
+                        $releasefreezenydc = $refereetwouser->freezenydc;
+                    }
+                    $refereetwouser->freezenydc -= $releasefreezenydc;
+                    $refereetwouser->usableydc += $releasefreezenydc;
+                }
+
                 $refereetwouser->allowField(true)->save();
                 YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereetwouser->id, $refereetwoydc, 5);
 
@@ -88,6 +115,18 @@ class Invest extends Controller{
                     $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
                     RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $project_id, $refereethreeydc);
                     $refereethreeuser->usableydc += $refereethreeydc;
+                    $releasefreezenydc = 0;
+
+                    if($refereethreeuser->freezenydc > 0) {
+                        if ($refereethreeuser->freezenydc > $refereethreeydc) {
+                            $releasefreezenydc = $refereethreeydc;
+                        } else {
+                            $releasefreezenydc = $refereethreeuser->freezenydc;
+                        }
+                        $refereethreeuser->freezenydc -= $releasefreezenydc;
+                        $refereethreeuser->usableydc += $releasefreezenydc;
+                    }
+
                     $refereethreeuser->allowField(true)->save();
                     YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereethreeuser->id, $refereethreeydc, 6);
                 }
@@ -95,4 +134,5 @@ class Invest extends Controller{
         }
         $this->success('投资成功', 'gjcf/index/index', 0, 1);
     }
+
 }
