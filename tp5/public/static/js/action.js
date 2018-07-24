@@ -10,36 +10,37 @@ if (window.XMLHttpRequest){
 
 //index
 function OpenNewUrl(url) {
-    window.open(url);
+    window.location.href = url;
+    // window.open(url);
 }
 
 $(function(){
-
-    $("li#project").click(function(){
-        GetProject();
+    $("#project").click(function(){
+        OpenNewUrl("/index.php/gjcf/index/index");
+        // GetProject();
     });
-    $("li#investrecord").click(function(){
+    $("#investrecord").click(function(){
         OpenNewUrl("/index.php/gjcf/investrecord/index");
     });
-    $("li#charge").click(function(){
+    $("#charge").click(function(){
         OpenNewUrl("/index.php/gjcf/charge/index");
     });
-    $("li#withdraw").click(function(){
+    $("#withdraw").click(function(){
         OpenNewUrl("/index.php/gjcf/withdraw/index");
     });
-    $("li#ydcrecord").click(function(){
+    $("#ydcrecord").click(function(){
         OpenNewUrl("/index.php/gjcf/ydcrecord/index");
     });
-    $("li#fixaccountinfo").click(function(){
+    $("#fixaccountinfo").click(function(){
         OpenNewUrl("/index.php/gjcf/accountinfo/index");
     });
-    $("li#fixpassword").click(function(){
+    $("#fixpassword").click(function(){
         OpenNewUrl("/index.php/gjcf/fixpassword/index");
     });
-    $("li#myteam").click(function(){
+    $("#myteam").click(function(){
         OpenNewUrl("/index.php/gjcf/team/index");
     });
-    $("li#systemad").click(function(){
+    $("#systemad").click(function(){
         alert("systemad");
     });
 });
@@ -121,7 +122,7 @@ function GetAccountInfoTelIdentify(){
     sendCode(document.getElementById("getaccountinfotelidentify"));
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("accountinfohidden").innerHTML="验证码已发送";
+            layer.msg("验证码已发送");
         }
     }
     xmlhttp.open("POST", "/index.php/gjcf/accountinfo/gettelidentify");
@@ -131,7 +132,7 @@ function GetAccountInfoTelIdentify(){
 function SaveAccountInfo(name, alipaynum, telidentify){
     xmlhttp.onreadystatechange = function (){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("accountinfohidden").innerHTML = xmlhttp.responseText;
+            layer.msg(xmlhttp.responseText);
         }
     }
     xmlhttp.open("POST", "/index.php/gjcf/accountinfo/saveaccountinfo?name="+name+"&alipaynum="+alipaynum+"&telidentify="+telidentify);

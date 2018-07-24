@@ -9,6 +9,7 @@ use app\gjcf\api\Helper as HelperApi;
 
 use app\gjcf\model\User as UserModel;
 use app\gjcf\model\Investrecord as InvestrecordModel;
+use app\gjcf\model\Ydcrecord as YdcrecordModel;
 use app\gjcf\model\Project as ProjectModel;
 
 class Balance extends Controller{
@@ -29,21 +30,24 @@ class Balance extends Controller{
             $invest = InvestrecordModel::where('id', $oneinvestrecord->id)->find();
             $diffday = (strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($invest->investtime)))) / 86400;
 
+
             if($diffday > $invest->paydays){
                 $invest->paydays += 1;
                 if($invest->paydays === $project->balancedays){
                     $invest->status = 1;
                 }
+                $invest->allowField(true)->save();
+
+                //更新user
+                $user = UserModel::where('id', $invest->userid)->find();
+                $user->usableydc += $project->balanceperday;
+                $user->allowField(true)->save();
+
+                //ydcrecord
+                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $project->balanceperday, 2);
+
             }
-            $invest->allowField(true)->save();
 
-            //更新user
-            $user = UserModel::where('id', $invest->userid)->find();
-            $user->usableydc += $project->balanceperday;
-            $user->allowField(true)->save();
-
-            //ydcrecord
-            YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $project->balanceperday, 2);
 
         }
 

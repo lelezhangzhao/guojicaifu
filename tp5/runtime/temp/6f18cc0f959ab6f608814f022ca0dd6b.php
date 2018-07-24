@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"E:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1532415965;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532422007;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"E:\share\project\trunk\tp5\public/../application/gjcf\view\fixpassword\index.html";i:1532394034;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532422007;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
-    <title>账户</title>
+    <title>修改密码</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -63,14 +63,11 @@
 </html>
 
 
-
 <body>
-<form method="post" target="exec_target">
-    姓名 <input type="text" name="name" id="name" value="<?php echo $accountinfoname; ?>" /><br />
-    支付宝账户 <input type="text" name="alipaynum" id="alipaynum" value="<?php echo $accountinfoalipaynum; ?>" /><br />
-    验证码 <input type="text" name="telidentify" id="telidentify"/><input type="submit" value="获取手机验证码" id="getaccountinfotelidentify" onclick="GetAccountInfoTelIdentify()"/><br/>
-    <input type="submit" value="保存" onclick="SaveAccountInfo(document.getElementById('name').value, document.getElementById('alipaynum').value, document.getElementById('telidentify').value)" name="signup"/>
+<form method="post" >
+    原密码：<input type="text" name="oldpassword"/><br/>
+    新密码：<input type="text" name="newpassword"/><br/>
+    <input type="submit" value="确定" formaction="<?php echo url('gjcf/fixpassword/fixpassword'); ?>"  /><br />
 </form>
-<iframe name="exec_target" hidden/>
 
 </body>

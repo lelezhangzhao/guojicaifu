@@ -18,7 +18,7 @@ class Withdrawconfirm extends Controller{
     public function Index(){
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
         $result = Db::view('withdrawrecord')
             ->view('user', ['name', 'alipaynum'], 'user.id = withdrawrecord.userid')
@@ -34,7 +34,7 @@ class Withdrawconfirm extends Controller{
         //withdraw
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
 
         $withdrawid = $request->param('withdrawid');
@@ -52,7 +52,7 @@ class Withdrawconfirm extends Controller{
         //withdraw
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
 
         $withdrawid = $request->param('withdrawid');

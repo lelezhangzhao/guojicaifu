@@ -144,6 +144,7 @@ return [
         '__JS__' => '/static/js',
         '__IMAGE__' => '/static/image',
         '__LAYUI__' => '/static/layui',
+        '__LAYER__' => '/static/layer',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

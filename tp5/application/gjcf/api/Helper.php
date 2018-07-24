@@ -7,7 +7,7 @@ use think\Session;
 use think\Controller;
 
 use app\gjcf\model\User as UserModel;
-use app\gjcf\model\Invest as InvestModel;
+use app\gjcf\model\Investrecord as InvestrecordModel;
 use app\gjcf\model\Chargerecord as ChargerecordModel;
 use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 
@@ -42,8 +42,8 @@ class Helper extends Controller{
         $user->statusinfo = $info;
         $user->allowField(true)->save();
 
-        //invest
-        $invest = InvestModel::where('userid', $userid)->select();
+        //investrecord
+        $invest = InvestrecordModel::where('userid', $userid)->select();
         foreach($invest as $oneinvest){
             $oneinvest->status = 2;
             $oneinvest->allowField(true)->save();
@@ -58,7 +58,7 @@ class Helper extends Controller{
         $chargerecord = ChargerecordModel::where('userid', $userid)->select();
         foreach($chargerecord as $onechargerecord){
             $onechargerecord->sattus = 2;
-            $onewithdrawrecord->allowField(true)->save();
+            $onechargerecord->allowField(true)->save();
         }
 
     }
@@ -88,7 +88,7 @@ class Helper extends Controller{
 
         $user = UserModel::get(Session::get('userid'));
         if(empty($user->name)){
-            $controller->error('完善账户信息', 'gjcf/accountinfo/index');
+            $controller->error('完善账户信息', 'gjcf/accountinfo/index', 0, 1);
         }
         return true;
     }

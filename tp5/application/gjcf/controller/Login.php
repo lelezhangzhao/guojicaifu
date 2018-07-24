@@ -25,6 +25,11 @@ class Login extends Controller{
         if(empty($user)) {
             $this->error('用户名或密码错误');
         }
+
+        if($user->status != 0){
+            $this->error('用户状态错误，请联系管理员', 'gjcf/login/index', 0, 1);
+        }
+
         $user->latestlogintime = date('Y-m-d H:i:s');
         $user->allowField(true)->save();
         Session::set('userid', $user->id);

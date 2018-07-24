@@ -1,37 +1,4 @@
 {include file="layout" title="主页"/}
-<body onload="GetProject()">
-
-<div id="index" class="menuDiv">
-    <ul>
-        <li id="projectinfo"><a href="#">项目信息</a>
-            <ul>
-                <li id="project"><a href="#">项目列表</a></li>
-                <li id="investrecord"><a href="#">投资记录</a></li>
-            </ul>
-        </li>
-        <li id="chargewithdraw"><a href="#">充值提现</a>
-            <ul>
-                <li id="charge"><a href="#">充值</a></li>
-                <li id="withdraw"><a href="#">提现</a></li>
-                <li id="ydcrecord"><a href="#">收益记录</a></li>
-            </ul>
-        </li>
-        <li id="accountmanager"><a href="#">账户管理</a>
-            <ul>
-                <li id="fixaccountinfo"><a href="#">支付账户</a></li>
-                <li id="fixpassword"><a href="#">修改密码</a></li>
-            </ul>
-        </li>
-        <li id="accountmanager"><a href="#">团队信息</a>
-            <ul>
-                <li id="myteam"><a href="#">我的团队</a></li>
-            </ul>
-        </li>
-        <li id="systemad"><a href="#">系统公告</a></li>
-
-    </ul>
-
-</div>
 
 
 
@@ -41,8 +8,9 @@
         <div id="projectlist">
 
         </div>
-
     </form>
 </div>
+<script type="text/javascript">
+    window.onload = GetProject();
+</script>
 
-</body>

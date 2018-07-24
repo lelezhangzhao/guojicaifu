@@ -39,7 +39,7 @@ class Bonus extends Controller{
     }
 
     private function BonusThree($datetime, $threeprofittotal){
-    $refereethree = RefereeoneModel::where('today', '>=', 'today')
+    $refereethree = RefereeoneModel::whereTime('refereeonetoday', 'today')
         ->where('refereecount', 'between', [3, 5])
         ->select();
 
@@ -62,7 +62,7 @@ class Bonus extends Controller{
 }
 
     private function BonusSix($datetime, $sixprofittotal){
-        $refereesix = RefereeoneModel::where('today', '>=', 'today')
+        $refereesix = RefereeoneModel::whereTime('refereeonetoday', 'today')
         ->where('refereecount', 'between', [6, 8])
         ->select();
 
@@ -85,7 +85,7 @@ class Bonus extends Controller{
     }
 
     private function BonusNine($datetime, $nineprofittotal){
-        $refereenine = RefereeoneModel::where('today', '>=', 'today')
+        $refereenine = RefereeoneModel::whereTime('refereeonetoday', 'today')
         ->where('refereecount', '>=', 9)
         ->select();
 

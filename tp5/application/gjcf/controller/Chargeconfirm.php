@@ -10,6 +10,7 @@ use think\Request;
 
 use app\gjcf\model\User as UserModel;
 use app\gjcf\model\Chargerecord as ChargerecordModel;
+use app\gjcf\model\Ydcrecord as YdcrecordModel;
 use app\gjcf\api\Helper as HelperApi;
 
 
@@ -17,7 +18,7 @@ class Chargeconfirm extends Controller{
     public function Index(){
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
         $result = Db::view('chargerecord')
             ->view('user',['name', 'alipaynum'] ,'user.id = chargerecord.userid')
@@ -32,7 +33,7 @@ class Chargeconfirm extends Controller{
     public function ChargeConfirmSuccess(Request $request){
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
         //更新数据库
         //chargerecord
@@ -54,7 +55,7 @@ class Chargeconfirm extends Controller{
     public function ChargeConfirmFailed(Request $request){
         if (!HelperApi::IsAdmin()) {
             HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/signup/index', 0, 1);
+            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
         }
         //更新数据库
         //chargerecord

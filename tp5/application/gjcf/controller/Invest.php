@@ -67,7 +67,7 @@ class Invest extends Controller{
 
         //三级推荐奖
         $refereeprofit = RefereeprofitModel::where('id', 1)->find();
-        $refereeoneuser = UserModel::where('username', $user->referee)->find();
+        $refereeoneuser = UserModel::where('id', $user->referee)->find();
         if(!empty($refereeoneuser)){
             $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
             RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $project_id, $refereeoneydc);
@@ -75,7 +75,7 @@ class Invest extends Controller{
             $refereeoneuser->allowField(true)->save();
             YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
 
-            $refereetwouser = UserModel::where('username', $refereeoneuser->referee)->find();
+            $refereetwouser = UserModel::where('id', $refereeoneuser->referee)->find();
             if(!empty($refereetwouser)){
                 $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
                 RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $project_id, $refereetwoydc);
@@ -83,7 +83,7 @@ class Invest extends Controller{
                 $refereetwouser->allowField(true)->save();
                 YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereetwouser->id, $refereetwoydc, 5);
 
-                $refereethreeuser = UserModel::where('username', $refereetwouser->referee)->find();
+                $refereethreeuser = UserModel::where('id', $refereetwouser->referee)->find();
                 if(!empty($refereethreeuser)){
                     $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
                     RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $project_id, $refereethreeydc);

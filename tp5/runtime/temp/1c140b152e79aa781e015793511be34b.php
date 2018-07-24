@@ -1,20 +1,65 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"E:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html";i:1532307693;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532310391;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1531964529;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"E:\share\project\trunk\tp5\public/../application/gjcf\view\ydcrecord\index.html";i:1532396419;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532422007;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>收益记录</title>
-    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js?version=1"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <script type="text/javascript" src="/static/js/action.js?version=7"></script>
-
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js?version=1"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=18"></script>
     <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
-    <link rel="stylesheet" href="/static/layui/css/layui.css?t=1531663423583" media="all">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
     <script type="text/javascript">
 
     </script>
 
 </head>
+<body class="layui-layout-body">
+<div class="layui-header">
+    <ul class="layui-nav" >
+        <li class="layui-nav-item">
+            <a href="javascript:;">项目信息</a>
+            <dl class="layui-nav-child">
+                <dd id="project"><a href="javascript:;">项目列表</a></dd>
+                <dd id="investrecord"><a href="javascript:;">投资记录</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">充值提现</a>
+            <dl class="layui-nav-child">
+                <dd id="charge"><a href="javascript:;">充值</a></dd>
+                <dd id="withdraw"><a href="javascript:;">提现</a></dd>
+                <dd id="ydcrecord"><a href="javascript:;">收益记录</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">账户管理</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd id="fixaccountinfo"><a href="javascript:;">支付账户</a></dd>
+                <dd id="fixpassword"><a href="javascript:;">修改密码</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">团队信息</a>
+            <dl class="layui-nav-child">
+                <dd id="myteam"><a href="javascript:;">我的团队</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
+    </ul>
+</div>
 
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
 
+        //…
+    });
+</script>
+
+</body>
 </html>
 
 
@@ -25,7 +70,8 @@
         <h2>收益记录</h2>
         <?php if(is_array($ydcrecordlist) || $ydcrecordlist instanceof \think\Collection || $ydcrecordlist instanceof \think\Paginator): $i = 0; $__LIST__ = $ydcrecordlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ydcrecord): $mod = ($i % 2 );++$i;?>
         <div class="pagination">
-            <?php echo $ydcrecord['ydcrecordtype']; ?> ：<?php echo $ydcrecord['ydc']; ?><br/>
+            类型：<?php echo $ydcrecord['ydcrecordtype']; ?><br/>
+            YDC：<?php echo $ydcrecord['ydc']; ?><br/>
             结算时间：<?php echo $ydcrecord['createtime']; ?><br/>
             ---------------------------------<br/>
         </div>

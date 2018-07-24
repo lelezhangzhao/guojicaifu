@@ -6,7 +6,8 @@
         <h2>收益记录</h2>
         {volist name="ydcrecordlist" id="ydcrecord"}
         <div class="pagination">
-            {$ydcrecord.ydcrecordtype} ：{$ydcrecord.ydc}<br/>
+            类型：{$ydcrecord.ydcrecordtype}<br/>
+            YDC：{$ydcrecord.ydc}<br/>
             结算时间：{$ydcrecord.createtime}<br/>
             ---------------------------------<br/>
         </div>

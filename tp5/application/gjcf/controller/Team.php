@@ -12,18 +12,26 @@ class Team extends Controller{
     public function Index(){
         HelperApi::TestLoginAndStatus($this);
 
-        $refereeone = UserModel::where('referee', Session::get('userid'))->select();
+        //上级
+        $user = UserModel::where('id', Session::get('userid'))->find();
+        $this->assign('refereepre', $user->referee);
 
-        $this->assign('refereeonecount', count($refereeone));
-
-
+        $refereeonecount = 0;
         $refereetwocount = 0;
         $refereethreecount = 0;
+
+        //一级代理
+        $refereeone = UserModel::where('referee', Session::get('userid'))->select();
+        $refereeonecount = count($refereeone);
+
+        $this->assign('refereeonecount', $refereeonecount);
         foreach($refereeone as $oneitem){
+            //二级代理
             $refereetwo = UserModel::where('referee', $oneitem->id)->select();
             $refereetwocount += count($refereetwo);
 
             foreach($refereetwo as $twoitem){
+                //三级代理
                 $refereethree = UserModel::where('referee', $twoitem->id)->select();
                 $refereethreecount += count($refereethree);
             }
