@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532421125;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532422007;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532421125;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532422855;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>主页</title>
@@ -47,6 +47,18 @@
             </dl>
         </li>
         <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
+    </ul>
+
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+            YDC:<label id="ydc" >10000</label>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;" id="sign">签到</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;" id="logout">退出</a>
+        </li>
     </ul>
 </div>
 
