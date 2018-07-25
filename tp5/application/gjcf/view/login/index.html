@@ -1,17 +1,16 @@
 {include file="layout" title="登录" /}
-<script type="text/javascript">
-    document.getElementById("gjcf_top").style.display = "none";
-</script>
-<body>
-<form method="post" >
 
-    用户名 <input type="text" name="username" /><br />
-    密码 <input type="text" name="password" /><br />
-    验证码 <input type="text" name="capcha" /><br/>
+<body>
+<form method="post" target="exec_target">
+
+    用户名 <input type="text" id="loginusername" name="username" /><br />
+    密码 <input type="text" id="loginpassword" name="password" /><br />
+    验证码 <input type="text" id="logincapcha" name="capcha" /><br/>
     <img src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
-    <input type="submit" value="登录" formaction="{:url('gjcf/login/login')}" name="login" /><br />
+    <input type="submit" value="登录" id="loginligin" /><br />
     <input type="submit" value="忘记密码" formaction="{:url('gjcf/forgetpassword/index')}" name="forgetpassword" />
     <input type="submit" value="注册" formaction="{:url('gjcf/signup/index')}" name="signup"/>
 </form>
+<iframe hidden name="exec_target"/>
 
 </body>

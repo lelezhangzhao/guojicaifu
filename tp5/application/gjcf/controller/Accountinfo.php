@@ -2,6 +2,7 @@
 
 namespace app\gjcf\controller;
 
+use think\console\command\Help;
 use think\Controller;
 use think\Request;
 use think\Session;
@@ -38,13 +39,16 @@ class Accountinfo extends Controller{
         $alipaynum = $request->param('alipaynum');
         $telidentify = $request->param('telidentify');
 
-        if(Telidentify::TelIdentifyOk($telidentify)){
-            $user = UserModel::get(Session::get('userid'));
-            $user->name = $name;
-            $user->alipaynum = $alipaynum;
-            $user->allowField(true)->save();
-            return '保存成功';
+        if(HelperApi::IsOpenTelIdentify()){
+            if(!Telidentify::TelIdentifyOk($telidentify)){
+                return '验证码错误';
+            }
         }
-        return '验证码错误';
+        $user = UserModel::get(Session::get('userid'));
+        $user->name = $name;
+        $user->alipaynum = $alipaynum;
+        $user->allowField(true)->save();
+        return '保存成功';
+
     }
 }

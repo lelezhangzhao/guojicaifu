@@ -53,6 +53,8 @@ class Invest extends Controller{
             Db::rollback();
             throw $e;
         }
+
+        //第一次投资，该用户加入refereeone
         if($user->hasinvest === 0){
             //refereeone
             RefereeoneModel::AddRefereeone($user->referee);

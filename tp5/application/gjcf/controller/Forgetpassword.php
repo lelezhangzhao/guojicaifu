@@ -21,16 +21,21 @@ class Forgetpassword extends Controller{
         if(empty($result)) {
             return '用户名和手机号不匹配';
         }
-        $url = 'http://tp5.com/index.php/gjcf/post/index?mobile='.$tel;
-        $ch = curl_init ();
-        curl_setopt ( $ch, CURLOPT_URL, $url );
-        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt ( $ch, CURLOPT_CONNECTTIMEOUT, 10 );
-        curl_setopt ( $ch, CURLOPT_POST, 1 ); //启用POST提交
-        $file_contents = curl_exec ( $ch );
-        Session::set('telidentify', $file_contents);
+
         Session::set('fixedusername', $username);
-        curl_close ( $ch );
+
+        Telidentify::GetTelIdentify($tel);
+
+//        $url = 'http://tp5.com/index.php/gjcf/post/index?mobile='.$tel;
+//        $ch = curl_init ();
+//        curl_setopt ( $ch, CURLOPT_URL, $url );
+//        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+//        curl_setopt ( $ch, CURLOPT_CONNECTTIMEOUT, 10 );
+//        curl_setopt ( $ch, CURLOPT_POST, 1 ); //启用POST提交
+//        $file_contents = curl_exec ( $ch );
+//        Session::set('telidentify', $file_contents);
+//        Session::set('fixedusername', $username);
+//        curl_close ( $ch );
 //        return Session::get('telidentify');
 
         //发送验证码
@@ -39,13 +44,19 @@ class Forgetpassword extends Controller{
     }
 
     public function NewPasswordOk(Request $request){
-        $identify = $request->param('telidentify');
+        $telidentify = $request->param('telidentify');
 
-
-        if((int)$identify !== (int)Session::get('identify')) {
-            $this->error('验证码错误');
+        if(HelperApi::IsOpenTelIdentify()){
+            if(!Telidentify::TelIdentifyOk($telidentify)){
+                return '验证码错误';
+            }
         }
-        Session::delete('identify');
+
+
+//        if((int)$identify !== (int)Session::get('identify')) {
+//            $this->error('验证码错误');
+//        }
+//        Session::delete('identify');
 
         $newpassword = $request->param('newpassword');
         $username = Session::get('fixedusername');

@@ -21,9 +21,6 @@ class Withdraw extends Controller{
 
         $user = UserModel::get(Session::get('userid'));
 
-        if($user->hasinvest === 0){
-            return '未投资，不可提现';
-        }
 
         return $user->usableydc;
     }

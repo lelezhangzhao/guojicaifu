@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js?version=1"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="__CSS__/style.css?version=1" type="text/css" />
-    <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all" />
     <script type="text/javascript" src="__LAYUI__/layui.js"></script>
-    <script type="text/javascript" src="__JS__/action.js?version=18"></script>
+    <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all" />
+    <script type="text/javascript" src="__JS__/action.js?version=21"></script>
     <script type="text/javascript">
 
     </script>
@@ -21,8 +21,10 @@
     <div id="userinfo" >
         <form method="post">
             <span float="left">
-                <label id="username"></label>
-                <label id="usableydc">YDC：</label>
+                用户名：<label id="headerusername"></label>
+                用户ID：<label id="headeruserid"></label>
+                可用YDC：<label id="headerusableydc"></label>
+                冻结YDC：<label id="headerfreezenydc"></label>
             </span>
                 <span float="right">
                     <input type="submit" value="签到" formaction="{:url('gjcf/sign/sign')}"/>

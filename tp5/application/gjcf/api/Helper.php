@@ -93,5 +93,12 @@ class Helper extends Controller{
         return true;
     }
 
+    static public function IsOpenCapcha(){
+        return false;
+    }
+    static public function IsOpenTelIdentify(){
+        return false;
+    }
+
 
 }

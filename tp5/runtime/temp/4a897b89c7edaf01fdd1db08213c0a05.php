@@ -1,16 +1,16 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532433712;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532443526;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532433712;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532516980;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
     <title>主页</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js?version=1"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
-    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <script type="text/javascript" src="/static/layui/layui.js"></script>
-    <script type="text/javascript" src="/static/js/action.js?version=18"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
+    <script type="text/javascript" src="/static/js/action.js?version=21"></script>
     <script type="text/javascript">
 
     </script>
@@ -22,8 +22,10 @@
     <div id="userinfo" >
         <form method="post">
             <span float="left">
-                <label id="username"></label>
-                <label id="usableydc">YDC：</label>
+                用户名：<label id="headerusername"></label>
+                用户ID：<label id="headeruserid"></label>
+                可用YDC：<label id="headerusableydc"></label>
+                冻结YDC：<label id="headerfreezenydc"></label>
             </span>
                 <span float="right">
                     <input type="submit" value="签到" formaction="<?php echo url('gjcf/sign/sign'); ?>"/>

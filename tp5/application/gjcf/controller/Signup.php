@@ -7,6 +7,7 @@ use think\Request;
 use app\gjcf\model\User as UserModel;
 use app\gjcf\model\Refereeone as RefereeoneModel;
 use app\gjcf\model\Ydcrecord as YdcrecordModel;
+use app\gjcf\api\Helper as HelperApi;
 
 class Signup extends Controller{
     public function Index(){
@@ -16,8 +17,10 @@ class Signup extends Controller{
     public function Signup(Request $request){
 
         //先验证验证码
-        if(!captcha_check($request->param('capcha'))) {
-            $this->error('验证码错误', 'gjcf/signup/index', 0, 1);
+        if(HelperApi::IsOpenCapcha()){
+            if(!captcha_check($request->param('capcha'))) {
+                $this->error('验证码错误', 'gjcf/signup/index', 0, 1);
+            }
         }
         $username = $request->param('username');
         $password = $request->param('password');

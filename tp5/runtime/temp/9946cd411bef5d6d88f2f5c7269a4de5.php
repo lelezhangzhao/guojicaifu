@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"H:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1532433712;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532443526;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"H:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1532433712;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532482417;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
     <title>账户</title>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <script type="text/javascript" src="/static/layui/layui.js"></script>
-    <script type="text/javascript" src="/static/js/action.js?version=18"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=19"></script>
     <script type="text/javascript">
 
     </script>
