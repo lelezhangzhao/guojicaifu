@@ -17,21 +17,35 @@ class Index extends Controller{
         HelperApi::TestLoginAndStatus($this);
 
         $projects = ProjectModel::all();
-        foreach($projects as $project){
-            echo '项目名称：'.$project['caption'].'<br/>';
-            echo '投资金额：'.$project['investydc'].'<br/>';
-            echo '收益金额：'.$project['profitydc'].'<br/>';
-            echo '当前投资额：'.$project['curinvest'].'<br/>';
-            echo '剩余投资额：'.$project['remaininvest'].'<br/>';
-            $status = $project['status'];
-            if((int)$status === 0){
-                echo '<input type="submit" value="投资" formaction="/index.php/gjcf/invest/InvestProject?projectid='.$project['id'].'" /><br/>';
-            }else if((int)$status === 1){
-                echo '<input type="button" disabled value="投资未开始" /><br/>';
-            }else if((int)$status === 2){
-                echo '<input type="button" disabled value="投资已结束" /><br/>';
-            }
+        echo '<?xml version="1.0" encoding="UTF-8"?>';
+        echo '<project>';
+        foreach ($projects as $project) {
+            echo '<item>';
+            echo '<id>'.$project->id.'</id>';
+            echo '<caption>'.$project->caption.'</caption>';
+            echo '<investydc>'.$project->investydc.'</investydc>';
+            echo '<profitydc>'.$project->profitydc.'</profitydc>';
+            echo '<curinvest>'.$project->curinvest.'</curinvest>';
+            echo '<remaininvest>'.$project->remaininvest.'</remaininvest>';
+            echo '</item>';
         }
+        echo '</project>';
+
+//        foreach($projects as $project){
+//            echo '项目名称：'.$project['caption'].'<br/>';
+//            echo '投资金额：'.$project['investydc'].'<br/>';
+//            echo '收益金额：'.$project['profitydc'].'<br/>';
+//            echo '当前投资额：'.$project['curinvest'].'<br/>';
+//            echo '剩余投资额：'.$project['remaininvest'].'<br/>';
+//            $status = $project['status'];
+//            if((int)$status === 0){
+//                echo '<input type="submit" value="投资" formaction="/index.php/gjcf/invest/InvestProject?projectid='.$project['id'].'" /><br/>';
+//            }else if((int)$status === 1){
+//                echo '<input type="button" disabled value="投资未开始" /><br/>';
+//            }else if((int)$status === 2){
+//                echo '<input type="button" disabled value="投资已结束" /><br/>';
+//            }
+//        }
     }
 
 

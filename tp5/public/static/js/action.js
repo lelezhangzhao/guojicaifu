@@ -285,24 +285,27 @@ function GetProject(){
         type:"post",
         url:"/index.php/gjcf/index/getproject",
         async:true,
-        dataType:"json",
+        dataType:"xml",
         success:function(data){
-            data = eval("(" + data + ")");
-            for(i = 0; i < data.size(); ++i){
+            $(data).find("item").each(function(i) {
+                //获取城市名字
+                var id=$(this).children("id").text();
+                $("#index_projectlist").html(id);
+                $.ShowMsg("success");
+            });
 
-            }
         },
         error:function(hd, msg){
             $.ShowMsg(msg);
         }
     });
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("index_projectlist").innerHTML = xmlhttp.responseText;
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/index/getproject");
-    xmlhttp.send();
+    // xmlhttp.onreadystatechange = function(){
+    //     if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+    //         document.getElementById("index_projectlist").innerHTML = xmlhttp.responseText;
+    //     }
+    // };
+    // xmlhttp.open("POST", "/index.php/gjcf/index/getproject");
+    // xmlhttp.send();
 }
 
 function ChargeConfirmSuccess(chargeid){
