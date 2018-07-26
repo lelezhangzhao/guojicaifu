@@ -1,9 +1,12 @@
 {include file="layout" title="提现" /}
-<body onload="GetWithdrawYdc()">
+<script type="text/javascript">
+    window.onload=GetWithdrawYdc();
+</script>
+<!--<body onload="GetWithdrawYdc()">-->
 <form method="post" >
     可提现额度：<label id="withdrawydc">0</label><br/>
 
     提现：<input type="text" name="withdraw"/><input type="submit" value="确定" formaction="{:url('gjcf/withdraw/withdraw')}" /><br/>
 </form>
 
-</body>
+<!--</body>-->

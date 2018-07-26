@@ -19,12 +19,14 @@ class Forgetpassword extends Controller{
         //username匹配tel
         $result = UserModel::where(['username' => $username, 'tel' => $tel])->find();
         if(empty($result)) {
-            return '用户名和手机号不匹配';
+            $json_arr = ['code' => 4, 'msg' => '用户名和手机号不匹配'];
+//            return '用户名和手机号不匹配';
+        }else{
+            Session::set('fixedusername', $username);
+            Telidentify::GetTelIdentify($tel);
+            $json_arr = ['code' => 0, 'msg' => '验证码已发送'];
         }
-
-        Session::set('fixedusername', $username);
-
-        Telidentify::GetTelIdentify($tel);
+        return json_encode($json_arr);
 
 //        $url = 'http://tp5.com/index.php/gjcf/post/index?mobile='.$tel;
 //        $ch = curl_init ();
@@ -45,31 +47,23 @@ class Forgetpassword extends Controller{
 
     public function NewPasswordOk(Request $request){
         $telidentify = $request->param('telidentify');
-
-        if(HelperApi::IsOpenTelIdentify()){
-            if(!Telidentify::TelIdentifyOk($telidentify)){
-                return '验证码错误';
-            }
-        }
-
-
-//        if((int)$identify !== (int)Session::get('identify')) {
-//            $this->error('验证码错误');
-//        }
-//        Session::delete('identify');
-
         $newpassword = $request->param('newpassword');
-        $username = Session::get('fixedusername');
 
-        $user = UserModel::where('username', $username)->find();
-        $user->password = $newpassword;
-        $result = $this->validate($user, 'User');
-        if(true !== $result) {
-            return $result;
-        } else {
-            $user->allowField(true)->save();
+        if(!Telidentify::TelIdentifyOk($telidentify)){
+            $json_arr = ['code' => 5, 'msg' => '手机验证码错误'];
+        }else{
+            $username = Session::get('fixedusername');
+            $user = UserModel::where('username', $username)->find();
+            $user->password = $newpassword;
+            $result = $this->validate($user, 'User');
+            if(true !== $result) {
+                $json_arr = ['code' => 6, 'msg' => $result];
+            } else {
+                $user->allowField(true)->save();
+            }
+            Session::delete('fixedusername');
+            $json_arr = ['code' => 0, 'msg' => '密码更新成功'];
         }
-        Session::delete('fixedusername');
-        $this->success('密码更新成功', 'gjcf/login/index');
+        return json_encode($json_arr);
     }
 }

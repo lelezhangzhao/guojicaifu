@@ -77,7 +77,8 @@ class Helper extends Controller{
             self::LoginFirst($controller);
         }
         if(!self::IsCurUserEnable()){
-            $controller->error('用户状态错误，请联系管理员');
+            $json_arr = ['code' => 1, 'msg' => '用户状态错误，请联系管理员'];
+            return json_encode($json_arr);
         }
         return true;
     }

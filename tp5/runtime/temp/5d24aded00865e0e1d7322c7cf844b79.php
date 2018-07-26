@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1532586327;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532581826;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"E:\share\project\trunk\tp5\public/../application/gjcf\view\forgetpassword\index.html";i:1532584035;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532581826;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
-    <title>注册</title>
+    <title>忘记密码</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -88,22 +88,14 @@
 
 
 
-<script text="text/javascript">
-    var referee = GetUrlParam('referee');
-    window.onload = function(){
-        $("#signup_referee").val(referee);
-    }
-</script>
-
-
+<body>
 <div>
-    用户名 <input type="text" id="signup_username" name="username" /><br />
-    密码 <input type="text" id="signup_password" name="password" /><br />
-    手机号 <input type="text" id="signup_tel" name="tel" /><br />
-    推荐人ID <input type="text" id="signup_referee" name="referee" /><br />
-    验证码 <input type="text" id="signup_capcha" name="capcha" /><br/>
-    <img id="signup_capcha_img" src="<?php echo captcha_src(); ?>" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
-    <input type="button" value="注册" id="signup_signup" />
+    用户名 <input type="text" name="forgetpassword_username" /><br />
+    手机号 <input type="text" name="forgetpassword_tel" />
+    <input type="submit" value="获取验证码" id="forgetpassword_gettelidentify" /><br />
+    输入手机验证码 <input type="text" name="forgetpassword_telidentify" /><br />
+    新密码 <input type="text" name="forgetpassword_newpassword" /><br />
+    <input type="submit" value="确定" id="forgetpassword_newpasswordok" />
 </div>
 
-
+</body>

@@ -1,4 +1,5 @@
 
+
 var xmlhttp;
 if (window.XMLHttpRequest){
     //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -8,51 +9,266 @@ if (window.XMLHttpRequest){
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-//index
-function OpenNewUrl(url) {
-    window.location.href = url;
-    // window.open(url);
+
+// function OpenNewUrl(url) {
+//     window.location.href = url;
+//     // window.open(url);
+// }
+function GetUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
 }
 
 $(function(){
-    $("#project").click(function(){
-        OpenNewUrl("/index.php/gjcf/index/index");
+    $.ajax({
+        type:"post",
+        url:"/index.php/gjcf/userinfo/getheaderuserinfo",
+        async:true,
+        dataType:"json",
+        success:function(data){
+            data = eval("(" + data + ")");
+            if(data.code === 0){
+                $("#header_username").text(data.username);
+                $("#header_userid").text(data.userid);
+                $("#header_usableydc").text(data.usableydc);
+                $("#header_freezenydc").text(data.freezenydc);
+            }
+        },
+        error:function(hd, msg){
+            $.ShowMsg(msg);
+        }
+    });
+
+    // $("#header_username").text(window.global_username);
+    // $("#header_userid").text(window.global_userid);
+    // $("#header_usableydc").text(window.global_usableydc);
+    // $("#header_freezenydc").text(window.global_freezenydc);
+
+
+    $.ShowMsg = function(msg){
+        layui.use("layer", function(){
+            layer.msg(msg);
+        });
+    }
+
+    $.OpenNewUrl = function(url){
+        window.location.href = url;
+    }
+
+    // $.LoadHeader = function(){
+    //     $.ajax({
+    //         type:"post",
+    //         url:"/index.php/gjcf/userinfo/getheaderuserinfo",
+    //         async:true,
+    //         dataType:"json",
+    //         success:function(data){
+    //             var ajaxdata = eval("(" + data + ")");
+    //             $("#header_username").text(ajaxdata.username);
+    //             $("#header_userid").text(ajaxdata.userid);
+    //             $("#header_usableydc").text(ajaxdata.usableydc);
+    //             $("#header_freezenydc").text(ajaxdata.freezenydc);
+    //         }
+    //     });
+    // }
+    // $(window).onload(function(){
+    // });
+
+
+    $("#login_login").click(function () {
+        var username = $("#login_username").val();
+        var password = $("#login_password").val();
+        var capcha = $("#login_capcha").val();
+        $.ajax({
+            type: "post", //提交方式
+            url: "/index.php/gjcf/login/login", //路径
+            async: false,
+            dataType:"json",
+            //参数
+            data: {
+                username:username,
+                password:password,
+                capcha:capcha
+            },
+
+            //返回普通的字符流不要写 dataType : "json"
+            success: function (data) {
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        window.global_username = data.username;
+                        window.global_userid = data.userid;
+                        window.global_usableydc = data.usableydc;
+                        window.global_freezenydc = data.freezenydc;
+                        $.OpenNewUrl("/index.php/gjcf/index/index");
+                        break;
+                    default:
+                        var img = document.getElementById("login_capcha_img");
+                        img.src = "/index.php/captcha?id=" + Math.random();
+                        $("#login_capcha").val("");
+                        break;
+                }
+            },
+            error: function (hd, msg) {
+                $.ShowMsg(msg);
+            }
+        });
+    });
+
+    // <input type="submit" value="获取验证码" id="forgetpassword_gettelidentify" formaction="{:url('gjcf/forgetpassword/gettelidentify')}" /><br />
+    //     输入手机验证码 <input type="text" name="telidentify" /><br />
+    //     新密码 <input type="text" name="newpassword" /><br />
+    //     <input type="submit" value="确定" id="forgetpassword_newpasswordok" formaction="{:url('gjcf/forgetpassword/newpasswordok')}" name="confirm"/>
+
+    $("#forgetpassword_gettelidentify").click(function(){
+        var username = $("#forgetpassword_username").val();
+        var tel = $("#forgetpassword_tel").val();
+        $.ajax({
+            type:"post",
+            url:"/index.php/gjcf/forgetpassword/gettelidentify",
+            async:true,
+            dataType:"json",
+            data:{
+                username:username,
+                tel:tel
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+            },
+            error:function(hd, msg){
+                $.ShowMsg(msg);
+            }
+        });
+    });
+
+    $("#forgetpassword_newpasswordok").click(function(){
+        var telidentify = $("#forgetpassword_telidentify").val();
+        var newpassword = $("#forgetpassword_newpasswordok").val();
+        $.ajax({
+            type:"post",
+            url:"/index.php/gjcf/forgetpassword/newpasswordok",
+            async:true,
+            dataType:"json",
+            data:{
+                telidentify:telidentify,
+                newpassword:newpassword
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0: //password update success,then jump to index
+                        $.OpenNewUrl("/index.php/gjcf/index/index");
+                        break;
+                    default:
+                        break;
+                }
+            },
+            error:function(hd, msg){
+                $.ShowMsg(msg);
+            }
+        });
+    });
+
+    $("#signup_signup").click(function(){
+        var username = $("#signup_username").val();
+        var password = $("#signup_password").val();
+        var tel = $("#signup_tel").val();
+        var referee = $("#signup_referee").val();
+        var capcha = $("#signup_capcha").val();
+        $.ajax({
+            type:"post",
+            url:"/index.php/gjcf/signup/signup",
+            async:true,
+            dataType:"json",
+            data:{
+                username:username,
+                password:password,
+                tel:tel,
+                referee:referee,
+                capcha:capcha
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0: //sign successful,jump to login
+                        $.OpenNewUrl("/index.php/gjcf/login/index");
+                        break;
+                    default: //refresh capcha
+                        var img = document.getElementById("signup_capcha_img");
+                        img.src = "/index.php/captcha?id=" + Math.random();
+                        $("#signup_capcha").val("");
+                        break;
+                }
+            },
+            error:function(hd, msg){
+                $.ShowMsg(msg);
+            }
+        });
+/*
+ 用户名 <input type="text" id="signup_username" name="username" /><br />
+ 密码 <input type="text" id="signup_password" name="password" /><br />
+ 手机号 <input type="text" id="signup_tel" name="tel" /><br />
+ 推荐人ID <input type="text" id="signup_referee" name="referee" /><br />
+ 验证码 <input type="text" id="signup_capcha" name="capcha" /><br/>
+ <img src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
+ <input type="button" value="注册" id="signup_signup" />
+
+ */
+    });
+
+    $("#login_forgetpassword").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/forgetpassword/index");
+    });
+
+    $("#login_signup").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/forgetpassword/index");
+    });
+
+
+
+    $("#header_project").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/index/index");
         // GetProject();
     });
-    $("#investrecord").click(function(){
-        OpenNewUrl("/index.php/gjcf/investrecord/index");
+    $("#header_investrecord").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/investrecord/index");
     });
-    $("#charge").click(function(){
-        OpenNewUrl("/index.php/gjcf/charge/index");
+    $("#header_charge").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/charge/index");
     });
-    $("#withdraw").click(function(){
-        OpenNewUrl("/index.php/gjcf/withdraw/index");
+    $("#header_withdraw").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/withdraw/index");
     });
-    $("#ydcrecord").click(function(){
-        OpenNewUrl("/index.php/gjcf/ydcrecord/index");
+    $("#header_ydcrecord").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/ydcrecord/index");
     });
-    $("#fixaccountinfo").click(function(){
-        OpenNewUrl("/index.php/gjcf/accountinfo/index");
+    $("#header_fixaccountinfo").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/accountinfo/index");
     });
-    $("#fixpassword").click(function(){
-        OpenNewUrl("/index.php/gjcf/fixpassword/index");
+    $("#header_fixpassword").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/fixpassword/index");
     });
-    $("#myteam").click(function(){
-        OpenNewUrl("/index.php/gjcf/team/index");
+    $("#header_myteam").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/team/index");
     });
-    $("#systemad").click(function(){
+    $("#header_systemad").click(function(){
         alert("systemad");
     });
+
 });
 
 
-(function ($) {
-    $.getUrlParam = function (name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
-    }
-})(jQuery);
+// (function ($) {
+//     $.getUrlParam = function (name) {
+//         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+//         var r = window.location.search.substr(1).match(reg);
+//         if (r != null) return unescape(r[2]); return null;
+//     }
+// })(jQuery);
 
 function GetWithdrawYdc(){
     xmlhttp.onreadystatechange = function(){
@@ -65,9 +281,24 @@ function GetWithdrawYdc(){
 }
 
 function GetProject(){
+    $.ajax({
+        type:"post",
+        url:"/index.php/gjcf/index/getproject",
+        async:true,
+        dataType:"json",
+        success:function(data){
+            data = eval("(" + data + ")");
+            for(i = 0; i < data.size(); ++i){
+
+            }
+        },
+        error:function(hd, msg){
+            $.ShowMsg(msg);
+        }
+    });
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("projectlist").innerHTML = xmlhttp.responseText;
+            document.getElementById("index_projectlist").innerHTML = xmlhttp.responseText;
         }
     };
     xmlhttp.open("POST", "/index.php/gjcf/index/getproject");
@@ -143,79 +374,33 @@ function SaveAccountInfo(name, alipaynum, telidentify){
     xmlhttp.send();
 }
 
-$(function() {
-    $("#loginligin").click(function () {
-        var username = $("#loginusername").val();
-        var password = $("#loginpassword").val();
-        var capcha = $("#logincapcha").val();
-        $.ajax({
-            type: "post", //提交方式
-            url: "/index.php/gjcf/login/login", //路径
-            async: false,
-            dataType:"json",
-            //参数
-            data: {
-                username:username,
-                password:password
-            },
 
-            //返回普通的字符流不要写 dataType : "json"
-            success: function (data) {
-                var ajaxdata = eval("("+data+")");
-
-                layui.use("layer", function(){
-
-                    layer.msg(ajaxdata.msg);
-                    if (ajaxdata.code == 1) {
-
-                        $("#headerusername").text(ajaxdata.username);
-                        $("#headeruserid").text(ajaxdata.userid);
-                        $("#headerusableydc").text(ajaxdata.usableydc);
-                        $("#headerfreezenydc").text(ajaxdata.freezenydc);
-
-                        OpenNewUrl("/index.php/gjcf/index/index");
-                    }
-                });
-
-            },
-            error: function (hd, msg) {
-                alert(msg);
-            }
-
-        });
-    });
-});
-
-function Login(username, password, capcha){
-
-    $.ajax({
-        type : "post", //提交方式
-        url : "/index.php/gjcf/login/login?username=zhangzhao&password=zhangzhao", //路径
-        contentType:"application/json",
-        async:false,
-        //参数
-        data : {
-            username : username,
-            password : password,
-            capcha : capcha
-        },
-        cache : false,
-
-        //返回普通的字符流不要写 dataType : "json"
-        success : function(data) {
-            alert(data);
-        },
-        error:function(){
-            alert("error");
-        },
-
-        complete:function(){
-            alert(23);
-        }
-    });
-
-}
-
+// function Login(username, password, capcha){
+//     $.ajax({
+//         type : "post", //提交方式
+//         url : "/index.php/gjcf/login/login", //路径
+//         contentType:"application/json",
+//         async:true,
+//         //参数
+//         data : {
+//             username : username,
+//             password : password,
+//             capcha : capcha
+//         },
+//         cache : false,
+//
+//         //返回普通的字符流不要写 dataType : "json"
+//         success : function(data) {
+//             alert(data);
+//         },
+//         error:function(){
+//             alert("error");
+//         },
+//
+//     });
+//
+// }
+//
 var clock="";
 var nums = 120;
 var btn;

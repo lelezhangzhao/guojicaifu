@@ -1,25 +1,21 @@
 {include file="layout" title="注册"/}
 
-<script text="javascript">
-    var referee = $.getUrlParam('referee');
+<script text="text/javascript">
+    var referee = GetUrlParam('referee');
     window.onload = function(){
-        $("#referee").val(referee);
+        $("#signup_referee").val(referee);
     }
-
-    document.getElementById("gjcf_top").style.display = "none";
-
 </script>
 
-<body>
-<form method="post" action="{:url('gjcf/signup/signup')}">
-    用户名 <input type="text" name="username" /><br />
-    密码 <input type="text" name="password" /><br />
-    手机号 <input type="text" name="tel" /><br />
-    推荐人ID <input type="text" id="referee" name="referee" /><br />
-    验证码 <input type="text" name="capcha" /><br/>
-    <img src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
-    <input type="submit" value="注册" name="signup" />
 
-</form>
+<div>
+    用户名 <input type="text" id="signup_username" name="username" /><br />
+    密码 <input type="text" id="signup_password" name="password" /><br />
+    手机号 <input type="text" id="signup_tel" name="tel" /><br />
+    推荐人ID <input type="text" id="signup_referee" name="referee" /><br />
+    验证码 <input type="text" id="signup_capcha" name="capcha" /><br/>
+    <img id="signup_capcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
+    <input type="button" value="注册" id="signup_signup" />
+</div>
 
-</body>
+

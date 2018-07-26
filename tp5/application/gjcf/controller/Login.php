@@ -16,48 +16,28 @@ class Login extends Controller{
 
     public function Login(Request $request){
         //先验证验证码
-        if(HelperApi::IsOpenCapcha()){
-            if(!captcha_check($request->param('capcha'))){
-                return "验证码错误";
-//                $this->error('验证码错误');
+        if(!captcha_check($request->param('capcha'))){
+            $json_arr = ['code' => 2, 'msg' => "验证码错误"];
+        }else{
+            $username = $request->param('username');
+            $password = $request->param('password');
+            $user = UserModel::where(['username' => $username, 'password' => $password])->find();
+            if(empty($user)) {
+                $json_arr = ['code' => 3, 'msg' => "用户名或密码错误"];
+            }else if($user->status === 1){
+                $json_arr = ['code' => 1, 'msg' => "用户状态错误，请联系管理员"];
+            }else{
+                $user->latestlogintime = date('Y-m-d H:i:s');
+                $user->allowField(true)->save();
+                Session::set('userid', $user->id);
+                if(HelperApi::IsAdmin()){
+                    $this->success('登录成功', 'gjcf/admin/index', 0, 1);
+                }else{
+                    $json_arr = ['code' => 0, 'msg' => '登录成功', 'username' => $username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
+                }
             }
         }
-
-//        $username = 'zhangzhao';
-//        $password = 'zhangzhao';
-        $username = $request->param('username');
-        $password = $request->param('password');
-
-
-        $user = UserModel::where(['username' => $username, 'password' => $password])->find();
-        if(empty($user)) {
-            return "用户名或密码错误";
-//            $this->error('用户名或密码错误');
-        }
-
-        if($user->status != 0){
-            return "用户状态错误，请联系管理员";
-//            $this->error('用户状态错误，请联系管理员', 'gjcf/login/index', 0, 1);
-        }
-
-        $user->latestlogintime = date('Y-m-d H:i:s');
-        $user->allowField(true)->save();
-        Session::set('userid', $user->id);
-        if(HelperApi::IsAdmin()){
-            $this->success('登录成功', 'gjcf/admin/index', 0, 1);
-        }else{
-            $result  = array();
-            $result['code'] = 1;
-            $result['msg'] = "登录成功";
-            $result['username'] = $username;
-            $result['userid'] = $user->id;
-            $result['usableydc'] = $user->usableydc;
-            $result['freezenydc'] = $user->freezenydc;
-            return json_encode($result);
-//            return 'result:{info;"登录成功"}';
-
-//            $this->success('登录成功', 'gjcf/index/index', 0, 1);
-        }
+        return json_encode($json_arr);
     }
 
     public function ForgetPassword(){
