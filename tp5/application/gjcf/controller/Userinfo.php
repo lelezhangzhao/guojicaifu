@@ -13,11 +13,12 @@ class Userinfo extends Controller{
     public function GetHeaderUserInfo(){
         $status = HelperApi::TestLoginAndStatus($this);
         if($status !== true){
-            return $status;
+            $json_arr = $status;
+        }else{
+            $user = UserModel::get(Session::get('userid'));
+            $json_arr = ['code' => 0, 'username' => $user->username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
         }
 
-        $user = UserModel::get(Session::get('userid'));
-        $json_arr = ['code' => 0, 'username' => $user->username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
         return json_encode($json_arr);
     }
 }

@@ -31,9 +31,9 @@ class Helper extends Controller{
         return Session::has('userid');
     }
 
-    static public function LoginFirst($controller){
-        $controller->error('先登录', 'gjcf/login/index', 0, 1);
-    }
+//    static public function LoginFirst($controller){
+//        $controller->error('先登录', 'gjcf/login/index', 0, 1);
+//    }
 
     static public function SetUserDisabled($userid, $info){
         //user
@@ -74,22 +74,25 @@ class Helper extends Controller{
 
     static public function TestLoginAndStatus($controller){
         if(!self::IsLoginUp()){
-            self::LoginFirst($controller);
+//            self::LoginFirst($controller);
+            $json_arr = ['code' => 10, 'msg' => '用户未登录'];
+            return $json_arr;
         }
         if(!self::IsCurUserEnable()){
             $json_arr = ['code' => 1, 'msg' => '用户状态错误，请联系管理员'];
-            return json_encode($json_arr);
+            return $json_arr;
         }
         return true;
     }
 
 
     static public function TestAccountInfo($controller){
-        self::TestLoginAndStatus($controller);
 
         $user = UserModel::get(Session::get('userid'));
         if(empty($user->name)){
-            $controller->error('完善账户信息', 'gjcf/accountinfo/index', 0, 1);
+            $json_arr = ['code' => 11, 'msg' => '账户信息未完善'];
+            return $json_arr;
+//            $controller->error('完善账户信息', 'gjcf/accountinfo/index', 0, 1);
         }
         return true;
     }

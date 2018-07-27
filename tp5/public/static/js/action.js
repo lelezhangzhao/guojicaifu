@@ -279,33 +279,75 @@ function GetWithdrawYdc(){
     xmlhttp.open("POST", "/index.php/gjcf/withdraw/getwithdrawydc");
     xmlhttp.send();
 }
+/*
+ echo '<caption>'.$project->caption.'</caption>';
+ echo '<investydc>'.$project->investydc.'</investydc>';
+ echo '<profitydc>'.$project->profitydc.'</profitydc>';
+ echo '<curinvest>'.$project->curinvest.'</curinvest>';
+ echo '<remaininvest>'.$project->remaininvest.'</remaininvest>';
 
+ */
 function GetProject(){
-    $.ajax({
-        type:"post",
-        url:"/index.php/gjcf/index/getproject",
-        async:true,
-        dataType:"xml",
-        success:function(data){
-            $(data).find("item").each(function(i) {
-                //获取城市名字
-                var id=$(this).children("id").text();
-                $("#index_projectlist").html(id);
-                $.ShowMsg("success");
-            });
 
-        },
-        error:function(hd, msg){
-            $.ShowMsg(msg);
-        }
+    layui.use(['layer', 'table', 'laypage'], function(){
+        var layer =layui.layer;
+        var table = layui.table;
+        var laypage = layui.laypage;
+        var tableIns = table.render({
+            elem: '#userList',
+            url : '/index.php/gjcf/index/getproject',
+            cellMinWidth : 95,
+            page : true,
+            height : "full-125",
+            limits : [10,15,20,25],
+            limit : 10,
+            id : "userListTable",
+            cols : [[
+                {field: 'caption', title: '投资项目', minWidth:100, align:"center"},
+                {field: 'investydc', title: '投资额度', minWidth:200, align:'center'},
+                {field: 'profitydc', title: '收益', align:'center'},
+                {field: 'remaininvest', title: '剩余额度',  align:'center'},
+                {title: '操作', minWidth:175, templet:'#userListBar',fixed:"right",align:"center"}
+            ]]
+        });
     });
-    // xmlhttp.onreadystatechange = function(){
-    //     if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-    //         document.getElementById("index_projectlist").innerHTML = xmlhttp.responseText;
+    // $.ajax({
+    //     type:"post",
+    //     url:"/index.php/gjcf/index/getproject",
+    //     async:true,
+    //     dataType:"xml",
+    //     success:function(data){
+    //         var table = "<table id='index_table'>" +
+    //             "<tr>" +
+    //                 "<th>项目名称</th>" +
+    //                 "<th>投资金额</th>" +
+    //                 "<th>收益</th>" +
+    //                 "<th>当前投资额</th>" +
+    //                 "<th>剩余投资额</th>" +
+    //             "</tr>";
+    //         $(data).find("item").each(function(i) {
+    //             //获取城市名字
+    //             var caption=$(this).children("caption").text();
+    //             var investydc = $(this).children("investydc").text();
+    //             var profitydc = $(this).children("profitydc").text();
+    //             var curinvest = $(this).children("curinvest").text();
+    //             var remaininvest = $(this).children("remaininvest").text();
+    //             table += "<tr>" +
+    //                     "<td>" + caption + "</td>" +
+    //                     "<td>" + investydc + "</td>" +
+    //                     "<td>" + profitydc + "</td>" +
+    //                     "<td>" + curinvest + "</td>" +
+    //                     "<td>" + remaininvest + "</td>" +
+    //                 "</tr>"
+    //         });
+    //         table += "</table>";
+    //         $("#index_projectlist").html(table);
+    //
+    //     },
+    //     error:function(hd, msg){
+    //         $.ShowMsg(msg);
     //     }
-    // };
-    // xmlhttp.open("POST", "/index.php/gjcf/index/getproject");
-    // xmlhttp.send();
+    // });
 }
 
 function ChargeConfirmSuccess(chargeid){
