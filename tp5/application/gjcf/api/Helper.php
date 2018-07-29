@@ -15,13 +15,10 @@ use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 
 class Helper extends Controller{
     static public function IsAdmin(){
-        $user = UserModel::where('id', Session::get('userid'))->find();
-        if(empty($user)){
-            return false;
-        }else{
-            if($user->role !== 1){
+        $user = UserModel::where('id', Session::get('userid'))->find();{
+            if ($user->role !== 1) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }
@@ -75,12 +72,12 @@ class Helper extends Controller{
     static public function TestLoginAndStatus($controller){
         if(!self::IsLoginUp()){
 //            self::LoginFirst($controller);
-            $json_arr = ['code' => 10, 'msg' => '用户未登录'];
-            return $json_arr;
+            $json_arr = ['code' => 102, 'msg' => '用户未登录'];
+            return json_encode($json_arr);
         }
         if(!self::IsCurUserEnable()){
-            $json_arr = ['code' => 1, 'msg' => '用户状态错误，请联系管理员'];
-            return $json_arr;
+            $json_arr = ['code' => 100, 'msg' => '用户状态错误，请联系管理员'];
+            return json_encode($json_arr);
         }
         return true;
     }
@@ -90,11 +87,25 @@ class Helper extends Controller{
 
         $user = UserModel::get(Session::get('userid'));
         if(empty($user->name)){
-            $json_arr = ['code' => 11, 'msg' => '账户信息未完善'];
-            return $json_arr;
+//            ReturnCodeMsg(103, '账户信息未完善');
+            $json_arr = ['code' => 103, 'msg' => '账户信息未完善'];
+            return json_encode($json_arr);
 //            $controller->error('完善账户信息', 'gjcf/accountinfo/index', 0, 1);
         }
         return true;
+    }
+
+    static public function TestIsAdmin($controller){
+        if(true !== self::IsAdmin()){
+            self::SetUserDisabled(Session::get('userid'), '非管理员访问管理员页面');
+            self::ReturnCodeMsg(501, '非管理员访问管理员页面');
+        }
+        return true;
+    }
+
+    static public function ReturnCodeMsg($code, $msg){
+        $json_arr = ['code' => $code, 'msg' => $msg];
+        return json_encode($json_arr);
     }
 
     static public function IsOpenCapcha(){

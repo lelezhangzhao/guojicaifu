@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1532607090;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532607090;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1532607090;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532831810;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
     <title>登录</title>
@@ -7,10 +7,11 @@
 
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
-    <script type="text/javascript" src="/static/js/action.js?version=36"></script>
+    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+    <script type="text/javascript" src="/static/js/action.js?version=40"></script>
     <script type="text/javascript">
 
     </script>

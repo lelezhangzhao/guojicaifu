@@ -17,7 +17,7 @@ class Signup extends Controller{
     public function Signup(Request $request){
         //先验证验证码
         if(!captcha_check($request->param('capcha'))) {
-            $json_arr = ['code' => 2, 'msg' => '验证码错误'];
+            $json_arr = ['code' => 300, 'msg' => '验证码错误'];
         }else{
             $username = $request->param('username');
             $password = $request->param('password');
@@ -25,9 +25,9 @@ class Signup extends Controller{
             $referee = $request->param('referee');
 
             if(!empty(UserModel::where('username', $username)->find())){
-                $json_arr = ['code' => 7, 'msg' => '用户名已存在'];
+                $json_arr = ['code' => 101, 'msg' => '用户名已存在'];
             }else if(empty(UserModel::where('id', $referee)->find())) {
-                $json_arr = ['code' => 8, 'msg' => '推荐码有误'];
+                $json_arr = ['code' => 304, 'msg' => '推荐码有误'];
             }else{
                 $user = new UserModel;
                 $user->username = $username;
@@ -43,7 +43,7 @@ class Signup extends Controller{
                 $user->hasinvest = 0;
                 $result = $this->validate($user, 'User');
                 if(true !== $result){
-                    $json_arr = ['code' => 6, 'msg' => $result];
+                    $json_arr = ['code' => 400, 'msg' => $result];
                 }else{
                     $user->allowField(true)->save();
                     //ydcrecord

@@ -5,12 +5,20 @@ namespace app\gjcf\controller;
 
 use think\Controller;
 use think\Session;
+use think\Request;
+use think\Db;
 
 use app\gjcf\model\Ydcrecord as YdcrecordModel;
 use app\gjcf\api\Helper as HelperApi;
 
 class Ydcrecord extends Controller{
     public function Index(){
+        HelperApi::TestLoginAndStatus($this);
+
+        return $this->fetch();
+    }
+
+    public function GetYdcRecord(Request $request){
         //充值
         //提现
         //正常收益
@@ -19,12 +27,41 @@ class Ydcrecord extends Controller{
         //分红
         HelperApi::TestLoginAndStatus($this);
 
-        $ydcrecord = YdcrecordModel::where('userid', Session::get('userid'))
-            ->order('createtime', 'desc')
-            ->paginate(10);
+        $page = $request->param('page');
+        $limit = $request->param('limit');
+
+        $tol = ($page - 1) * $limit;
+
+        $ydcrecordcount = Db::name('ydcrecord')
+            ->where('userid', Session::get('userid'))
+            ->count();
+
+        $ydcrecords = Db::name('ydcrecord')
+            ->where('userid', Session::get('userid'))
+            ->limit($tol, $limit)
+            ->select();
+
+        $list["msg"]="";
+        $list["code"]=0;
+        $list["count"]=$ydcrecordcount;
+        $list["data"]=$ydcrecords;
+        if(empty($ydcrecords)){
+            $list["msg"]="暂无数据";
+        }
+
+        return json($list);
+//        echo '{"code":0,"msg":"","count":'.$ydcrecordcount.',"data":[';
+//        foreach($ydcrecords as $ydcrecord){
+//            echo json_encode($ydcrecord);
+//            if($ydcrecord['id'] !== $ydcrecords[count($ydcrecords) - 1]['id']){
+//                echo ',';
+//            }
+//        }
+//        echo ']}';
 
 
-        $this->assign('ydcrecordlist', $ydcrecord);
-        return $this->fetch();
+
+
     }
+    
 }

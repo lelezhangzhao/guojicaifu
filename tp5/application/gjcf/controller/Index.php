@@ -2,6 +2,8 @@
 namespace app\gjcf\controller;
 
 use think\Controller;
+use think\Request;
+use think\Db;
 
 use app\gjcf\model\Project as ProjectModel;
 use app\gjcf\api\Helper as HelperApi;
@@ -13,19 +15,43 @@ class Index extends Controller{
         return $this->fetch();
     }
 
-    public function GetProject(){
+    public function GetProject(Request $request){
         HelperApi::TestLoginAndStatus($this);
 
-        $projects = ProjectModel::all();
+        $page = $request->param('page');
+        $limit = $request->param('limit');
 
-        echo '{"code":0,"msg":"","count":'.count($projects).',"data":[';
-        foreach($projects as $project){
-            echo json_encode($project);
-            if($project->id !== $projects[count($projects) - 1]->id){
-                echo ",";
-            }
+        $tol = ($page - 1) * $limit;
+
+        $projectcount = Db::name('project')
+            ->where('status', 0)
+            ->count();
+
+        $projects = Db::name('project')
+            ->where('status', 0)
+            ->limit($tol, $limit)
+            ->select();
+
+
+        $list["msg"]="";
+        $list["code"]=0;
+        $list["count"]=$projectcount;
+        $list["data"]=$projects;
+        if(empty($projects)){
+            $list["msg"]="暂无数据";
         }
-        echo "]}";
+
+        return json($list);
+
+
+//        echo '{"code":0,"msg":"","count":'.$projectcount.',"data":[';
+//        foreach($projects as $project){
+//            echo json_encode($project);
+//            if($project['id'] !== $projects[count($projects) - 1]['id']){
+//                echo ",";
+//            }
+//        }
+//        echo "]}";
 
 
 /*       echo '<?xml version="1.0" encoding="UTF-8"?>';

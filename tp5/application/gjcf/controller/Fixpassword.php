@@ -24,16 +24,17 @@ class Fixpassword extends Controller{
 
         //验证原密码
         $user = UserModel::where('id', $userid)->find();
-        if($user->status === 1){
-            $this->error('账户状态错误');
-        }
+
         if($user->password !== $oldpassword){
-            $this->error('原密码错误', 'gjcf/fixpassword/index', 0, 1);
+            ReturnCodeMsg(103, '账户信息未完善');
+
+//            $this->error('原密码错误', 'gjcf/fixpassword/index', 0, 1);
         }
 
         //新旧密码不能相同
         if($oldpassword === $newpassword){
-            $this->error('新旧密码不能相同', 'gjcf/fixpassword/index', 0, 1);
+            ReturnCodeMsg(307, '新旧密码不能相同');
+//            $this->error('新旧密码不能相同', 'gjcf/fixpassword/index', 0, 1);
         }
         $user->password = $newpassword;
         $result = $this->validate($user, 'User');
@@ -41,7 +42,9 @@ class Fixpassword extends Controller{
             return $result;
         }
         $user->allowField(true)->save();
-        $this->success('更新成功', 'gjcf/index/index', 0, 1);
+        Session::delete("userid");
+        ReturnCodeMsg(0, '密码更新成功，请重新登录');
+//        $this->success('更新成功', 'gjcf/index/index', 0, 1);
     }
 
 }

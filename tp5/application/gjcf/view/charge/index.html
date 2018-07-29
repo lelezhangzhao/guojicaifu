@@ -1,10 +1,10 @@
 {include file="layout" title="充值" /}
 <body>
-<form method="post" >
+<div >
     支付宝扫码：<br/>
     <img src="__IMAGE__/charge.png" height="200" width="200"><br/>
-    充值金额 <input type="text" name="ydc" />最低10元起充<br />
-    <input type="submit" value="确定" formaction="{:url('gjcf/charge/charge')}" name="login" /><br />
-</form>
+    充值金额 <input type="text" id="charge_ydc" name="ydc" />最低10元起充<br />
+    <input type="submit" value="确定" id="charge_ok" name="login" /><br />
+</div>
 
 </body>

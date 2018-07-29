@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532615767;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532607090;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1532736805;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532831810;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
     <title>主页</title>
@@ -7,10 +7,11 @@
 
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
-    <script type="text/javascript" src="/static/js/action.js?version=36"></script>
+    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+    <script type="text/javascript" src="/static/js/action.js?version=40"></script>
     <script type="text/javascript">
 
     </script>
@@ -91,15 +92,69 @@
 
 <div id="bottom">
     <h2>投资项目</h2>
-    <div id="index_projectlist">
+    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/index/getproject', page:true, id:'idTest'}" lay-filter="index_invest">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id', sort: true, fixed: true}">ID</th>
+            <th lay-data="{field:'caption'}">项目名称</th>
+            <th lay-data="{field:'investydc', sort: true}">投资金额</th>
+            <th lay-data="{field:'profitydc'}">收益</th>
+            <th lay-data="{field:'remaininvest'}">剩余投资额</th>
+            <th lay-data="{fixed: 'right', align:'center', toolbar: '#barDemo'}"></th>
+        </tr>
+        </thead>
+    </table>
 
-    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">投资协议</a>
+        <a class="layui-btn layui-btn-xs" lay-event="invest">投资</a>
+    </script>
     <div class="layui-tab-item">
         <div id="pageDemo"></div>
     </div>
 </div>
+<script>
+    layui.use(['layer', 'table'], function(){
+        var table = layui.table;
+
+        //监听工具条
+        table.on('tool(index_invest)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                layer.msg('ID：'+ data.id + ' 的查看操作');
+            } else if(obj.event === 'invest'){
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/gjcf/invest/investproject",
+                    async:true,
+                    dateType:"json",
+                    data:{
+                        projectid:data.id
+                    },
+                    success:function(ajaxdata){
+                        ajaxdata = eval("(" + ajaxdata + ")");
+                        $.ShowMsg(ajaxdata.msg);
+                        //10,1,11,9,12,0,13
+                        switch(ajaxdata.code){
+                            case 0: //更新剩余投资额
+                                obj.update({
+                                    remaininvest: ajaxdata.remaininvest
+                                });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            } else if(obj.event === 'edit'){
+                layer.alert('编辑行：<br>'+ JSON.stringify(data))
+            }
+        });
+
+    });
+</script>
 <script type="text/javascript">
-    $(window).onload = GetProject();
+//    $(window).onload = GetProject();
 
     //分页
 //    layui.use(['laypage', 'layer'], function(){

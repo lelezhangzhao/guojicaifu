@@ -17,13 +17,13 @@ class Login extends Controller{
     public function Login(Request $request){
         //先验证验证码
         if(!captcha_check($request->param('capcha'))){
-            $json_arr = ['code' => 2, 'msg' => "验证码错误"];
+            $json_arr = ['code' => 300, 'msg' => "验证码错误"];
         }else{
             $username = $request->param('username');
             $password = $request->param('password');
             $user = UserModel::where(['username' => $username, 'password' => $password])->find();
             if(empty($user)) {
-                $json_arr = ['code' => 3, 'msg' => "用户名或密码错误"];
+                $json_arr = ['code' => 301, 'msg' => "用户名或密码错误"];
             }else if($user->status === 1){
                 $json_arr = ['code' => 1, 'msg' => "用户状态错误，请联系管理员"];
             }else{

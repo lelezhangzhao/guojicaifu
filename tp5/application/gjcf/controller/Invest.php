@@ -29,7 +29,7 @@ class Invest extends Controller{
         if (empty($project)) {
             //违规访问，封号
             HelperApi::SetUserDisabled(Session::get('id'), '违规访问project');
-            $json_arr = ['code' => 9, 'msg' => '违规访问projet,已封号'];
+            $json_arr = ['code' => 500, 'msg' => '违规访问projet,已封号'];
             return json_encode($json_arr);
         }
 
@@ -40,7 +40,7 @@ class Invest extends Controller{
 
         $user = UserModel::get(Session::get('userid'));
         if ($user->usableydc < $project->investydc) {
-            $json_arr = ['code' => 12, 'msg' => '余额不足'];
+            $json_arr = ['code' => 200, 'msg' => '可用余额不足'];
             return json_encode($json_arr);
         }
 
@@ -51,7 +51,7 @@ class Invest extends Controller{
 
             if ($trans_project['remaininvest'] < $trans_project['investydc']) {
                 $trans_project['status'] = 2;
-                throw new \Exception('项目额度不足', 13);
+                throw new \Exception('项目额度不足', 600);
             }else{
                 $trans_project['curinvest'] += $trans_project['investydc'];
                 $trans_project['remaininvest'] -= $trans_project['investydc'];

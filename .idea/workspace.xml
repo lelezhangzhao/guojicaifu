@@ -24,27 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Login.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/investrecord/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#38#59#0#PHP" expanded="true" />
-                <marker date="1532607090439" expanded="true" signature="207:1668" ph="..." />
-                <marker date="1532607090439" expanded="true" signature="320:1457" ph="..." />
-                <marker date="1532607090439" expanded="true" signature="1497:1569" ph="..." />
-                <marker date="1532607090439" expanded="true" signature="1601:1665" ph="..." />
-              </folding>
+            <state relative-caret-position="918">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/index/index.html">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/chargeconfirm/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="540">
+              <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -53,36 +47,20 @@
       <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+            <state relative-caret-position="324">
+              <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
               <folding>
-                <marker date="1532607090689" expanded="true" signature="2499:2560" ph="..." />
-                <marker date="1532607090689" expanded="true" signature="2499:2574" ph="..." />
-                <marker date="1532607090689" expanded="true" signature="2499:2656" ph="..." />
-                <marker date="1532607090689" expanded="true" signature="2704:2847" ph="..." />
-                <marker date="1532607090689" expanded="true" signature="2779:2836" ph="{...}" />
+                <marker date="1532831810315" expanded="true" signature="2500:2561" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/login/index.html">
+      <file leaf-file-name="Chargeconfirm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Chargeconfirm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="8" column="119" lean-forward="false" selection-start-line="8" selection-start-column="119" selection-end-line="8" selection-end-column="119" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Accountinfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Accountinfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+            <state relative-caret-position="324">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#39#70#0#PHP" expanded="true" />
               </folding>
@@ -90,45 +68,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/api/Helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="92" column="75" lean-forward="true" selection-start-line="92" selection-start-column="75" selection-end-line="92" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp5/public/static/js/action.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="292" column="44" lean-forward="false" selection-start-line="292" selection-start-column="40" selection-end-line="292" selection-end-column="44" />
+            <state relative-caret-position="493">
+              <caret line="362" column="57" lean-forward="false" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Project.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Project.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/forgetpassword/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Index.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/charge/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+            <state relative-caret-position="243">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/index/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="11" column="44" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
-                <marker date="1532615392473" expanded="true" signature="489:551" ph="..." />
-                <marker date="1532615392473" expanded="true" signature="558:624" ph="..." />
-                <marker date="1532615392473" expanded="true" signature="583:624" ph="..." />
+                <marker date="1532736805584" expanded="true" signature="2427:2894" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp5/application/config.php">
+      <file leaf-file-name="Charge.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Charge.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="567">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,12 +134,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user_id</find>
-      <find>_</find>
-      <find>dump</find>
-      <find>html(</find>
-      <find>html</find>
-      <find>.html(</find>
+      <find>page</find>
+      <find>&quot;error&quot;</find>
+      <find>'&quot;</find>
+      <find>'co&quot;</find>
+      <find>'cod&quot;</find>
+      <find>'code&quot;</find>
+      <find>'code'&quot;</find>
+      <find>'code' &quot;</find>
+      <find>'code' =&quot;</find>
+      <find>'code' =&gt;&quot;</find>
+      <find>'code' =&gt; &quot;</find>
+      <find>'code' =&gt; 1&quot;</find>
+      <find>'code' =&gt; 7</find>
+      <find>'code' =&gt; 10</find>
+      <find>'code' =&gt; 112</find>
+      <find>'code' =&gt; 11</find>
+      <find>'code' =&gt; 12</find>
+      <find>'code' =&gt; 2</find>
+      <find>'code' =&gt; 3</find>
+      <find>'code' =&gt; 4</find>
+      <find>'code' =&gt; 5</find>
+      <find>'code' =&gt; 8</find>
+      <find>'code' =&gt; 14</find>
+      <find>'code' =&gt; 15</find>
+      <find>'code' =&gt; 1</find>
+      <find>'code' =&gt; 6</find>
+      <find>'code' =&gt; 9</find>
+      <find>'code' =&gt;</find>
+      <find>'code' =&gt; 13</find>
+      <find>项目投资额已满</find>
     </findStrings>
     <replaceStrings>
       <replace>userid</replace>
@@ -154,28 +174,19 @@
       <list>
         <option value="$PROJECT_DIR$/tp5/application/gjcf/view/withdrawconfirm/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Assets.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Chargeconfirm.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Withdrawconfirm.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Investrecord.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Investrecord.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/investrecord/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Chargerecord.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/view/balance/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Balance.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/accountinfo/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/api/Telidentify.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Telidentify.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Post.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Ydcrecord.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Sharebonus.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Bonusrecord.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Bonus.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Charge.php" />
         <option value="$PROJECT_DIR$/tp5/public/static/css/style.css" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Ydcrecord.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/ydcrecord/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Refereerecord.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/fixpassword/index.html" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Dayprofit.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Refereeone.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/view/signup/index.html" />
@@ -183,21 +194,35 @@
         <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Signrecord.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Sign.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Logout.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Fixpassword.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Team.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Withdraw.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Invest.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/api/Helper.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Signup.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Accountinfo.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Forgetpassword.php" />
         <option value="$PROJECT_DIR$/tp5/application/config.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/view/login/index.html" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/header.html" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Login.php" />
-        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Index.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Userinfo.php" />
         <option value="$PROJECT_DIR$/tp5/application/gjcf/view/index/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/investrecord/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Ydcrecord.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Index.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Investrecord.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/ydcrecord/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/model/Ydcrecord.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/forgetpassword/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/charge/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/withdraw/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/accountinfo/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Login.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Withdraw.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Forgetpassword.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Signup.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Invest.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/fixpassword/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Fixpassword.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Chargeconfirm.php" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/chargeconfirm/index.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/view/header.html" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/api/Helper.php" />
         <option value="$PROJECT_DIR$/tp5/public/static/js/action.js" />
+        <option value="$PROJECT_DIR$/tp5/application/gjcf/controller/Charge.php" />
       </list>
     </option>
   </component>
@@ -209,10 +234,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="663" />
-    <option name="y" value="110" />
-    <option name="width" value="1627" />
-    <option name="height" value="1156" />
+    <option name="x" value="113" />
+    <option name="y" value="53" />
+    <option name="width" value="2239" />
+    <option name="height" value="1291" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -638,6 +663,36 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="investrecord" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gjcf" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="index" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -699,6 +754,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="fixpassword" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gjcf" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chargeconfirm" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -872,8 +957,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1002,11 +1087,14 @@
       <workItem from="1532434356898" duration="8504000" />
       <workItem from="1532479797602" duration="18185000" />
       <workItem from="1532608826711" duration="2979000" />
+      <workItem from="1532700770781" duration="683000" />
+      <workItem from="1532732193538" duration="14431000" />
+      <workItem from="1532823158834" duration="11794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67976000" />
+    <option name="totallyTimeSpent" value="94884000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1018,11 +1106,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="663" y="110" width="1627" height="1156" extended-state="0" />
+    <frame x="113" y="53" width="2239" height="1291" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20670392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14979757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22896986" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1036,7 +1125,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1055,65 +1143,11 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl_d.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4698">
-          <caret line="174" column="9" lean-forward="false" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Chargerecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Chargeconfirm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/withdrawconfirm/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Sharebonus.php" />
-    <entry file="file://$PROJECT_DIR$/tp5/public/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Chargerecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Bonusrecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Investrecord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1154,25 +1188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/ydcrecord/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Charge.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#60#0#PHP" expanded="false" />
-            <marker date="1532343128548" expanded="true" signature="274:981" ph="..." />
-            <marker date="1532343128548" expanded="true" signature="477:979" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Refereerecord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1180,20 +1195,6 @@
           <folding>
             <marker date="1532271103288" expanded="true" signature="85:464" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/charge/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/forgetpassword/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1227,14 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Ydcrecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Signrecord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1243,51 +1236,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/fixpassword/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="88" lean-forward="false" selection-start-line="5" selection-start-column="88" selection-end-line="5" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Investrecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Ydcrecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/accountinfo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Withdraw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1330,60 +1282,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/api/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="99" column="21" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#38#59#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Fixpassword.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Telidentify.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Forgetpassword.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <marker date="1532607090438" expanded="true" signature="160:2270" ph="..." />
-            <marker date="1532607090438" expanded="true" signature="281:522" ph="..." />
-            <marker date="1532607090438" expanded="true" signature="509:522" ph="..." />
-            <marker date="1532607090438" expanded="true" signature="2261:2268" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Invest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="117" column="112" lean-forward="false" selection-start-line="117" selection-start-column="112" selection-end-line="117" selection-end-column="112" />
-          <folding>
-            <element signature="e#38#59#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1403,41 +1306,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/header.html">
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Accountinfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        <state relative-caret-position="945">
+          <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
           <folding>
-            <marker date="1532607090689" expanded="true" signature="2499:2560" ph="..." />
-            <marker date="1532607090689" expanded="true" signature="2499:2574" ph="..." />
-            <marker date="1532607090689" expanded="true" signature="2499:2656" ph="..." />
-            <marker date="1532607090689" expanded="true" signature="2704:2847" ph="..." />
-            <marker date="1532607090689" expanded="true" signature="2779:2836" ph="{...}" />
+            <element signature="e#39#70#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Login.php">
+    <entry file="file://$PROJECT_DIR$/tp5/public/static/layui/lay/modules/laydate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#38#59#0#PHP" expanded="true" />
-            <marker date="1532607090439" expanded="true" signature="207:1668" ph="..." />
-            <marker date="1532607090439" expanded="true" signature="320:1457" ph="..." />
-            <marker date="1532607090439" expanded="true" signature="1497:1569" ph="..." />
-            <marker date="1532607090439" expanded="true" signature="1601:1665" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/login/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="8" column="119" lean-forward="false" selection-start-line="8" selection-start-column="119" selection-end-line="8" selection-end-column="119" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="1" column="15159" lean-forward="false" selection-start-line="1" selection-start-column="15159" selection-end-line="1" selection-end-column="15159" />
         </state>
       </provider>
     </entry>
@@ -1449,48 +1331,252 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Accountinfo.php">
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Userinfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+        <state relative-caret-position="216">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/public/static/layer/layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="1" column="425" lean-forward="false" selection-start-line="1" selection-start-column="425" selection-end-line="1" selection-end-column="425" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/public/static/layui/layui.all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="1" column="9071" lean-forward="false" selection-start-line="1" selection-start-column="9067" selection-end-line="1" selection-end-column="9071" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Investrecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="19" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
           <folding>
-            <element signature="e#39#70#0#PHP" expanded="true" />
+            <element signature="e#39#60#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/ydcrecord/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Ydcrecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="46" column="34" lean-forward="false" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+          <folding>
+            <element signature="e#40#61#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/model/Ydcrecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/login/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/withdraw/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="117" lean-forward="true" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/accountinfo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding>
+            <element signature="e#38#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Withdraw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Forgetpassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="59" column="62" lean-forward="true" selection-start-line="59" selection-start-column="62" selection-end-line="59" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/status标识.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="967">
+          <caret line="71" column="7" lean-forward="false" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/fixpassword/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Fixpassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#38#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Invest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="62" column="75" lean-forward="true" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+        <state relative-caret-position="351">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding>
-            <marker date="1532615392473" expanded="true" signature="489:551" ph="..." />
-            <marker date="1532615392473" expanded="true" signature="558:624" ph="..." />
-            <marker date="1532615392473" expanded="true" signature="583:624" ph="..." />
+            <marker date="1532774136924" expanded="true" signature="372:775" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="324">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <marker date="1532736805584" expanded="true" signature="2427:2894" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/investrecord/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp5/public/static/layui/lay/modules/laydate.js">
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/chargeconfirm/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="1" column="15159" lean-forward="false" selection-start-line="1" selection-start-column="15159" selection-end-line="1" selection-end-column="15159" />
+        <state relative-caret-position="540">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
+          <folding>
+            <marker date="1532831810315" expanded="true" signature="2500:2561" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/forgetpassword/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/view/charge/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Chargeconfirm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#39#70#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tp5/public/static/js/action.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="292" column="44" lean-forward="false" selection-start-line="292" selection-start-column="40" selection-end-line="292" selection-end-column="44" />
+        <state relative-caret-position="493">
+          <caret line="362" column="57" lean-forward="false" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/controller/Charge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp5/application/gjcf/api/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="92" column="75" lean-forward="true" selection-start-line="92" selection-start-column="75" selection-end-line="92" selection-end-column="75" />
           <folding />
         </state>
       </provider>

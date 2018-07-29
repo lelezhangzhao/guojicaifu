@@ -1,21 +1,92 @@
 {include file="layout" title="确认充值"/}
-<body >
+
 
 <div id="bottom">
-    <form method="post" action="" target="exec_target">
-        <h2>确认充值</h2>
-        {volist name="chargelist" id="charge"}
-        <div>
-            姓名：{$charge.name}<br/>
-            支付宝账号：{$charge.alipaynum}<br/>
-            充值额度：{$charge.ydc}<br/>
-            充值时间：{$charge.confirmtime}<br/>
-            <input type="submit" value="确定" id="chargeconfirmok{$charge.id}" onclick="ChargeConfirmSuccess({$charge.id})"  />
-            <input type="submit" value="取消" id="chargeconfirmcancel{$charge.id}" onclick="ChargeConfirmFailed({$charge.id})" />
-        </div>
-        {/volist}
-    </form>
-    <iframe hidden id="exec_target" name="exec_target"></iframe>
+        <table class="layui-hide" id="chargeconfirm_table" lay-filter="chargeconfirmfilter"></table>
 </div>
 
-</body>
+
+<script>
+    layui.use("table", function(){
+        var table = layui.table;
+
+        table.render({
+            elem:"#chargeconfirm_table",
+            url:"/index.php/gjcf/chargeconfirm/getchargerecord",
+            cols:[[
+                {field:"name", title:"姓名"},
+                {field:"alipaynum", title:"支付宝账号"},
+                {field:"ydc", title:"充值额度"},
+                {field:"confirmtime", title:"充值时间"},
+                {field:"right", toolbar:"#chargeconfirm", title:"操作"}
+            ]],
+            page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局
+                //,curr: 5 //设定初始在第 5 页
+                rows: 10,
+                groups: 1, //只显示 1 个连续页码
+                first: false, //不显示首页
+                last: false //不显示尾页
+            }
+        });
+    });
+</script>
+
+<script type="text/html" id="chargeconfirm">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="success">确认</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="failed">取消</a>
+</script>
+<script>
+    layui.use("table", function(){
+        var table = layui.table;
+        table.on('tool(chargeconfirmfilter)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'success'){
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/gjcf/chargeconfirm/chargeconfirmsuccess",
+                    async:true,
+                    dateType:"json",
+                    data:{
+                        chargeid:data.id
+                    },
+                    success:function(ajaxdata){
+                        ajaxdata = eval("(" + ajaxdata + ")");
+                        $.ShowMsg(ajaxdata.msg);
+                        switch(ajaxdata.code){
+                            case 0: //更新剩余投资额
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            } else if(obj.event === 'failed'){
+                layer.msg('失败');
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/gjcf/chargeconfirm/chargeconfirmfailed",
+                    async:true,
+                    dateType:"json",
+                    data:{
+                        chargeid:data.id
+                    },
+                    success:function(ajaxdata){
+                        ajaxdata = eval("(" + ajaxdata + ")");
+                        $.ShowMsg(ajaxdata.msg);
+                        switch(ajaxdata.code){
+                            case 0: //更新剩余投资额
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            }
+            obj.del();
+        });
+
+    });
+</script>

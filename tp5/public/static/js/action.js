@@ -50,11 +50,11 @@ $(function(){
         layui.use("layer", function(){
             layer.msg(msg);
         });
-    }
+    };
 
     $.OpenNewUrl = function(url){
         window.location.href = url;
-    }
+    };
 
     // $.LoadHeader = function(){
     //     $.ajax({
@@ -208,16 +208,127 @@ $(function(){
                 $.ShowMsg(msg);
             }
         });
-/*
- 用户名 <input type="text" id="signup_username" name="username" /><br />
- 密码 <input type="text" id="signup_password" name="password" /><br />
- 手机号 <input type="text" id="signup_tel" name="tel" /><br />
- 推荐人ID <input type="text" id="signup_referee" name="referee" /><br />
- 验证码 <input type="text" id="signup_capcha" name="capcha" /><br/>
- <img src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
- <input type="button" value="注册" id="signup_signup" />
+    });
 
- */
+    $("#charge_ok").click(function(){
+        var ydc = $("#charge_ydc").val();
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/charge/charge",
+            dataType:"json",
+            data:{
+                ydc:ydc
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+
+    $("#withdraw_ok").click(function(){
+        var ydc = $("#withdraw_ydc").val();
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/withdraw/withdraw",
+            dataType:"json",
+            data:{
+                ydc:ydc
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+
+
+
+    $("#accountinfo_getaccountinfotelidentify").click(function(){
+        sendCode(document.getElementById("accountinfo_getaccountinfotelidentify"));
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/accountinfo/gettelidentify",
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+
+    $("#accountinfo_save").click(function(){
+        var name = $("#accountinfo_name").val();
+        var alipaynum = $("#accountinfo_alipaynum").val();
+        var telidentify = $("#accountinfo_telidentify").val();
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/accountinfo/saveaccountinfo",
+            dataType:"json",
+            data:{
+                name:name,
+                alipaynum:alipaynum,
+                telidentify:telidentify
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+
+    $("#fixpassword_ok").click(function(){
+        var oldpassword = $("#fixpassword_oldpassword").val();
+        var newpassword = $("#fixpassword_newpassword").val();
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/fixpassword/fixpassword",
+            dataType:"json",
+            data:{
+                oldpassword:oldpassword,
+                newpassword:newpassword
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                $.ShowMsg(data.msg);
+                switch(data.code){
+                    case 0:
+                        $.OpenNewUrl("/index.php/gjcf/login/index");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     });
 
     $("#login_forgetpassword").click(function(){
@@ -225,7 +336,7 @@ $(function(){
     });
 
     $("#login_signup").click(function(){
-        $.OpenNewUrl("/index.php/gjcf/forgetpassword/index");
+        $.OpenNewUrl("/index.php/gjcf/signup/index");
     });
 
 
@@ -238,7 +349,48 @@ $(function(){
         $.OpenNewUrl("/index.php/gjcf/investrecord/index");
     });
     $("#header_charge").click(function(){
-        $.OpenNewUrl("/index.php/gjcf/charge/index");
+        // $.OpenNewUrl("/index.php/gjcf/charge/index");
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/charge/index",
+            dataType:"json",
+
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        window.location.href = "index.php"
+                        break;
+                    case 103:
+                        layui.use('layer', function(){
+                            layer.open({
+                                type: 1 //此处以iframe举例
+                                ,title: 'Error'
+                                ,area: ['200px', '100px']
+                                ,shade: 0
+                                ,maxmin: true
+                                ,content: '账户未设置，是否去设置？'
+                                ,btn: ['设置账户', '取消'] //只是为了演示
+                                ,yes: function(){
+                                    $.OpenNewUrl("/index.php/gjcf/accountinfo/index");
+                                }
+                                ,btn2: function(){
+                                    layer.closeAll();
+                                }
+                                ,zIndex: layer.zIndex //重点1
+                                ,success: function(layero){
+                                    layer.setTop(layero); //重点2
+                                }
+                            });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
     });
     $("#header_withdraw").click(function(){
         $.OpenNewUrl("/index.php/gjcf/withdraw/index");
@@ -287,68 +439,31 @@ function GetWithdrawYdc(){
  echo '<remaininvest>'.$project->remaininvest.'</remaininvest>';
 
  */
-function GetProject(){
-
-    layui.use(['layer', 'table', 'laypage'], function(){
-        var layer =layui.layer;
-        var table = layui.table;
-        var laypage = layui.laypage;
-        var tableIns = table.render({
-            elem: '#userList',
-            url : '/index.php/gjcf/index/getproject',
-            cellMinWidth : 95,
-            page : true,
-            height : "full-125",
-            limits : [10,15,20,25],
-            limit : 10,
-            id : "userListTable",
-            cols : [[
-                {field: 'caption', title: '投资项目', minWidth:100, align:"center"},
-                {field: 'investydc', title: '投资额度', minWidth:200, align:'center'},
-                {field: 'profitydc', title: '收益', align:'center'},
-                {field: 'remaininvest', title: '剩余额度',  align:'center'},
-                {title: '操作', minWidth:175, templet:'#userListBar',fixed:"right",align:"center"}
-            ]]
-        });
-    });
-    // $.ajax({
-    //     type:"post",
-    //     url:"/index.php/gjcf/index/getproject",
-    //     async:true,
-    //     dataType:"xml",
-    //     success:function(data){
-    //         var table = "<table id='index_table'>" +
-    //             "<tr>" +
-    //                 "<th>项目名称</th>" +
-    //                 "<th>投资金额</th>" +
-    //                 "<th>收益</th>" +
-    //                 "<th>当前投资额</th>" +
-    //                 "<th>剩余投资额</th>" +
-    //             "</tr>";
-    //         $(data).find("item").each(function(i) {
-    //             //获取城市名字
-    //             var caption=$(this).children("caption").text();
-    //             var investydc = $(this).children("investydc").text();
-    //             var profitydc = $(this).children("profitydc").text();
-    //             var curinvest = $(this).children("curinvest").text();
-    //             var remaininvest = $(this).children("remaininvest").text();
-    //             table += "<tr>" +
-    //                     "<td>" + caption + "</td>" +
-    //                     "<td>" + investydc + "</td>" +
-    //                     "<td>" + profitydc + "</td>" +
-    //                     "<td>" + curinvest + "</td>" +
-    //                     "<td>" + remaininvest + "</td>" +
-    //                 "</tr>"
-    //         });
-    //         table += "</table>";
-    //         $("#index_projectlist").html(table);
-    //
-    //     },
-    //     error:function(hd, msg){
-    //         $.ShowMsg(msg);
-    //     }
-    // });
-}
+// function GetProject(){
+//
+//     layui.use(['layer', 'table', 'laypage'], function(){
+//         var layer =layui.layer;
+//         var table = layui.table;
+//         var laypage = layui.laypage;
+//         var tableIns = table.render({
+//             elem: '#userList',
+//             url : '/index.php/gjcf/index/getproject',
+//             cellMinWidth : 95,
+//             page : true,
+//             height : "full-125",
+//             limits : [10,15,20,25],
+//             limit : 10,
+//             id : "userListTable",
+//             cols : [[
+//                 {field: 'caption', title: '投资项目', minWidth:100, align:"center"},
+//                 {field: 'investydc', title: '投资额度', minWidth:200, align:'center'},
+//                 {field: 'profitydc', title: '收益', align:'center'},
+//                 {field: 'remaininvest', title: '剩余额度',  align:'center'},
+//                 {title: '操作', minWidth:175, templet:'#userListBar',fixed:"right",align:"center"}
+//             ]]
+//         });
+//     });
+// }
 
 function ChargeConfirmSuccess(chargeid){
     xmlhttp.onreadystatechange = function(){
@@ -391,31 +506,6 @@ function WithdrawConfirmFailed(withdrawid){
         }
     };
     xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmfailed?withdrawid="+withdrawid);
-    xmlhttp.send();
-}
-
-function GetAccountInfoTelIdentify(){
-    sendCode(document.getElementById("getaccountinfotelidentify"));
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            layui.use('layer', function(){
-                layer.msg("验证码已发送")
-            });
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/accountinfo/gettelidentify");
-    xmlhttp.send();
-}
-
-function SaveAccountInfo(name, alipaynum, telidentify){
-    xmlhttp.onreadystatechange = function (){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            layui.use('layer', function(){
-                layer.msg(xmlhttp.responseText)
-            });
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/accountinfo/saveaccountinfo?name="+name+"&alipaynum="+alipaynum+"&telidentify="+telidentify);
     xmlhttp.send();
 }
 

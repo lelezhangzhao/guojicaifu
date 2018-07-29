@@ -1,20 +1,32 @@
 {include file="layout" title="收益记录"/}
-<body >
+
 
 <div id="bottom">
-    <form method="post" action="" target="exec_target">
-        <h2>收益记录</h2>
-        {volist name="ydcrecordlist" id="ydcrecord"}
-        <div class="pagination">
-            类型：{$ydcrecord.ydcrecordtype}<br/>
-            YDC：{$ydcrecord.ydc}<br/>
-            结算时间：{$ydcrecord.createtime}<br/>
-            ---------------------------------<br/>
-        </div>
-        {/volist}
-        {$ydcrecordlist->render()}
-    </form>
-    <iframe hidden id="exec_target" name="exec_target"></iframe>
-</div>
+    <table class="layui-hide" id="ydcrecord_table"></table>
 
-</body>
+</div>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        table.render({
+            elem: '#ydcrecord_table'
+            ,url:'/index.php/gjcf/ydcrecord/getydcrecord'
+            ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                //,curr: 5 //设定初始在第 5 页
+                ,groups: 1 //只显示 1 个连续页码
+                ,first: false //不显示首页
+                ,last: false //不显示尾页
+
+            }
+            ,cols: [[
+                {field:'typename', title: '收益类型'}
+                ,{field:'ydc', title: 'YDC'}
+                ,{field:'createtime', title: '结算时间', sort:true}
+            ]]
+
+        });
+    });
+</script>
+

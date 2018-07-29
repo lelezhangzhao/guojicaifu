@@ -1,9 +1,10 @@
 {include file="layout" title="修改密码" /}
 <body>
-<form method="post" >
-    原密码：<input type="text" name="oldpassword"/><br/>
-    新密码：<input type="text" name="newpassword"/><br/>
-    <input type="submit" value="确定" formaction="{:url('gjcf/fixpassword/fixpassword')}"  /><br />
+<form method="post" target="exec_target">
+    原密码：<input type="text" id="fixpassword_oldpassword"/><br/>
+    新密码：<input type="text" id="fixpassword_newpassword"/><br/>
+    <input type="button" value="确定" id="fixpassword_ok"  /><br />
 </form>
+<iframe name="exec_target" hidden />
 
 </body>

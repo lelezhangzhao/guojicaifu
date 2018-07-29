@@ -198,6 +198,7 @@ create table international_ydcrecord
    userid           int,
    ydc              float,
    ydcrecordtype             int,
+   typename                varchar(10),
    primary key (id)
 );
 

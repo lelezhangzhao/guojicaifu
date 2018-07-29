@@ -1,23 +1,35 @@
 {include file="layout" title="投资记录"/}
 
-<div id="bottom">
-    <form method="post" action="" target="exec_target">
-        <h2>投资记录</h2>
-        {volist name="investlist" id="invest"}
-        <div>
-            投资项目：{$invest.caption}<br/>
-            投资时间：{$invest.investtime}<br/>
-            投资本金：{$invest.investydc}<br/>
-            投资利润：{$invest.profitydc}<br/>
-            返现天数：{$invest.balancedays}<br/>
-            已返天数：{$invest.paydays}<br/>
-            已返金额：{$invest.paydays * $invest.balanceperday}<br/>
-            未返天数：{$invest.balancedays - $invest.paydays}<br/>
-            未返金额：{$invest.profitydc - $invest.paydays * $invest.balanceperday}<br/>
-        </div>
-        {/volist}
-    </form>
-    <iframe hidden id="exec_target" name="exec_target"></iframe>
+<div id="investrecord_dive">
+    <table class="layui-hide" id="investrecord_table"></table>
 </div>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        table.render({
+            elem: '#investrecord_table'
+            ,url:'/index.php/gjcf/investrecord/getinvestrecord'
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,cols: [[
+                {field:'caption', title: '项目'}
+                ,{field:'investtime', title: '时间', sort: true}
+                ,{field:'investydc', title: '本金'}
+                ,{field:'profitydc', title: '利润'}
+                ,{field:'balancedays', title: '返现天数'}
+                ,{field:'paydays', title: '已返天数'}
+            ]]
+            ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                //,curr: 5 //设定初始在第 5 页
+                ,rows:10
+                ,groups: 1 //只显示 1 个连续页码
+                ,first: false //不显示首页
+                ,last: false //不显示尾页
+
+            }
+        });
+    });
+</script>
 
 

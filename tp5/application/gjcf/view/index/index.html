@@ -3,7 +3,7 @@
 
 <div id="bottom">
     <h2>投资项目</h2>
-    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/index/getproject', page:true, id:'idTest'}" lay-filter="demo">
+    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/index/getproject', page:true, id:'idTest'}" lay-filter="index_invest">
         <thead>
         <tr>
             <th lay-data="{field:'id', sort: true, fixed: true}">ID</th>
@@ -29,7 +29,7 @@
         var table = layui.table;
 
         //监听工具条
-        table.on('tool(demo)', function(obj){
+        table.on('tool(index_invest)', function(obj){
             var data = obj.data;
             if(obj.event === 'detail'){
                 layer.msg('ID：'+ data.id + ' 的查看操作');
@@ -51,7 +51,6 @@
                                 obj.update({
                                     remaininvest: ajaxdata.remaininvest
                                 });
-
                                 break;
                             default:
                                 break;

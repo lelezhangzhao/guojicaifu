@@ -19,7 +19,7 @@ class Forgetpassword extends Controller{
         //username匹配tel
         $result = UserModel::where(['username' => $username, 'tel' => $tel])->find();
         if(empty($result)) {
-            $json_arr = ['code' => 4, 'msg' => '用户名和手机号不匹配'];
+            $json_arr = ['code' => 302, 'msg' => '用户名和手机号不匹配'];
 //            return '用户名和手机号不匹配';
         }else{
             Session::set('fixedusername', $username);
@@ -50,14 +50,14 @@ class Forgetpassword extends Controller{
         $newpassword = $request->param('newpassword');
 
         if(!Telidentify::TelIdentifyOk($telidentify)){
-            $json_arr = ['code' => 5, 'msg' => '手机验证码错误'];
+            $json_arr = ['code' => 303, 'msg' => '手机验证码错误'];
         }else{
             $username = Session::get('fixedusername');
             $user = UserModel::where('username', $username)->find();
             $user->password = $newpassword;
             $result = $this->validate($user, 'User');
             if(true !== $result) {
-                $json_arr = ['code' => 6, 'msg' => $result];
+                $json_arr = ['code' => 400, 'msg' => $result];
             } else {
                 $user->allowField(true)->save();
             }
