@@ -553,7 +553,7 @@ $(function(){
 function GetWithdrawYdc(){
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdrawydc").innerHTML = xmlhttp.responseText;
+            document.getElementById("withdraw_usableydc").innerHTML = xmlhttp.responseText;
         }
     };
     xmlhttp.open("POST", "/index.php/gjcf/withdraw/getwithdrawydc");

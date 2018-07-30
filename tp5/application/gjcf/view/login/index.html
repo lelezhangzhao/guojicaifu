@@ -1,35 +1,37 @@
 {include file="layout" title="登录" /}
 
-<form action="" target="exec_target" class="layui-form layui-form-pane" >
-    <div class="layui-form-item">
-        <label class="layui-form-label">用户名</label>
-        <div class="layui-input-inline">
-            <input type="text" name="login_username" id="login_username" lay-verify="required" autocomplete="off" class="layui-input">
+<div class="layui-container" style="width:625;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="login_username" id="login_username" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
-        <div class="layui-input-inline">
-            <input type="text" name="login_password" id="login_password" lay-verify="required" autocomplete="off" class="layui-input">
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="login_password" id="login_password" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">验证码</label>
-        <div class="layui-input-inline">
-            <input type="text" name="login_capcha" id="login_capcha" lay-verify="required" autocomplete="off" class="layui-input">
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="login_capcha" id="login_capcha" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <img id="signup_capcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
-    </div>
-    <div class="layui-form-item">
-        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="login_login">登录</button>
-    </div>
-    <div class="layui-form-item">
-        <button class="layui-btn" id="login_forgetpassword">忘记密码</button>
-        <button class="layui-btn" id="login_signup">注册</button>
-    </div>
+        <div class="layui-form-item">
+            <img id="signup_capcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" lay-filter="demo1" id="login_login">登录</button>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" id="login_forgetpassword">忘记密码</button>
+            <button class="layui-btn" id="login_signup">注册</button>
+        </div>
 
-</form>
+    </form>
+</div>
 <iframe name="exec_target" hidden />
 

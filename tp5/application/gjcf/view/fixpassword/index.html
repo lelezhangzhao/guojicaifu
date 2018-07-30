@@ -1,10 +1,23 @@
 {include file="layout" title="修改密码" /}
-<body>
-<form method="post" target="exec_target">
-    原密码：<input type="text" id="fixpassword_oldpassword"/><br/>
-    新密码：<input type="text" id="fixpassword_newpassword"/><br/>
-    <input type="button" value="确定" id="fixpassword_ok"  /><br />
-</form>
-<iframe name="exec_target" hidden />
 
-</body>
+
+<div class="layui-container" style="width:625;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">原密码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="fixpassword_oldpassword" id="fixpassword_oldpassword" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="fixpassword_newpassword" id="fixpassword_newpassword" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" id="fixpassword_ok">确定</button>
+        </div>
+    </form>
+</div>
+<iframe name="exec_target" hidden />

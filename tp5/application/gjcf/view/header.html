@@ -23,23 +23,44 @@
 </head>
 <body class="layui-layout-body">
 
-    <div id="top_info" class="layui-header">
-        <div id="userinfo" >
-            <div >
-                <span float="left">
-                    用户名：<label id="header_username"></label>
-                    用户ID：<label id="header_userid"></label>
-                    可用YDC：<label id="header_usableydc"></label>
-                    冻结YDC：<label id="header_freezenydc"></label>
-                </span>
-                    <span float="right">
-                        <input type="button" value="签到" id="header_sign"/>
-                        <input type="button" value="退出" id="header_logout"/>
-                    </span>
-            </div>
+    <div class="layui-container" id="userinfo">
+        <form class="layui-form layui-form-pane" action="" target="exec_targer">
+            <!--<div class="layui-container" style="width:625;position:relative;left:0%">-->
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">用户名：</label>
+                    <div class="layui-input-inline">
+                        <label class="layui-form-label" id="header_username"></label>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">用户ID：</label>
+                    <div class="layui-input-inline">
+                        <label class="layui-form-label" id="header_userid"></label>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">可用YDC：</label>
+                    <div class="layui-input-inline">
+                        <label class="layui-form-label" id="header_usableydc"></label>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">冻结YDC：</label>
+                    <div class="layui-input-inline">
+                        <label class="layui-form-label" id="header_freezenydc"></label>
+                    </div>
+                </div>
 
-        </div>
+                <div class="layui-form-item layui-inline">
+                    <div class="layui-input-inline">
+                        <button class="layui-btn" lay-submit="" id="header_sign">签到</button>
+                        <button class="layui-btn" lay-submit="" id="header_layout">退出</button>
+                    </div>
+                </div>
+        </form>
+    </div>
 
+    <div class="layui-container">
         <ul class="layui-nav" >
             <li class="layui-nav-item">
                 <a href="javascript:;">项目信息</a>
@@ -71,9 +92,9 @@
             </li>
             <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
         </ul>
-
-
     </div>
+
+
 <br/>
 <br/>
 <br/>

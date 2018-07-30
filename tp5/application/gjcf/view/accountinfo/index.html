@@ -1,12 +1,32 @@
 {include file="layout" title="账户" /}
 
-<body>
-<form target="exec_target">
-    姓名 <input type="text" id="accountinfo_name" value="{$accountinfoname}" /><br />
-    支付宝账户 <input type="text" id="accountinfo_alipaynum" value="{$accountinfoalipaynum}" /><br />
-    验证码 <input type="text" id="accountinfo_telidentify"/><input type="button" value="获取手机验证码" id="accountinfo_getaccountinfotelidentify" /><br/>
-    <input type="button" value="保存" id="accountinfo_save"/>
-</form>
-<iframe name="exec_target" hidden/>
 
-</body>
+<div class="layui-container" style="width:625;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="accountinfo_name" id="accountinfo_name" lay-verify="required" autocomplete="off" class="layui-input" value="{$accountinfoname}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付宝账户</label>
+            <div class="layui-input-inline">
+                <input type="text" name="accountinfo_alipaynum" id="accountinfo_alipaynum" lay-verify="required" autocomplete="off" class="layui-input" value="{$accountinfoalipaynum}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机验证码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="accountinfo_telidentify" id="accountinfo_telidentify" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                <button class="layui-btn" lay-submit="" id="accountinfo_getaccountinfotelidentify">获取手机验证码</button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" id="accountinfo_save">保存</button>
+        </div>
+    </form>
+</div>
+<iframe name="exec_target" hidden />

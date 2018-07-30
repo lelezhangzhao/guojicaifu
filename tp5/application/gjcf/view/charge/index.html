@@ -1,10 +1,25 @@
 {include file="layout" title="充值" /}
-<body>
-<div >
-    支付宝扫码：<br/>
-    <img src="__IMAGE__/charge.png" height="200" width="200"><br/>
-    充值金额 <input type="text" id="charge_ydc" name="ydc" />最低10元起充<br />
-    <input type="submit" value="确定" id="charge_ok" name="login" /><br />
-</div>
 
-</body>
+<div class="layui-container" style="width:625;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付宝扫码：</label>
+        </div>
+        <div class="layui-form-item">
+            <img src="__IMAGE__/charge.png" height="200" width="200"><br/>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">充值金额</label>
+            <div class="layui-input-inline">
+                <input type="text" name="charge_ydc" id="charge_ydc" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                <label class="layui-form-label">最低10元起充</label>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" id="charge_ok">确定</button>
+        </div>
+    </form>
+</div>
+<iframe name="exec_target" hidden />

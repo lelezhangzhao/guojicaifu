@@ -2,11 +2,26 @@
 <script type="text/javascript">
     window.onload=GetWithdrawYdc();
 </script>
-<!--<body onload="GetWithdrawYdc()">-->
-<div>
-    可提现额度：<label id="withdrawydc">0</label><br/>
 
-    提现：<input type="text" id="withdraw_ydc" name="withdraw"/><input type="button" id="withdraw_ok" value="确定" /><br/>
+
+
+<div class="layui-container" style="width:625;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">可提现额度</label>
+            <div class="layui-input-inline">
+                <label class="layui-form-label" id="withdraw_usableydc">0</label>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">提现</label>
+            <div class="layui-input-inline">
+                <input type="text" name="withdraw_ydc" id="withdraw_ydc" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" id="withdraw_ok">确定</button>
+        </div>
+    </form>
 </div>
-
-<!--</body>-->
+<iframe name="exec_target" hidden />
