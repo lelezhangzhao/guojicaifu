@@ -14,14 +14,18 @@ use app\gjcf\api\Helper as HelperApi;
 class Sign extends Controller{
 
     public function Sign(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $userid = Session::get('userid');
         $signrecord = SignrecordModel::where('userid', $userid)
             ->whereTime('signtime', '>=', 'today')
             ->find();
         if(!empty($signrecord)){
-            $this->error('今日已签到', 'gjcf/index/index', 0, 1);
+            $json_arr = ['code' => 104, 'msg' => '今日已签到'];
+            return json_encode($json_arr);
         }
 
         //signrecord
@@ -35,7 +39,8 @@ class Sign extends Controller{
         $user->freezenydc += 10;
         $user->allowField(true)->save();
 
-        $this->success('签到成功', 'gjcf/index/index', 0, 1);
+        $json_arr = ['code' => 0, 'msg' => '签到成功'];
+        return json_encode($json_arr);
 
     }
 }

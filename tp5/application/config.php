@@ -243,5 +243,9 @@ return [
         'list_rows' => 15,
     ],
     //验证码
-
+    'captcha' =>[
+        'imageH' => 40,
+        'length' => 4,
+        'fontSize' => 20,
+    ],
 ];

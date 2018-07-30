@@ -1,21 +1,90 @@
-{include file="layout" title="确认充值"/}
-<body >
+{include file="layout" title="确认提现"/}
 
 <div id="bottom">
-    <form method="post" action="" target="exec_target">
-        <h2>确认提现</h2>
-        {volist name="withdrawlist" id="withdraw"}
-        <div>
-            姓名：{$withdraw.name}<br/>
-            支付宝账号：{$withdraw.alipaynum}<br/>
-            提现额度：{$withdraw.ydc}<br/>
-            提现时间：{$withdraw.confirmtime}<br/>
-            <input type="submit" value="确定" id="withdrawconfirmok{$withdraw.id}" onclick="WithdrawConfirmSuccess({$withdraw.id})"  />
-            <input type="submit" value="取消" id="withdrawconfirmcancel{$withdraw.id}" onclick="WithdrawConfirmFailed({$withdraw.id})" />
-        </div>
-        {/volist}
-    </form>
-    <iframe hidden id="exec_target" name="exec_target"></iframe>
+    <table class="layui-hide" id="withdrawconfirm_table" lay-filter="withdrawconfirmfilter"></table>
 </div>
 
-</body>
+
+<script>
+    layui.use("table", function(){
+        var table = layui.table;
+
+        table.render({
+            elem:"#withdrawconfirm_table",
+            url:"/index.php/gjcf/withdrawconfirm/getwithdrawrecord",
+            cols:[[
+                {field:"name", title:"姓名"},
+                {field:"alipaynum", title:"支付宝账号"},
+                {field:"ydc", title:"充值额度"},
+                {field:"withdrawtime", title:"提现时间"},
+                {field:"right", toolbar:"#withdrawconfirm", title:"操作"}
+            ]],
+            page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局
+                //,curr: 5 //设定初始在第 5 页
+                rows: 10,
+                groups: 1, //只显示 1 个连续页码
+                first: false, //不显示首页
+                last: false //不显示尾页
+            }
+        });
+    });
+</script>
+
+<script type="text/html" id="withdrawconfirm">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="success">确认</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="failed">取消</a>
+</script>
+<script>
+    layui.use("table", function(){
+        var table = layui.table;
+        table.on('tool(withdrawconfirmfilter)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'success'){
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/gjcf/withdrawconfirm/withdrawconfirmsuccess",
+                    async:true,
+                    dateType:"json",
+                    data:{
+                        withdrawid:data.id
+                    },
+                    success:function(ajaxdata){
+                        ajaxdata = eval("(" + ajaxdata + ")");
+                        $.ShowMsg(ajaxdata.msg);
+                        switch(ajaxdata.code){
+                            case 0:
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            } else if(obj.event === 'failed'){
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/gjcf/withdrawconfirm/withdrawconfirmfailed",
+                    async:true,
+                    dateType:"json",
+                    data:{
+                        withdrawid:data.id
+                    },
+                    success:function(ajaxdata){
+                        ajaxdata = eval("(" + ajaxdata + ")");
+                        $.ShowMsg(ajaxdata.msg);
+                        switch(ajaxdata.code){
+                            case 0:
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            }
+            obj.del();
+        });
+
+    });
+</script>

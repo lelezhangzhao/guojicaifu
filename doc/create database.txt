@@ -97,7 +97,7 @@ drop table if exists international_withdrawrecord;
 create table international_withdrawrecord
 (
    id                   int not null auto_increment,
-   widthdrawtime        timestamp null default current_timestamp,
+   withdrawtime        timestamp null default current_timestamp,
    confirmtime          timestamp null,
    status               int,
    userid              int,

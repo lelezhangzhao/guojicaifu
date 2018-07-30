@@ -10,13 +10,20 @@ use app\gjcf\api\Helper as HelperApi;
 
 
 class Index extends Controller{
-    public function index(){
-        HelperApi::TestLoginAndStatus($this);
+    public function index(Request $request){
+
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
         return $this->fetch();
     }
 
     public function GetProject(Request $request){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $page = $request->param('page');
         $limit = $request->param('limit');

@@ -1,15 +1,35 @@
 {include file="layout" title="登录" /}
 
-<body>
-<div>
+<form action="" target="exec_target" class="layui-form layui-form-pane" >
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="login_username" id="login_username" lay-verify="required" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="login_password" id="login_password" lay-verify="required" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">验证码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="login_capcha" id="login_capcha" lay-verify="required" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <img id="signup_capcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="login_login">登录</button>
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" id="login_forgetpassword">忘记密码</button>
+        <button class="layui-btn" id="login_signup">注册</button>
+    </div>
 
-    用户名 <input type="text" id="login_username" name="username" /><br />
-    密码 <input type="text" id="login_password" name="password" /><br />
-    验证码 <input type="text" id="login_capcha" name="capcha" /><br/>
-    <img id="login_capcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
-    <input type="submit" value="登录" id="login_login" /><br />
-    <input type="submit" value="忘记密码" id="login_forgetpassword" />
-    <input type="submit" value="注册" id="login_signup" />
-</div>
+</form>
+<iframe name="exec_target" hidden />
 
-</body>

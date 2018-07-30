@@ -20,19 +20,40 @@ function GetUrlParam(name) {
     if (r != null) return unescape(r[2]); return null;
 }
 
+
 $(function(){
     $.ajax({
         type:"post",
-        url:"/index.php/gjcf/userinfo/getheaderuserinfo",
+        url:"/index.php/gjcf/utility/islogin",
         async:true,
         dataType:"json",
         success:function(data){
             data = eval("(" + data + ")");
-            if(data.code === 0){
-                $("#header_username").text(data.username);
-                $("#header_userid").text(data.userid);
-                $("#header_usableydc").text(data.usableydc);
-                $("#header_freezenydc").text(data.freezenydc);
+            switch(data.code){
+                case 0:
+                    $("#top_info").css("visibility","visible");
+                    $.ajax({
+                        type:"post",
+                        url:"/index.php/gjcf/userinfo/getheaderuserinfo",
+                        async:true,
+                        dataType:"json",
+                        success:function(data){
+                            data = eval("(" + data + ")");
+                            if(data.code === 0){
+                                $("#header_username").text(data.username);
+                                $("#header_userid").text(data.userid);
+                                $("#header_usableydc").text(data.usableydc);
+                                $("#header_freezenydc").text(data.freezenydc);
+                            }
+                        },
+                        error:function(hd, msg){
+                            $.ShowMsg(msg);
+                        }
+                    });
+                    break;
+                case 102:
+                    $("#top_info").css("visibility","hidden");
+                    break;
             }
         },
         error:function(hd, msg){
@@ -40,6 +61,39 @@ $(function(){
         }
     });
 
+    function IsLogin(){
+        var returnCode = 0;
+        $.ajax({
+            type:"post",
+            url:"/index.php/gjcf/utility/islogin",
+            async:false,
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        returnCode = 0;
+                        break;
+                    default:
+                        returnCode = data.code;
+                        break;
+                }
+            },
+            error:function(hd, msg){
+                $.ShowMsg(msg);
+            }
+        });
+        return returnCode;
+    }
+
+    function IsPoneAvailable(str) {
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(str)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     // $("#header_username").text(window.global_username);
     // $("#header_userid").text(window.global_userid);
     // $("#header_usableydc").text(window.global_usableydc);
@@ -176,6 +230,7 @@ $(function(){
         var username = $("#signup_username").val();
         var password = $("#signup_password").val();
         var tel = $("#signup_tel").val();
+        var telidentify = $("#signup_telidentify").val();
         var referee = $("#signup_referee").val();
         var capcha = $("#signup_capcha").val();
         $.ajax({
@@ -187,6 +242,7 @@ $(function(){
                 username:username,
                 password:password,
                 tel:tel,
+                telidentify:telidentify,
                 referee:referee,
                 capcha:capcha
             },
@@ -208,6 +264,38 @@ $(function(){
                 $.ShowMsg(msg);
             }
         });
+    });
+
+    $("#signup_gettelidentify").click(function(){
+        var tel = $("#signup_tel").val();
+        if(true !== IsPoneAvailable(tel)){
+            $.ShowMsg("手机号格式错误");
+        }else{
+            sendCode(document.getElementById("signup_gettelidentify"));
+
+            $.ajax({
+                type:"post",
+                url:"/index.php/gjcf/signup/gettelidentify",
+                async:true,
+                dataType:"json",
+                data:{
+                    tel:tel
+                },
+                success:function(data){
+                    data = eval("(" + data + ")");
+                    switch(data.code){
+                        case 0:
+                            $.ShowMsg(data.msg);
+                            break;
+                        default: //refresh capcha
+                            break;
+                    }
+                },
+                error:function(hd, msg){
+                    $.ShowMsg(msg);
+                }
+            });
+        }
     });
 
     $("#charge_ok").click(function(){
@@ -331,6 +419,56 @@ $(function(){
         });
     });
 
+    $("#header_sign").click(function(){
+        if(0 === IsLogin()){
+            $.ajax({
+                type:"post",
+                async:true,
+                url:"/index.php/gjcf/sign/sign",
+                dataType:"json",
+                success:function(data){
+                    data = eval("(" + data + ")");
+                    switch(data.code){
+                        case 0:
+                            $.ShowMsg(data.msg);
+                            break;
+                        case 104:
+                            $.ShowMsg(data.msg);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            });
+        }else{
+            $.OpenNewUrl("/index.php/gjcf/login/index");
+        }
+    });
+
+    $("#header_logout").click(function(){
+        if(0 === IsLogin()){
+            $.ajax({
+                type:"post",
+                async:true,
+                url:"/index.php/gjcf/logout/logout",
+                dataType:"json",
+                success:function(data){
+                    data = eval("(" + data + ")");
+                    switch(data.code){
+                        case 0:
+                            $.ShowMsg(data.msg);
+                            $.OpenNewUrl("/index.php/gjcf/login/index");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            });
+        }else{
+            $.OpenNewUrl("/index.php/gjcf/login/index");
+        }
+    });
+
     $("#login_forgetpassword").click(function(){
         $.OpenNewUrl("/index.php/gjcf/forgetpassword/index");
     });
@@ -349,25 +487,23 @@ $(function(){
         $.OpenNewUrl("/index.php/gjcf/investrecord/index");
     });
     $("#header_charge").click(function(){
-        // $.OpenNewUrl("/index.php/gjcf/charge/index");
         $.ajax({
             type:"post",
             async:true,
-            url:"/index.php/gjcf/charge/index",
+            url:"/index.php/gjcf/utility/isaccountinfoset",
             dataType:"json",
-
             success:function(data){
                 data = eval("(" + data + ")");
                 switch(data.code){
                     case 0:
-                        window.location.href = "index.php"
+                        $.OpenNewUrl("/index.php/gjcf/charge/index");
                         break;
                     case 103:
                         layui.use('layer', function(){
                             layer.open({
                                 type: 1 //此处以iframe举例
                                 ,title: 'Error'
-                                ,area: ['200px', '100px']
+                                ,area: ['200px', '120px']
                                 ,shade: 0
                                 ,maxmin: true
                                 ,content: '账户未设置，是否去设置？'
@@ -414,14 +550,6 @@ $(function(){
 });
 
 
-// (function ($) {
-//     $.getUrlParam = function (name) {
-//         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-//         var r = window.location.search.substr(1).match(reg);
-//         if (r != null) return unescape(r[2]); return null;
-//     }
-// })(jQuery);
-
 function GetWithdrawYdc(){
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
@@ -431,84 +559,6 @@ function GetWithdrawYdc(){
     xmlhttp.open("POST", "/index.php/gjcf/withdraw/getwithdrawydc");
     xmlhttp.send();
 }
-/*
- echo '<caption>'.$project->caption.'</caption>';
- echo '<investydc>'.$project->investydc.'</investydc>';
- echo '<profitydc>'.$project->profitydc.'</profitydc>';
- echo '<curinvest>'.$project->curinvest.'</curinvest>';
- echo '<remaininvest>'.$project->remaininvest.'</remaininvest>';
-
- */
-// function GetProject(){
-//
-//     layui.use(['layer', 'table', 'laypage'], function(){
-//         var layer =layui.layer;
-//         var table = layui.table;
-//         var laypage = layui.laypage;
-//         var tableIns = table.render({
-//             elem: '#userList',
-//             url : '/index.php/gjcf/index/getproject',
-//             cellMinWidth : 95,
-//             page : true,
-//             height : "full-125",
-//             limits : [10,15,20,25],
-//             limit : 10,
-//             id : "userListTable",
-//             cols : [[
-//                 {field: 'caption', title: '投资项目', minWidth:100, align:"center"},
-//                 {field: 'investydc', title: '投资额度', minWidth:200, align:'center'},
-//                 {field: 'profitydc', title: '收益', align:'center'},
-//                 {field: 'remaininvest', title: '剩余额度',  align:'center'},
-//                 {title: '操作', minWidth:175, templet:'#userListBar',fixed:"right",align:"center"}
-//             ]]
-//         });
-//     });
-// }
-
-function ChargeConfirmSuccess(chargeid){
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("chargeconfirmok"+chargeid).disabled = "disabled";
-            document.getElementById("chargeconfirmcancel"+chargeid).disabled = "disabled";
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/chargeconfirm/chargeconfirmsuccess?chargeid="+chargeid);
-    xmlhttp.send();
-}
-
-function ChargeConfirmFailed(chargeid){
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("chargeconfirmok"+chargeid).disabled = "disabled";
-            document.getElementById("chargeconfirmcancel"+chargeid).disabled = "disabled";
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/chargeconfirm/chargeconfirmfailed?chargeid="+chargeid);
-    xmlhttp.send();
-}
-
-function WithdrawConfirmSuccess(withdrawid){
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdrawconfirmok"+withdrawid).disabled = "disabled";
-            document.getElementById("withdrawconfirmcancel"+withdrawid).disabled = "disabled";
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmsuccess?withdrawid="+withdrawid);
-    xmlhttp.send();
-}
-
-function WithdrawConfirmFailed(withdrawid){
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdrawconfirmok"+withdrawid).disabled = "disabled";
-            document.getElementById("withdrawconfirmcancel"+withdrawid).disabled = "disabled";
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/withdrawconfirm/withdrawconfirmfailed?withdrawid="+withdrawid);
-    xmlhttp.send();
-}
-
 
 // function Login(username, password, capcha){
 //     $.ajax({
@@ -537,24 +587,24 @@ function WithdrawConfirmFailed(withdrawid){
 // }
 //
 var clock="";
-var nums = 120;
+var nums = 60;
 var btn;
 
 function sendCode(thisBtn) {
     btn = thisBtn;
-    btn.disabled = true; //将按钮置为不可点击
-    btn.value = nums+'秒后可重新获取';
+    btn.disabled = "disabled"; //将按钮置为不可点击
+    btn.innerHTML = nums+'秒后可重新获取';
     clock = setInterval(doLoop, 1000); //一秒执行一次
 }
 function doLoop() {
     nums--;
     if(nums > 0){
-        btn.value = nums+'秒后可重新获取';
+        btn.innerHTML = nums+'秒后可重新获取';
     }else{
         clearInterval(clock); //清除js定时器
-        btn.disabled = false;
-        btn.value = '点击发送验证码';
-        nums = 120; //重置时间
+        btn.disabled = "";
+        btn.innerHTML = '点击发送验证码';
+        nums = 60; //重置时间
     }
 }
 

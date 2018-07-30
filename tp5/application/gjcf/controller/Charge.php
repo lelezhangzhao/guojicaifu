@@ -22,8 +22,8 @@ class Charge extends Controller{
             return $accountinfo;
         }
 
-        return HelperApi::ReturnCodeMsg(0, "ok");
-//        return $this->fetch();
+//        return HelperApi::ReturnCodeMsg(0, "ok");
+        return $this->fetch();
     }
 
 

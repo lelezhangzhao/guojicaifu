@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\share\project\trunk\tp5\public/../application/gjcf\view\investrecord\index.html";i:1532420696;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532568692;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\share\project\trunk\tp5\public/../application/gjcf\view\investrecord\index.html";i:1532913360;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532917974;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>投资记录</title>
@@ -7,13 +7,19 @@
 
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
-    <script type="text/javascript" src="/static/js/action.js?version=21"></script>
+    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
+    <script type="text/javascript" src="/static/js/action.js?version=41"></script>
     <script type="text/javascript">
 
     </script>
+    <style>
+        #top_info{
+            visibility:hidden;
+        }
+    </style>
 
 </head>
 <body class="layui-layout-body">
@@ -22,10 +28,10 @@
     <div id="userinfo" >
         <form method="post">
             <span float="left">
-                用户名：<label id="headerusername"></label>
-                用户ID：<label id="headeruserid"></label>
-                可用YDC：<label id="headerusableydc"></label>
-                冻结YDC：<label id="headerfreezenydc"></label>
+                用户名：<label id="header_username"></label>
+                用户ID：<label id="header_userid"></label>
+                可用YDC：<label id="header_usableydc"></label>
+                冻结YDC：<label id="header_freezenydc"></label>
             </span>
                 <span float="right">
                     <input type="submit" value="签到" formaction="<?php echo url('gjcf/sign/sign'); ?>"/>
@@ -88,24 +94,36 @@
 
 
 
-<div id="bottom">
-    <form method="post" action="" target="exec_target">
-        <h2>投资记录</h2>
-        <?php if(is_array($investlist) || $investlist instanceof \think\Collection || $investlist instanceof \think\Paginator): $i = 0; $__LIST__ = $investlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$invest): $mod = ($i % 2 );++$i;?>
-        <div>
-            投资项目：<?php echo $invest['caption']; ?><br/>
-            投资时间：<?php echo $invest['investtime']; ?><br/>
-            投资本金：<?php echo $invest['investydc']; ?><br/>
-            投资利润：<?php echo $invest['profitydc']; ?><br/>
-            返现天数：<?php echo $invest['balancedays']; ?><br/>
-            已返天数：<?php echo $invest['paydays']; ?><br/>
-            已返金额：<?php echo $invest['paydays'] * $invest['balanceperday']; ?><br/>
-            未返天数：<?php echo $invest['balancedays'] - $invest['paydays']; ?><br/>
-            未返金额：<?php echo $invest['profitydc'] - $invest['paydays'] * $invest['balanceperday']; ?><br/>
-        </div>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
-    </form>
-    <iframe hidden id="exec_target" name="exec_target"></iframe>
+<div id="investrecord_dive">
+    <table class="layui-hide" id="investrecord_table"></table>
 </div>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        table.render({
+            elem: '#investrecord_table'
+            ,url:'/index.php/gjcf/investrecord/getinvestrecord'
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,cols: [[
+                {field:'caption', title: '项目'}
+                ,{field:'investtime', title: '时间', sort: true}
+                ,{field:'investydc', title: '本金'}
+                ,{field:'profitydc', title: '利润'}
+                ,{field:'balancedays', title: '返现天数'}
+                ,{field:'paydays', title: '已返天数'}
+            ]]
+            ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                //,curr: 5 //设定初始在第 5 页
+                ,rows:10
+                ,groups: 1 //只显示 1 个连续页码
+                ,first: false //不显示首页
+                ,last: false //不显示尾页
+
+            }
+        });
+    });
+</script>
 
 

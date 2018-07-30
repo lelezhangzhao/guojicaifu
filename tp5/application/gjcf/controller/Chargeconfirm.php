@@ -17,15 +17,27 @@ use app\gjcf\api\Helper as HelperApi;
 
 class Chargeconfirm extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
-        HelperApi::TestIsAdmin($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
+        }
 
         return $this->fetch();
     }
 
     public function GetChargeRecord(Request $request){
-        HelperApi::TestLoginAndStatus($this);
-        HelperApi::TestIsAdmin($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
+        }
 
         $page = $request->param('page');
         $limit = $request->param('limit');
@@ -54,14 +66,18 @@ class Chargeconfirm extends Controller{
     }
 
     public function ChargeConfirmSuccess(Request $request){
-        if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
         }
         //更新数据库
         //chargerecord
         $chargeid = $request->param('chargeid');
-        $chargerecord = ChargeRecordModel::get($chargeid);
+        $chargerecord = ChargerecordModel::get($chargeid);
         $chargerecord->status = 1;
         $chargerecord->allowField(true)->save();
 
@@ -76,14 +92,18 @@ class Chargeconfirm extends Controller{
     }
 
     public function ChargeConfirmFailed(Request $request){
-        if (!HelperApi::IsAdmin()) {
-            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问chargeconfirm');
-            return $this->error('违规访问，已封号', 'gjcf/login/index', 0, 1);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
         }
         //更新数据库
         //chargerecord
         $chargeid = $request->param('chargeid');
-        $chargerecord = ChargeRecordModel::get($chargeid);
+        $chargerecord = ChargerecordModel::get($chargeid);
         $chargerecord->status = 2;
         $chargerecord->statusinfo = '管理员处理';
         $chargerecord->allowField(true)->save();
