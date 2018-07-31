@@ -11,25 +11,44 @@ use app\gjcf\model\Withdrawrecord as WithdrawrecordModel;
 
 class Withdraw extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
-        HelperApi::TestAccountInfo($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $accountinfo = HelperApi::TestAccountInfo($this);
+        if(true !== $accountinfo){
+            return $accountinfo;
+        }
 
         return $this->fetch();
     }
 
     public function GetWithdrawYdc(){
-        HelperApi::TestLoginAndStatus($this);
-        HelperApi::TestAccountInfo($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $accountinfo = HelperApi::TestAccountInfo($this);
+        if(true !== $accountinfo){
+            return $accountinfo;
+        }
 
         $user = UserModel::get(Session::get('userid'));
 
 
-        return $user->usableydc;
+        $json_arr = ['code' => 0, 'msg' => '', 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
+        return json_encode($json_arr);
     }
 
     public function Withdraw(Request $request){
-        HelperApi::TestLoginAndStatus($this);
-        HelperApi::TestAccountInfo($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $accountinfo = HelperApi::TestAccountInfo($this);
+        if(true !== $accountinfo){
+            return $accountinfo;
+        }
 
         $withdrawydc = $request->param('ydc');
         if(!is_numeric($withdrawydc)){

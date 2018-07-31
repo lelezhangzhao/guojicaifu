@@ -1,13 +1,34 @@
 {include file="layout" title="忘记密码" /}
+<style>
+    #top_info{
+        visibility:hidden;
+    }
+</style>
 
-<body>
-<div>
-    用户名 <input type="text" name="forgetpassword_username" /><br />
-    手机号 <input type="text" name="forgetpassword_tel" />
-    <input type="button" value="获取验证码" id="forgetpassword_gettelidentify" /><br />
-    输入手机验证码 <input type="text" name="forgetpassword_telidentify" /><br />
-    新密码 <input type="text" name="forgetpassword_newpassword" /><br />
-    <input type="button" value="确定" id="forgetpassword_newpasswordok" />
+<div class="layui-container" style="width:300;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <input type="text" name="forgetpassword_username" id="forgetpassword_username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <input type="text" name="forgetpassword_tel" id="forgetpassword_tel" lay-verify="required" placeholder="手机号" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" id="forgetpassword_gettelidentify">点击发送验证码</button>
+        </div>
+        <div class="layui-form-item">
+            <input type="text" name="forgetpassword_telidentify" id="forgetpassword_telidentify" lay-verify="required" placeholder="手机验证码" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <input type="text" name="forgetpassword_newpassword" id="forgetpassword_newpassword" lay-verify="required" placeholder="新密码" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" id="forgetpassword_newpasswordok">确定</button>
+            <button class="layui-btn" id="forgetpassword_login">返回登录</button>
+        </div>
+
+    </form>
 </div>
+<iframe name="exec_target" hidden />
 
-</body>
+

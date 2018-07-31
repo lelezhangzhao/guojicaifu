@@ -1,19 +1,31 @@
 {include file="layout" title="提现" /}
 <script type="text/javascript">
     window.onload=GetWithdrawYdc();
+
+    $("#top_info").css("visibility", "visible");
+    $.LoadUserInfo();
+
 </script>
 
 
 
-<div class="layui-container" style="width:625;position:relative;left:0%">
+
+<div class="layui-container" style="width:600;position:relative;left:0%">
     <form action="" target="exec_target" class="layui-form layui-form-pane" >
-        <div class="layui-form-item">
-            <label class="layui-form-label">可提现额度</label>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label ">可提现额度</label>
             <div class="layui-input-inline">
                 <label class="layui-form-label" id="withdraw_usableydc">0</label>
             </div>
         </div>
-        <div class="layui-form-item">
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">冻结额度</label>
+            <div class="layui-input-inline">
+                <label class="layui-form-label" id="withdraw_freezenydc">0</label>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-inline">
             <label class="layui-form-label">提现</label>
             <div class="layui-input-inline">
                 <input type="text" name="withdraw_ydc" id="withdraw_ydc" lay-verify="required" autocomplete="off" class="layui-input">

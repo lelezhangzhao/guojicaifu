@@ -1,6 +1,7 @@
 body {
         padding-top:100px;
-        text-align:center; 
+        position:relative;
+        left:0%;
     }
     /* -------------菜单css代码----------begin---------- */
     .menuDiv { 

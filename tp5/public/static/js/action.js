@@ -31,7 +31,6 @@ $(function(){
             data = eval("(" + data + ")");
             switch(data.code){
                 case 0:
-                    $("#top_info").css("visibility","visible");
                     $.ajax({
                         type:"post",
                         url:"/index.php/gjcf/userinfo/getheaderuserinfo",
@@ -52,7 +51,6 @@ $(function(){
                     });
                     break;
                 case 102:
-                    $("#top_info").css("visibility","hidden");
                     break;
             }
         },
@@ -136,7 +134,7 @@ $(function(){
         $.ajax({
             type: "post", //提交方式
             url: "/index.php/gjcf/login/login", //路径
-            async: false,
+            async: true,
             dataType:"json",
             //参数
             data: {
@@ -148,19 +146,35 @@ $(function(){
             //返回普通的字符流不要写 dataType : "json"
             success: function (data) {
                 data = eval("(" + data + ")");
-                $.ShowMsg(data.msg);
                 switch(data.code){
-                    case 0:
+                    case 0: //success
                         window.global_username = data.username;
                         window.global_userid = data.userid;
                         window.global_usableydc = data.usableydc;
                         window.global_freezenydc = data.freezenydc;
                         $.OpenNewUrl("/index.php/gjcf/index/index");
                         break;
-                    default:
-                        var img = document.getElementById("login_capcha_img");
+                    case 1:
+                        $.OpenNewUrl("/index.php/gjcf/admin/index");
+                        break;
+                    case 100:
+                        $.ShowMsg(data.msg);
+                        break;
+                    case 300: //captcha
+                        $.ShowMsg(data.msg);
+                        var img = document.getElementById("login_captcha_img");
+                        // img.src = "/index.php/captcha?id=" + Math.random();
+                        $("#login_capcha").val("");
+                        break;
+                    case 301:
+                        $.ShowMsg(data.msg);
+                        $("#login_username").val("");
+                        $("#login_password").val("");
+                        var img = document.getElementById("login_captcha_img");
                         img.src = "/index.php/captcha?id=" + Math.random();
                         $("#login_capcha").val("");
+                        break;
+                    default:
                         break;
                 }
             },
@@ -226,6 +240,10 @@ $(function(){
         });
     });
 
+    $("#forgetpassword_login").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/login/index");
+    });
+
     $("#signup_signup").click(function(){
         var username = $("#signup_username").val();
         var password = $("#signup_password").val();
@@ -255,7 +273,7 @@ $(function(){
                         break;
                     default: //refresh capcha
                         var img = document.getElementById("signup_capcha_img");
-                        img.src = "/index.php/captcha?id=" + Math.random();
+                        // img.src = "/index.php/captcha?id=" + Math.random();
                         $("#signup_capcha").val("");
                         break;
                 }
@@ -264,6 +282,10 @@ $(function(){
                 $.ShowMsg(msg);
             }
         });
+    });
+
+    $("#signup_login").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/login/index");
     });
 
     $("#signup_gettelidentify").click(function(){
@@ -529,7 +551,45 @@ $(function(){
 
     });
     $("#header_withdraw").click(function(){
-        $.OpenNewUrl("/index.php/gjcf/withdraw/index");
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/utility/isaccountinfoset",
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        $.OpenNewUrl("/index.php/gjcf/withdraw/index");
+                        break;
+                    case 103:
+                        layui.use('layer', function(){
+                            layer.open({
+                                type: 1 //此处以iframe举例
+                                ,title: 'Error'
+                                ,area: ['200px', '120px']
+                                ,shade: 0
+                                ,maxmin: true
+                                ,content: '账户未设置，是否去设置？'
+                                ,btn: ['设置账户', '取消'] //只是为了演示
+                                ,yes: function(){
+                                    $.OpenNewUrl("/index.php/gjcf/accountinfo/index");
+                                }
+                                ,btn2: function(){
+                                    layer.closeAll();
+                                }
+                                ,zIndex: layer.zIndex //重点1
+                                ,success: function(layero){
+                                    layer.setTop(layero); //重点2
+                                }
+                            });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     });
     $("#header_ydcrecord").click(function(){
         $.OpenNewUrl("/index.php/gjcf/ydcrecord/index");
@@ -543,21 +603,79 @@ $(function(){
     $("#header_myteam").click(function(){
         $.OpenNewUrl("/index.php/gjcf/team/index");
     });
+    $("#header_invite").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/invite/index");
+    });
     $("#header_systemad").click(function(){
         alert("systemad");
     });
 
 });
 
+function GetInviteUrl(){
+    $(function(){
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/invite/getinviteurl",
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        var qrcode = new QRCode(document.getElementById("invite_qrcode"), {
+                            width : 300,
+                            height : 300
+                        });
+                        qrcode.makeCode(data.inviteurl);
+
+                        $("#invite_url").html("tp5.com" + data.inviteurl);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+}
+
+function GetTeam(){
+    $(function(){
+        $.ajax({
+            type:"post",
+            url:"/index.php/gjcf/team/getteam1",
+            async:true,
+            dataType:"xml",
+            success:function(data){
+                alert(data);
+            },
+            error:function(hd, msg){
+                alert(msg);
+        }
+        });
+    });
+}
 
 function GetWithdrawYdc(){
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("withdraw_usableydc").innerHTML = xmlhttp.responseText;
-        }
-    };
-    xmlhttp.open("POST", "/index.php/gjcf/withdraw/getwithdrawydc");
-    xmlhttp.send();
+    $(function(){
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/withdraw/getwithdrawydc",
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        $("#withdraw_usableydc").html(data.usableydc);
+                        $("#withdraw_freezenydc").html(data.freezenydc);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
 }
 
 // function Login(username, password, capcha){

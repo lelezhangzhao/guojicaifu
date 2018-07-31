@@ -18,25 +18,26 @@ class Login extends Controller{
         //先验证验证码
         if(!captcha_check($request->param('capcha'))){
             $json_arr = ['code' => 300, 'msg' => "验证码错误"];
-        }else{
-            $username = $request->param('username');
-            $password = $request->param('password');
-            $user = UserModel::where(['username' => $username, 'password' => $password])->find();
-            if(empty($user)) {
-                $json_arr = ['code' => 301, 'msg' => "用户名或密码错误"];
-            }else if($user->status === 1){
-                $json_arr = ['code' => 1, 'msg' => "用户状态错误，请联系管理员"];
-            }else{
-                $user->latestlogintime = date('Y-m-d H:i:s');
-                $user->allowField(true)->save();
-                Session::set('userid', $user->id);
-                if(HelperApi::IsAdmin()){
-                    $this->success('登录成功', 'gjcf/admin/index', 0, 1);
-                }else{
-                    $json_arr = ['code' => 0, 'msg' => '登录成功', 'username' => $username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
-                }
-            }
+            return json_encode($json_arr);
         }
+
+        $username = $request->param('username');
+        $password = $request->param('password');
+        $user = UserModel::where(['username' => $username, 'password' => $password])->find();
+        if(empty($user)) {
+            return HelperApi::ReturnCodeMsg(301, '用户名或密码错误');
+        }
+        if($user->status === 1){
+            return HelperApi::ReturnCodeMsg(100, '用户状态错误，请联系管理员');
+        }
+
+        $user->latestlogintime = date('Y-m-d H:i:s');
+        $user->allowField(true)->save();
+        Session::set('userid', $user->id);
+        if(HelperApi::IsAdmin()){
+            return HelperApi::ReturnCodeMsg(1, '登录成功');
+        }
+        $json_arr = ['code' => 0, 'msg' => '登录成功', 'username' => $username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
         return json_encode($json_arr);
     }
 

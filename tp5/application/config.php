@@ -145,6 +145,8 @@ return [
         '__IMAGE__' => '/static/image',
         '__LAYUI__' => '/static/layui',
         '__LAYER__' => '/static/layer',
+        '__QRCODE__' => '/static/qrcodejs',
+        '__DTREE__' => '/static/dtree',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -244,8 +246,9 @@ return [
     ],
     //验证码
     'captcha' =>[
-        'imageH' => 40,
+        'imageH' => 55,
         'length' => 4,
-        'fontSize' => 20,
+        'fontSize' => 30,
+        'reset' => true,
     ],
 ];

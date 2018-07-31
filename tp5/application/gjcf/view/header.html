@@ -9,8 +9,11 @@
 
     <script type="text/javascript" src="__LAYUI__/layui.js"></script>
     <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all" />
-    <link rel="stylesheet" href="__CSS__/style.css?version=1" type="text/css" />
-    <script type="text/javascript" src="__JS__/action.js?version=42"></script>
+    <link rel="stylesheet" href="__CSS__/style.css?version=2" type="text/css" />
+    <link rel="stylesheet" href="__DTREE__/dtree.css?version=4" type="text/css" />
+    <script type="text/javascript" src="__JS__/action.js?version=43"></script>
+    <script type="text/javascript" src="__QRCODE__/qrcode.min.js"></script>
+    <script type="text/javascript" src="__DTREE__/dtree.js?version=4"></script>
     <script type="text/javascript">
 
     </script>
@@ -23,40 +26,41 @@
 </head>
 <body class="layui-layout-body">
 
-    <div class="layui-container" id="userinfo">
-        <form class="layui-form layui-form-pane" action="" target="exec_targer">
+<div id="top_info">
+    <div class="layui-container" id="header_userinfo">
+        <form class="layui-form layui-form-pane" action="javascript:;" >
             <!--<div class="layui-container" style="width:625;position:relative;left:0%">-->
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">用户名：</label>
-                    <div class="layui-input-inline">
-                        <label class="layui-form-label" id="header_username"></label>
-                    </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label" >用户名：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_username" style="width:200;"></label>
                 </div>
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">用户ID：</label>
-                    <div class="layui-input-inline">
-                        <label class="layui-form-label" id="header_userid"></label>
-                    </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">用户ID：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_userid"></label>
                 </div>
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">可用YDC：</label>
-                    <div class="layui-input-inline">
-                        <label class="layui-form-label" id="header_usableydc"></label>
-                    </div>
-                </div>
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">冻结YDC：</label>
-                    <div class="layui-input-inline">
-                        <label class="layui-form-label" id="header_freezenydc"></label>
-                    </div>
-                </div>
+            </div>
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">可用YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_usableydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">冻结YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_freezenydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
 
-                <div class="layui-form-item layui-inline">
-                    <div class="layui-input-inline">
-                        <button class="layui-btn" lay-submit="" id="header_sign">签到</button>
-                        <button class="layui-btn" lay-submit="" id="header_layout">退出</button>
-                    </div>
+            <div class="layui-form-item layui-inline">
+                <div class="layui-input-inline">
+                    <button class="layui-btn" id="header_sign">签到</button>
+                    <button class="layui-btn" id="header_logout">退出</button>
                 </div>
+            </div>
         </form>
     </div>
 
@@ -88,11 +92,13 @@
                 <a href="javascript:;">团队信息</a>
                 <dl class="layui-nav-child">
                     <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
+                    <dd id="header_invite"><a href="javascript:;">邀请链接</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
         </ul>
     </div>
+</div>
 
 
 <br/>

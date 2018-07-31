@@ -1,25 +1,26 @@
 {include file="layout" title="充值" /}
+<style>
+    #top_info{
+        visibility:visible;
+    }
 
-<div class="layui-container" style="width:625;position:relative;left:0%">
-    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+</style>
+<div class="layui-container" style="width:300;position:relative;left:0%">
+    <form action="javascript:;" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
-            <label class="layui-form-label">支付宝扫码：</label>
+            <label class="layui-form-label" style="width:300;">支付宝扫码：</label>
         </div>
         <div class="layui-form-item">
-            <img src="__IMAGE__/charge.png" height="200" width="200"><br/>
+            <img src="__IMAGE__/charge.png" height="300" width="300"><br/>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">充值金额</label>
-            <div class="layui-input-inline">
-                <input type="text" name="charge_ydc" id="charge_ydc" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-inline">
-                <label class="layui-form-label">最低10元起充</label>
-            </div>
+            <input type="text" name="charge_ydc" id="charge_ydc" lay-verify="required" placeholder="充值金额" autocomplete="off" class="layui-input" style="width:300;">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width:300;">最低10元起充</label>
         </div>
         <div class="layui-form-item">
             <button class="layui-btn" lay-submit="" id="charge_ok">确定</button>
         </div>
     </form>
 </div>
-<iframe name="exec_target" hidden />

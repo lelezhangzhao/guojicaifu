@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"E:\share\project\trunk\tp5\public/../application/gjcf\view\withdraw\index.html";i:1532913360;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532917974;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"E:\share\project\trunk\tp5\public/../application/gjcf\view\withdraw\index.html";i:1533019162;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533007615;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>提现</title>
@@ -11,7 +11,8 @@
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=41"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=43"></script>
+    <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript">
 
     </script>
@@ -24,57 +25,81 @@
 </head>
 <body class="layui-layout-body">
 
-<div id="top_info" class="layui-header">
-    <div id="userinfo" >
-        <form method="post">
-            <span float="left">
-                用户名：<label id="header_username"></label>
-                用户ID：<label id="header_userid"></label>
-                可用YDC：<label id="header_usableydc"></label>
-                冻结YDC：<label id="header_freezenydc"></label>
-            </span>
-                <span float="right">
-                    <input type="submit" value="签到" formaction="<?php echo url('gjcf/sign/sign'); ?>"/>
-                    <input type="submit" value="退出" formaction="<?php echo url('gjcf/logout/logout'); ?>"/>
-                </span>
-        </form>
+<div id="top_info">
+    <div class="layui-container" id="header_userinfo">
+        <form class="layui-form layui-form-pane" action="javascript:;" >
+            <!--<div class="layui-container" style="width:625;position:relative;left:0%">-->
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label" >用户名：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_username" style="width:200;"></label>
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">用户ID：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_userid"></label>
+                </div>
+            </div>
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">可用YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_usableydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">冻结YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_freezenydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
 
+            <div class="layui-form-item layui-inline">
+                <div class="layui-input-inline">
+                    <button class="layui-btn" id="header_sign">签到</button>
+                    <button class="layui-btn" id="header_logout">退出</button>
+                </div>
+            </div>
+        </form>
     </div>
 
-    <ul class="layui-nav" >
-        <li class="layui-nav-item">
-            <a href="javascript:;">项目信息</a>
-            <dl class="layui-nav-child">
-                <dd id="header_project"><a href="javascript:;">项目列表</a></dd>
-                <dd id="header_investrecord"><a href="javascript:;">投资记录</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">充值提现</a>
-            <dl class="layui-nav-child">
-                <dd id="header_charge"><a href="javascript:;">充值</a></dd>
-                <dd id="header_withdraw"><a href="javascript:;">提现</a></dd>
-                <dd id="header_ydcrecord"><a href="javascript:;">收益记录</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">账户管理</a>
-            <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                <dd id="header_fixaccountinfo"><a href="javascript:;">支付账户</a></dd>
-                <dd id="header_fixpassword"><a href="javascript:;">修改密码</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">团队信息</a>
-            <dl class="layui-nav-child">
-                <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
-    </ul>
-
-
+    <div class="layui-container">
+        <ul class="layui-nav" >
+            <li class="layui-nav-item">
+                <a href="javascript:;">项目信息</a>
+                <dl class="layui-nav-child">
+                    <dd id="header_project"><a href="javascript:;">项目列表</a></dd>
+                    <dd id="header_investrecord"><a href="javascript:;">投资记录</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">充值提现</a>
+                <dl class="layui-nav-child">
+                    <dd id="header_charge"><a href="javascript:;">充值</a></dd>
+                    <dd id="header_withdraw"><a href="javascript:;">提现</a></dd>
+                    <dd id="header_ydcrecord"><a href="javascript:;">收益记录</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">账户管理</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd id="header_fixaccountinfo"><a href="javascript:;">支付账户</a></dd>
+                    <dd id="header_fixpassword"><a href="javascript:;">修改密码</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">团队信息</a>
+                <dl class="layui-nav-child">
+                    <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
+                    <dd id="header_invite"><a href="javascript:;">邀请链接</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
+        </ul>
+    </div>
 </div>
+
+
 <br/>
 <br/>
 <br/>
@@ -95,12 +120,39 @@
 
 <script type="text/javascript">
     window.onload=GetWithdrawYdc();
+
+    $("#top_info").css("visibility", "visible");
+    $.LoadUserInfo();
+
 </script>
-<!--<body onload="GetWithdrawYdc()">-->
-<div>
-    可提现额度：<label id="withdrawydc">0</label><br/>
 
-    提现：<input type="text" id="withdraw_ydc" name="withdraw"/><input type="button" id="withdraw_ok" value="确定" /><br/>
+
+
+
+<div class="layui-container" style="width:600;position:relative;left:0%">
+    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label ">可提现额度</label>
+            <div class="layui-input-inline">
+                <label class="layui-form-label" id="withdraw_usableydc">0</label>
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">冻结额度</label>
+            <div class="layui-input-inline">
+                <label class="layui-form-label" id="withdraw_freezenydc">0</label>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">提现</label>
+            <div class="layui-input-inline">
+                <input type="text" name="withdraw_ydc" id="withdraw_ydc" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" id="withdraw_ok">确定</button>
+        </div>
+    </form>
 </div>
-
-<!--</body>-->
+<iframe name="exec_target" hidden />

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1532941705;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1532935069;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1533005652;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533007615;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>注册</title>
@@ -11,7 +11,8 @@
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=42"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=43"></script>
+    <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript">
 
     </script>
@@ -24,23 +25,45 @@
 </head>
 <body class="layui-layout-body">
 
-    <div id="top_info" class="layui-header">
-        <div id="userinfo" >
-            <div >
-                <span float="left">
-                    用户名：<label id="header_username"></label>
-                    用户ID：<label id="header_userid"></label>
-                    可用YDC：<label id="header_usableydc"></label>
-                    冻结YDC：<label id="header_freezenydc"></label>
-                </span>
-                    <span float="right">
-                        <input type="button" value="签到" id="header_sign"/>
-                        <input type="button" value="退出" id="header_logout"/>
-                    </span>
+<div id="top_info">
+    <div class="layui-container" id="header_userinfo">
+        <form class="layui-form layui-form-pane" action="javascript:;" >
+            <!--<div class="layui-container" style="width:625;position:relative;left:0%">-->
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label" >用户名：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_username" style="width:200;"></label>
+                </div>
             </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">用户ID：</label>
+                <div class="layui-input-inline">
+                    <label class="layui-form-label" id="header_userid"></label>
+                </div>
+            </div>
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">可用YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_usableydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="layui-form-item layui-inline">-->
+                <!--<label class="layui-form-label">冻结YDC：</label>-->
+                <!--<div class="layui-input-inline">-->
+                    <!--<label class="layui-form-label" id="header_freezenydc"></label>-->
+                <!--</div>-->
+            <!--</div>-->
 
-        </div>
+            <div class="layui-form-item layui-inline">
+                <div class="layui-input-inline">
+                    <button class="layui-btn" id="header_sign">签到</button>
+                    <button class="layui-btn" id="header_logout">退出</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
+    <div class="layui-container">
         <ul class="layui-nav" >
             <li class="layui-nav-item">
                 <a href="javascript:;">项目信息</a>
@@ -68,13 +91,15 @@
                 <a href="javascript:;">团队信息</a>
                 <dl class="layui-nav-child">
                     <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
+                    <dd id="header_invite"><a href="javascript:;">邀请链接</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
         </ul>
-
-
     </div>
+</div>
+
+
 <br/>
 <br/>
 <br/>
@@ -93,7 +118,11 @@
 </html>
 
 
-
+<style>
+    #top_info{
+        visibility:hidden;
+    }
+</style>
 <script text="text/javascript">
     var referee = GetUrlParam('referee');
     window.onload = function(){
@@ -102,55 +131,37 @@
 </script>
 
 
-<div class="layui-container" style="width:650;position:relative;left:0%">
+<div class="layui-container" style="width:300;position:relative;left:0%">
     <form action="" target="exec_target" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
-            <label class="layui-form-label">用户名</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_username" id="signup_username" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="signup_username" id="signup_username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">密码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_password" id="signup_password" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="signup_password" id="signup_password" lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">手机号</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_tel" id="signup_tel" lay-verify="required|phone" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-inline">
-                <button class="layui-btn" id="signup_gettelidentify">点击发送验证码</button>
-            </div>
+            <input type="text" name="signup_tel" id="signup_tel" lay-verify="required|phone" placeholder="手机号" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" id="signup_gettelidentify">点击发送验证码</button>
+        </div>
 
+        <div class="layui-form-item">
+            <input type="text" name="signup_telidentify" id="signup_telidentify" lay-verify="required" placeholder="手机验证码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">手机验证码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_telidentify" id="signup_telidentify" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="signup_referee" id="signup_referee" lay-verify="required" placeholder="推荐人ID" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">推荐人ID</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_referee" id="signup_referee" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="signup_capcha" id="signup_capcha" lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">验证码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="signup_capcha" id="signup_capcha" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-inline">
-                <img id="signup_capcha_img" src="<?php echo captcha_src(); ?>" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer;position:relative;left:0%;" /><br />
-            </div>
-
+            <img id="signup_capcha_img" src="<?php echo captcha_src(); ?>" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer;position:relative;left:0%;" /><br />
         </div>
         <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" lay-filter="demo1" id="signup_signup">注册</button>
+            <button class="layui-btn" lay-submit="" lay-filter="demo1" id="signup_login">返回登录</button>
         </div>
-        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="signup_signup">注册</button>
 
     </form>
 

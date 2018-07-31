@@ -1,28 +1,23 @@
 {include file="layout" title="账户" /}
+<style>
+    #top_info{
+        visibility:visible;
+    }
+</style>
 
-
-<div class="layui-container" style="width:625;position:relative;left:0%">
+<div class="layui-container" style="width:300;position:relative;left:0%">
     <form action="" target="exec_target" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
-            <label class="layui-form-label">姓名</label>
-            <div class="layui-input-inline">
-                <input type="text" name="accountinfo_name" id="accountinfo_name" lay-verify="required" autocomplete="off" class="layui-input" value="{$accountinfoname}">
-            </div>
+            <input type="text" name="accountinfo_name" id="accountinfo_name" lay-verify="required" placeholder="姓名" autocomplete="off" class="layui-input" value="{$accountinfoname}">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">支付宝账户</label>
-            <div class="layui-input-inline">
-                <input type="text" name="accountinfo_alipaynum" id="accountinfo_alipaynum" lay-verify="required" autocomplete="off" class="layui-input" value="{$accountinfoalipaynum}">
-            </div>
+            <input type="text" name="accountinfo_alipaynum" id="accountinfo_alipaynum" lay-verify="required" placeholder="支付宝账户" autocomplete="off" class="layui-input" value="{$accountinfoalipaynum}">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">手机验证码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="accountinfo_telidentify" id="accountinfo_telidentify" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-inline">
-                <button class="layui-btn" lay-submit="" id="accountinfo_getaccountinfotelidentify">获取手机验证码</button>
-            </div>
+            <button class="layui-btn" lay-submit="" id="accountinfo_getaccountinfotelidentify">获取手机验证码</button>
+        </div>
+        <div class="layui-form-item">
+            <input type="text" name="accountinfo_telidentify" id="accountinfo_telidentify" lay-verify="required" placeholder="手机验证码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
             <button class="layui-btn" lay-submit="" id="accountinfo_save">保存</button>
