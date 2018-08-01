@@ -24,59 +24,96 @@ class Invest extends Controller{
             return $status;
         }
 
-        $project_id = $request->param('projectid');
-        $project = ProjectModel::where('id', $project_id)->find();
-        if (empty($project)) {
-            //违规访问，封号
-            HelperApi::SetUserDisabled(Session::get('id'), '违规访问project');
-            $json_arr = ['code' => 500, 'msg' => '违规访问projet,已封号'];
-            return json_encode($json_arr);
-        }
-
         $accountstatus = HelperApi::TestAccountInfo($this);
         if($accountstatus !== true){
-            return json_encode($accountstatus);
+            return $accountstatus;
         }
 
-        $user = UserModel::get(Session::get('userid'));
-        if ($user->usableydc < $project->investydc) {
-            $json_arr = ['code' => 200, 'msg' => '可用余额不足'];
+        $projectid = $request->param('projectid');
+
+        $userid = Session::get('userid');
+
+        $project = ProjectModel::get($projectid);
+
+        if($project['status'] === 1){
+            $json_arr = ['code' => 601, 'msg' => '项目未开始'];
+            return json_encode($json_arr);
+        }else if($project['status'] === 2){
+            $json_arr = ['code' => 602, 'msg' => '项目已结束'];
             return json_encode($json_arr);
         }
+
+
+        $user = UserModel::get($userid);
+        if($project['status'] === 0){
+            //可用ydc类型
+            if ($user->usableydc < $project->investydc) {
+                $json_arr = ['code' => 200, 'msg' => '可用余额不足'];
+                return json_encode($json_arr);
+            }
+
+        }else if($project['status'] === 1) {
+            //体验金类型
+            if ($user->tasteydc < $project->investydc) {
+                $json_arr = ['code' => 201, 'msg' => '可用体验金不足'];
+                return json_encode($json_arr);
+            }
+
+        }
+
 
         Db::startTrans();
         try {
             //当前项目是否可投资
-            $trans_project = Db::name('project')->lock(true)->where('id', $project_id)->find();
+            $project_trans = Db::name('project')->lock(true)->where('id', $projectid)->find();
+            $user_trans = Db::name('user')->lock(true)->where('id', $userid)->find();
 
-            if ($trans_project['remaininvest'] < $trans_project['investydc']) {
-                $trans_project['status'] = 2;
+
+
+            if ($project_trans['remaininvest'] < $project_trans['investydc']) {
+                $project_trans['status'] = 2;
                 throw new \Exception('项目额度不足', 600);
             }else{
-                $trans_project['curinvest'] += $trans_project['investydc'];
-                $trans_project['remaininvest'] -= $trans_project['investydc'];
-                Db::name('project')->update($trans_project);
+                //项目类型
+                if($project_trans['ydctype'] === 0){
+                    //可用ydc类型
+                    //用户余额
+                    $user_trans['usableydc'] -= $project_trans['investydc'];
+
+                }else if($project_trans['ydctype'] === 1) {
+                    //体验金类型
+                    if ($user_trans['tasteydc'] < $project_trans['investydc']) {
+                        throw new \Exception('可用体验金不足', 201);
+                    }
+                    //用户余额
+                    $user_trans['tasteydc'] -= $project_trans['investydc'];
+
+                }
+
+                $project_trans['curinvest'] += $project_trans['investydc'];
+                $project_trans['remaininvest'] -= $project_trans['investydc'];
+
+                $project_trans['projectpercent'] = $project_trans['curinvest'] / $project_trans['totalinvest'] * 100 . '%';
+                Db::name('project')->update($project_trans, ['curinvest' => $project_trans['curinvest'], 'remaininvest' => $project_trans['remaininvest']]);
+                Db::name('user')->update($user_trans);
 
                 Db::commit();
             }
         } catch (\Exception $e) {
-            $json_arr = ['code' => $e.getCode(), 'msg' => $e.getMessage()];
+            $json_arr = ['code' => $e->getCode(), 'msg' => $e->getMessage()];
             Db::rollback();
             return json_encode($json_arr);
         }
 
         //第一次投资，该用户加入refereeone
-        if($user->hasinvest === 0){
+        if($project->ydctype === 0 && $user->hasinvest === 0){
             //refereeone
             RefereeoneModel::AddRefereeone($user->referee);
-
             $user->activetime = date('Y-m-d');
             $user->hasinvest = 1;
+            $user->allowField(true)->save();
         }
 
-        //用户余额
-        $user->usableydc -= $project->investydc;
-        $user->allowField(true)->save();
 
         //invest
         $investrecord = new InvestrecordModel();
@@ -91,7 +128,7 @@ class Invest extends Controller{
         $refereeoneuser = UserModel::where('id', $user->referee)->find();
         if(!empty($refereeoneuser)) {
             $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
-            RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $project_id, $refereeoneydc);
+            RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $projectid, $refereeoneydc);
             $refereeoneuser->usableydc += $refereeoneydc;
             $releasefreezenydc = 0;
             if ($refereeoneuser->freezenydc > 0) {
@@ -109,7 +146,7 @@ class Invest extends Controller{
             $refereetwouser = UserModel::where('id', $refereeoneuser->referee)->find();
             if (!empty($refereetwouser)) {
                 $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
-                RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $project_id, $refereetwoydc);
+                RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $projectid, $refereetwoydc);
                 $refereetwouser->usableydc += $refereetwoydc;
                 $releasefreezenydc = 0;
                 if ($refereetwouser->freezenydc > 0) {
@@ -128,7 +165,7 @@ class Invest extends Controller{
                 $refereethreeuser = UserModel::where('id', $refereetwouser->referee)->find();
                 if (!empty($refereethreeuser)) {
                     $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
-                    RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $project_id, $refereethreeydc);
+                    RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $projectid, $refereethreeydc);
                     $refereethreeuser->usableydc += $refereethreeydc;
                     $releasefreezenydc = 0;
 
@@ -147,7 +184,7 @@ class Invest extends Controller{
                 }
             }
         }
-        $json_arr = ['code' => 0, 'msg' => '投资成功', 'remaininvest' => $project->remaininvest];
+        $json_arr = ['code' => 0, 'msg' => '投资成功', 'projectpercent' => $project->projectpercent, 'remaininvest' => $project->remaininvest];
         return json_encode($json_arr);
     }
 

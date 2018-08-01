@@ -59,7 +59,7 @@ class Signup extends Controller{
         $user->status = 0;
         $user->role = 0;
         $user->usableydc = 0;
-        $user->freezenydc = 100;
+        $user->tasteydc = 100;
         $user->singnuptime = date('Y-m-d H:i:s');
         $user->latestlogintime = date('Y-m-d H:i:s');
         $user->hasinvest = 0;

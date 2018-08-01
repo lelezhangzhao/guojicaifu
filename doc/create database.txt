@@ -16,6 +16,7 @@ create table international_user
    role                 int,
    usableydc            float,
    freezenydc           float,
+   tasteydc             float,
    signuptime           timestamp null default current_timestamp,
    latestlogintime      timestamp null,
    statusinfo           varchar(50),
@@ -136,8 +137,11 @@ create table international_project
    balanceperday        float,
    curinvest            int,
    remaininvest         int,
+   totalinvest          int,
    begintime            timestamp null,
    status               int,
+   ydctype              int,
+   projectpercent       varchar(10),
    primary key (id)
 );
 
@@ -225,10 +229,10 @@ insert into international_user(username, password, tel, name, alipaynum, referee
 values
 ("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "0", 0, 1, 10000, 10000, 0);
 
-insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, begintime, status)
+insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, totalinvest, begintime, status, ydctype, projectpercent)
 values
-("谨源农场", 10, 20, 5, 4, 0, 10000, "2018-07-19 14:00:00", 0);
-
+("谨源农场", 100, 120, 6, 20, 0, 100000, 100000, "2018-07-19 14:00:00", 0, 0, '0%'),
+("体验农场", 1000, 1000, 300, 3, 0, 100000, 100000, "2018-07-19 14:00:00", 0, 1, '0%');
 
 
 insert into international_refereeprofit(refereeone, refereetwo, refereethree)
