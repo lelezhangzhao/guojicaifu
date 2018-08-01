@@ -5,19 +5,13 @@
     }
 </style>
 
-<div class="layui-container" style="width:625;position:relative;left:0%">
+<div class="layui-container" style="width:300;position:relative;left:0%">
     <form action="" target="exec_target" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
-            <label class="layui-form-label">原密码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="fixpassword_oldpassword" id="fixpassword_oldpassword" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="fixpassword_oldpassword" id="fixpassword_oldpassword" lay-verify="required" placeholder="原密码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">新密码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="fixpassword_newpassword" id="fixpassword_newpassword" lay-verify="required" autocomplete="off" class="layui-input">
-            </div>
+            <input type="text" name="fixpassword_newpassword" id="fixpassword_newpassword" lay-verify="required" placeholder="新密码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
             <button class="layui-btn" lay-submit="" id="fixpassword_ok">确定</button>

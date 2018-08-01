@@ -10,13 +10,19 @@ use app\gjcf\model\User as UserModel;
 
 class Fixpassword extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         return $this->fetch();
     }
 
     public function FixPassword(Request $request){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $userid = Session::get('userid');
         $oldpassword = $request->param('oldpassword');
@@ -26,14 +32,14 @@ class Fixpassword extends Controller{
         $user = UserModel::where('id', $userid)->find();
 
         if($user->password !== $oldpassword){
-            ReturnCodeMsg(103, '账户信息未完善');
+            return HelperApi::ReturnCodeMsg(308, '原密码错误');
 
 //            $this->error('原密码错误', 'gjcf/fixpassword/index', 0, 1);
         }
 
         //新旧密码不能相同
         if($oldpassword === $newpassword){
-            ReturnCodeMsg(307, '新旧密码不能相同');
+            return HelperApi::ReturnCodeMsg(307, '新旧密码不能相同');
 //            $this->error('新旧密码不能相同', 'gjcf/fixpassword/index', 0, 1);
         }
         $user->password = $newpassword;
@@ -43,7 +49,7 @@ class Fixpassword extends Controller{
         }
         $user->allowField(true)->save();
         Session::delete("userid");
-        ReturnCodeMsg(0, '密码更新成功，请重新登录');
+        return HelperApi::ReturnCodeMsg(0, '密码更新成功，请重新登录');
 //        $this->success('更新成功', 'gjcf/index/index', 0, 1);
     }
 

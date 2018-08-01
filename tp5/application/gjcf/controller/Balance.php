@@ -14,14 +14,28 @@ use app\gjcf\model\Project as ProjectModel;
 
 class Balance extends Controller{
     public function Index(){
-        if(!HelperApi::IsAdmin()){
-            HelperApi::SetUserDisabled(Session::get('userid'), '违规访问balance');
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
         }
 
         return $this->fetch();
     }
 
     public function Balance(){
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
+        $isadmin = HelperApi::TestIsAdmin($this);
+        if(true !== $isadmin){
+            return $isadmin;
+        }
+
         $investrecord = InvestrecordModel::where('status', 0)->select();
 
         foreach($investrecord as $oneinvestrecord){

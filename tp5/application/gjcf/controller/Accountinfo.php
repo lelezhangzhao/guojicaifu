@@ -14,7 +14,10 @@ use app\gjcf\api\Helper as HelperApi;
 
 class Accountinfo extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $user = UserModel::get(Session::get('userid'));
 
@@ -25,7 +28,10 @@ class Accountinfo extends Controller{
     }
 
     public function GetTelIdentify(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $user = UserModel::get(Session::get('userid'));
         $tel = $user->tel;
@@ -33,7 +39,10 @@ class Accountinfo extends Controller{
     }
 
     public function SaveAccountInfo(Request $request){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $name = $request->param('name');
         $alipaynum = $request->param('alipaynum');

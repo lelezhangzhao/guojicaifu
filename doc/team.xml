@@ -6,4 +6,9 @@
 			</thirditem>
 		</seconditem>
 	</firstitem>
+	<referee referee="" onecount="" towcount="" threecount="" />
 </myteam>
+
+
+"<pre>string(38) "&lt;?xml version="1.0" encoding="utf-8"?&gt;"
+</pre>"<?xml version=\"1.0\" encoding=\"utf-8\"?>""

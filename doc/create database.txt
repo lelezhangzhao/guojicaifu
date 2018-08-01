@@ -20,6 +20,7 @@ create table international_user
    latestlogintime      timestamp null,
    statusinfo           varchar(50),
    hasinvest            int,
+   activetime           timestamp,
    primary key (id)
 );
 
@@ -173,6 +174,8 @@ create table international_bonusrecord
    primary key (id)
 );
 
+
+
 drop table if exists international_dayprofit;
 
 /*==============================================================*/
@@ -215,6 +218,8 @@ create table international_refereeone
    userid            int,
    primary key (id)
 );
+
+
 
 insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc, hasinvest)
 values

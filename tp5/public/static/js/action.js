@@ -162,11 +162,12 @@ $(function(){
                         break;
                     case 300: //captcha
                         $.ShowMsg(data.msg);
-                        var img = document.getElementById("login_captcha_img");
+                        document.getElementById("login_captcha_img").click();
+                        // document.getElementById()
                         // img.src = "/index.php/captcha?id=" + Math.random();
-                        $("#login_capcha").val("");
+                        // $("#login_capcha").val("");
                         break;
-                    case 301:
+                    case 301: //username or password
                         $.ShowMsg(data.msg);
                         $("#login_username").val("");
                         $("#login_password").val("");
@@ -273,7 +274,7 @@ $(function(){
                         break;
                     default: //refresh capcha
                         var img = document.getElementById("signup_capcha_img");
-                        // img.src = "/index.php/captcha?id=" + Math.random();
+                        img.src = "/index.php/captcha?id=" + Math.random();
                         $("#signup_capcha").val("");
                         break;
                 }
@@ -609,6 +610,9 @@ $(function(){
     $("#header_systemad").click(function(){
         alert("systemad");
     });
+    $("#header_bonus").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/bonus/index");
+    });
 
 });
 
@@ -643,18 +647,82 @@ function GetTeam(){
     $(function(){
         $.ajax({
             type:"post",
-            url:"/index.php/gjcf/team/getteam1",
+            url:"/index.php/gjcf/team/getteam",
             async:true,
             dataType:"xml",
             success:function(data){
-                alert(data);
+
+                dtree = new dTree('dtree');
+                var iconPath = "../../../static/dtree/img/person.gif";
+                var iconOpenPath = "../../../static/dtree/img/person.gif";
+                var pid = 0;
+                var preid = 0;
+                var name;
+
+                pid = parseInt($(data).find("myteam").attr("id"));
+                preid = parseInt($(data).find("myteam").attr("referee"));
+                name = $(data).find("myteam").attr("username")
+                dtree.add(pid, preid, name, "", "", "", iconPath, iconOpenPath);
+
+                $(data).find("firstitem").each(function(i){
+                    pid = parseInt($(this).attr('id'));
+                    preid = parseInt($(this).attr('referee'));
+                    name = $(this).attr('username');
+                    dtree.add(pid, preid, name, "", "", "", iconPath, iconOpenPath);
+
+                    $(this).find("seconditem").each(function(){
+                        pid = parseInt($(this).attr('id'));
+                        preid = parseInt($(this).attr('referee'));
+                        name = $(this).attr('username')
+                        dtree.add(pid, preid, name, "", "", "", iconPath, iconOpenPath);
+
+                        $(this).find("thirditem").each(function(){
+                            pid = parseInt($(this).attr('id'));
+                            preid = parseInt($(this).attr('referee'));
+                            name = $(this).attr('username')
+                            dtree.add(pid, preid, name, "", "", "", iconPath, iconOpenPath);
+                        });
+                    });
+                });
+                // $("#team_tree").html(dtree);
+                document.getElementById("team_tree").innerHTML = dtree;
+
+                document.getElementById("team_referee").innerHTML = $(data).find("referee").attr("referee");
+                document.getElementById("team_onecount").innerHTML = $(data).find("referee").attr("onecount");
+                document.getElementById("team_twocount").innerHTML = $(data).find("referee").attr("twocount");
+                document.getElementById("team_threecount").innerHTML = $(data).find("referee").attr("threecount");
+                document.getElementById("team_today_onecount").innerHTML = $(data).find("referee").attr("todayonecount");
+
+
+
+
             },
             error:function(hd, msg){
                 alert(msg);
         }
         });
     });
+    // xmlhttp.onreadystatechange=function()
+    // {
+    //     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    //     {
+    //         myFunction(this);
+    //         // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    //     }
+    // };
+    //
+    // xmlhttp.open("get", "/index.php/gjcf/team/getteam1", true);
+    // xmlhttp.setRequestHeader("Content-Type", "text/xml");
+    // xmlhttp.send();
 }
+// function myFunction(xmlHttp){
+//     alert(xmlHttp.responseText);
+//     var xmlDoc = xmlHttp.responseXML;
+//     if(xmlDoc == null)return;
+//
+//     alert(xmlDoc);
+// }
+
 
 function GetWithdrawYdc(){
     $(function(){

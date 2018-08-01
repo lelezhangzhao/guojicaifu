@@ -11,7 +11,10 @@ use app\gjcf\api\Helper as HelperApi;
 
 class Userinfo extends Controller{
     public function GetHeaderUserInfo(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
         $user = UserModel::get(Session::get('userid'));
         $json_arr = ['code' => 0, 'username' => $user->username, 'userid' => $user->id, 'usableydc' => $user->usableydc, 'freezenydc' => $user->freezenydc];
 

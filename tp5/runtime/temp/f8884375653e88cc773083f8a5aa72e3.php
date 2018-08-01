@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\invite\index.html";i:1533018644;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\bonus\index.html";i:1533103994;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
-    <title>邀请链接</title>
+    <title>主页</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -121,30 +121,26 @@
 </html>
 
 
-<style>
-    #top_info{
-        visibility:visible;
-    }
-
-</style>
-<div class="layui-container" style="width:300;position:relative;left:0%">
-    <form action="javascript:;" class="layui-form layui-form-pane" >
-        <div class="layui-form-item">
-            <label class="layui-form-label" style="width:300;">扫码注册：</label>
-        </div>
-        <div class="layui-form-item">
-            <div id="invite_qrcode" height="300" width="300"><br/>
-        </div>
-        <br/>
-        <div class="layui-form-item">
-            <label class="layui-form-label" style="width:300;">注册链接</label>
-        </div>
-        <div class="layui-form-item">
-            <textarea  cols="40" rows="3" id="invite_url" wrap="virtual" readonly="readonly"></textarea>
-        </div>
-    </form>
-</div>
-
 <script type="text/javascript">
-    window.onload = GetInviteUrl();
+    $("#top_info").css("visibility", "visible");
+
+</script>
+
+<div id="bottom">
+    <h2>分红</h2>
+    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/bonus/getbonus', id:'idTest'}" lay-filter="index_invest">
+        <thead>
+        <tr>
+            <th lay-data="{field:'count', sort: true, fixed: true}">直推人数</th>
+            <th lay-data="{field:'profit'}">分红额度</th>
+            <th lay-data="{field:'profitcount'}">分红人数</th>
+            <th lay-data="{field:'oneprofit', sort: true}">人均分红</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    layui.use(['layer', 'table'], function() {
+        var table = layui.table;
+    });
 </script>

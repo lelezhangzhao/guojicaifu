@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"E:\share\project\trunk\tp5\public/../application/gjcf\view\team\index.html";i:1533030927;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533025294;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"E:\share\project\trunk\tp5\public/../application/gjcf\view\team\index.html";i:1533096025;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>我的团队</title>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
     <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=43"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=47"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">
@@ -94,6 +94,7 @@
                 <dl class="layui-nav-child">
                     <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
                     <dd id="header_invite"><a href="javascript:;">邀请链接</a></dd>
+                    <dd id="header_bonus"><a href="javascript:;">今日分红</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
@@ -139,7 +140,7 @@
                 <label class="layui-form-label" style="width:150;">我的上级代理ID：</label>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label" style="width:100;"></label>
+                <label class="layui-form-label" style="width:100;" id="team_referee"></label>
             </div>
         </div>
         <div class="layui-form-item">
@@ -147,7 +148,13 @@
                 <label class="layui-form-label" style="width:150;">一级代理人数：</label>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label" style="width:100;"></label>
+                <label class="layui-form-label" style="width:100;" id="team_onecount"></label>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label" style="width:200;">今日激活一级代理人数</label>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label" style="width:100;" id="team_today_onecount"></label>
             </div>
         </div>
         <div class="layui-form-item">
@@ -155,7 +162,7 @@
                 <label class="layui-form-label" style="width:150;">二级代理人数：</label>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label" style="width:100;"></label>
+                <label class="layui-form-label" style="width:100;" id="team_twocount"></label>
             </div>
         </div>
         <div class="layui-form-item">
@@ -163,7 +170,7 @@
                 <label class="layui-form-label" style="width:150;">三级代理人数：</label>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label" style="width:100;"></label>
+                <label class="layui-form-label" style="width:100;" id="team_threecount"></label>
             </div>
         </div>
 
@@ -178,20 +185,20 @@
 
 
 
-    <script type="text/javascript">
-        d = new dTree('d');
+    <!--<script type="text/javascript">-->
+        <!--d = new dTree('d');-->
 
-        d.add(0, -1, "0aasdfasdfasdfsdfasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(1, 0, "asdasdfasdfasdfsf1", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(2, 1, "2asddafsdafsadfasdffasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(3, 1, "3assadfasdfsdafsdafdfas", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(4, 3, "4dfsdafsdafasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(5, 3, "5asdsdafsdafasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(6, 5, "6asdfsdaasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(7, 5, "7sadffsdasadf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(8, 5, "8sadfsadfsfsdafsadfasd", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(9, 5, "9fsadffsadsadfsd", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        d.add(19, 5, "7777777fasdfsadf77777777777719", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");
-        document.getElementById("team_tree").innerHTML = d;
-    </script>
+        <!--d.add(0, -1, "0aasdfasdfasdfsdfasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(1, 0, "asdasdfasdfasdfsf1", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(2, 1, "2asddafsdafsadfasdffasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(3, 1, "3assadfasdfsdafsdafdfas", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(4, 3, "4dfsdafsdafasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(5, 3, "5asdsdafsdafasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(6, 5, "6asdfsdaasdf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(7, 5, "7sadffsdasadf", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(8, 5, "8sadfsadfsfsdafsadfasd", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(9, 5, "9fsadffsadsadfsd", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--d.add(19, 5, "7777777fasdfsadf77777777777719", "", "", "", "../../../static/dtree/img/person.gif","../../../static/dtree/img/person.gif");-->
+        <!--document.getElementById("team_tree").innerHTML = d;-->
+    <!--</script>-->
 </div>

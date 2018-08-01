@@ -21,7 +21,7 @@ class Invest extends Controller{
 
         $status = HelperApi::TestLoginAndStatus($this);
         if($status !== true){
-            return json_encode($status);
+            return $status;
         }
 
         $project_id = $request->param('projectid');
@@ -68,13 +68,14 @@ class Invest extends Controller{
         //第一次投资，该用户加入refereeone
         if($user->hasinvest === 0){
             //refereeone
-
             RefereeoneModel::AddRefereeone($user->referee);
+
+            $user->activetime = date('Y-m-d');
+            $user->hasinvest = 1;
         }
 
         //用户余额
         $user->usableydc -= $project->investydc;
-        $user->hasinvest = 1;
         $user->allowField(true)->save();
 
         //invest

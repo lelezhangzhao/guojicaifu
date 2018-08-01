@@ -13,7 +13,10 @@ use app\gjcf\api\Helper as HelperApi;
 
 class Ydcrecord extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         return $this->fetch();
     }
@@ -25,7 +28,10 @@ class Ydcrecord extends Controller{
         //签到
         //推荐收益
         //分红
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $page = $request->param('page');
         $limit = $request->param('limit');
@@ -39,6 +45,7 @@ class Ydcrecord extends Controller{
         $ydcrecords = Db::name('ydcrecord')
             ->where('userid', Session::get('userid'))
             ->limit($tol, $limit)
+            ->order('createtime', 'desc')
             ->select();
 
         $list["msg"]="";

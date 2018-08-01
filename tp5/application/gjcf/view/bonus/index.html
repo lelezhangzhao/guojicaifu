@@ -1,0 +1,24 @@
+{include file="layout" title="主页"/}
+<script type="text/javascript">
+    $("#top_info").css("visibility", "visible");
+
+</script>
+
+<div id="bottom">
+    <h2>分红</h2>
+    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/bonus/getbonus', id:'idTest'}" lay-filter="index_invest">
+        <thead>
+        <tr>
+            <th lay-data="{field:'count', sort: true, fixed: true}">直推人数</th>
+            <th lay-data="{field:'profit'}">分红额度</th>
+            <th lay-data="{field:'profitcount'}">分红人数</th>
+            <th lay-data="{field:'oneprofit', sort: true}">人均分红</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    layui.use(['layer', 'table'], function() {
+        var table = layui.table;
+    });
+</script>

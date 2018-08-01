@@ -14,14 +14,20 @@ use app\gjcf\model\Investrecord as InvestrecordModel;
 
 class Investrecord extends Controller{
     public function Index(){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         return $this->fetch();
 
     }
 
     public function GetInvestRecord(Request $request){
-        HelperApi::TestLoginAndStatus($this);
+        $status = HelperApi::TestLoginAndStatus($this);
+        if(true !== $status){
+            return $status;
+        }
 
         $limit = $request->param('limit');
         $page = $request->param('page');

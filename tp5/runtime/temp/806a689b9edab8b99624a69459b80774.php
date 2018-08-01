@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1533005652;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533007615;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"E:\share\project\trunk\tp5\public/../application/gjcf\view\signup\index.html";i:1533107590;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>注册</title>
@@ -10,9 +10,11 @@
 
     <script type="text/javascript" src="/static/layui/layui.js"></script>
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="/static/css/style.css?version=1" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=43"></script>
+    <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
+    <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
+    <script type="text/javascript" src="/static/js/action.js?version=47"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
+    <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">
 
     </script>
@@ -92,6 +94,7 @@
                 <dl class="layui-nav-child">
                     <dd id="header_myteam"><a href="javascript:;">我的团队</a></dd>
                     <dd id="header_invite"><a href="javascript:;">邀请链接</a></dd>
+                    <dd id="header_bonus"><a href="javascript:;">今日分红</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
@@ -132,7 +135,7 @@
 
 
 <div class="layui-container" style="width:300;position:relative;left:0%">
-    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+    <form action="javascript:;" target="exec_target" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
             <input type="text" name="signup_username" id="signup_username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
         </div>
