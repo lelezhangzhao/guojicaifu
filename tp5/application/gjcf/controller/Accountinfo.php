@@ -57,7 +57,8 @@ class Accountinfo extends Controller{
         $user->name = $name;
         $user->alipaynum = $alipaynum;
         $user->allowField(true)->save();
-        return '保存成功';
+        $json_arr = ['code' => 0, 'msg' => '保存成功'];
+        return json_encode($json_arr);
 
     }
 }

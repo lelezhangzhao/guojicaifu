@@ -63,6 +63,9 @@ class Helper extends Controller{
     static public function IsCurUserEnable(){
         $userid = Session::get('userid');
         $user = UserModel::get($userid);
+        if(empty($user)){
+            return false;
+        }
         if((int)$user->status === 0){
             return true;
         }
@@ -70,12 +73,12 @@ class Helper extends Controller{
     }
 
     static public function TestLoginAndStatus($controller){
-        if(!self::IsLoginUp()){
+        if(false === self::IsLoginUp()){
 //            self::LoginFirst($controller);
             $json_arr = ['code' => 102, 'msg' => '用户未登录'];
             return json_encode($json_arr);
         }
-        if(!self::IsCurUserEnable()){
+        if(false === self::IsCurUserEnable()){
             $json_arr = ['code' => 100, 'msg' => '用户状态错误，请联系管理员'];
             return json_encode($json_arr);
         }

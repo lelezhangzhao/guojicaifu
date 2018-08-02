@@ -23,7 +23,7 @@ create table international_user
    hasinvest            int,
    activetime           timestamp,
    primary key (id)
-);
+) auto_increment = 4396;
 
 drop table if exists international_loginrecord;
 
@@ -225,14 +225,19 @@ create table international_refereeone
 
 
 
-insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc, hasinvest)
+insert into international_user(username, password, tel, name, alipaynum, referee, status, role, usableydc, freezenydc, tasteydc, hasinvest)
 values
-("lelezhangzhao", "zhangzhao", "13113310202", "张召", "13113310202", "0", 0, 1, 10000, 10000, 0);
+("admin", "Zf!942643264", "00000000000", "test", "00000000000", "-1", 0, 1, 10000, 10000, 10000, 1);
 
 insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, totalinvest, begintime, status, ydctype, projectpercent)
 values
-("谨源农场", 100, 120, 6, 20, 0, 100000, 100000, "2018-07-19 14:00:00", 0, 0, '0%'),
-("体验农场", 1000, 1000, 300, 3, 0, 100000, 100000, "2018-07-19 14:00:00", 0, 1, '0%');
+("体验项目", 1000, 1000, 300, 3, 23000, 77000, 100000, "2018-07-19 14:00:00", 0, 1, '23%'),
+("谨源农场", 10, 20, 5, 4, 21500, 78500, 100000, "2018-07-19 14:00:00", 0, 0, '21.5%'),
+("雷诺科技", 100, 200, 5, 40, 70000, 30000, 100000, "2018-07-19 14:00:00", 0, 0, '70%'),
+("丽山旅游规划", 500, 1000, 5, 200, 68500, 31500, 100000, "2018-07-19 14:00:00", 0, 0, '68.5%'),
+("华闻创投", 1000, 2000, 5, 400, 14500, 85500, 100000, "2018-07-19 14:00:00", 0, 0, '14.5%'),
+("汇沃金融", 2000, 4000, 5, 800, 0, 100000, 100000, "2018-07-19 14:00:00", 1, 0, '0%');
+
 
 
 insert into international_refereeprofit(refereeone, refereetwo, refereethree)

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1533107522;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\login\index.html";i:1533107522;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533192414;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>登录</title>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
     <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=47"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=48"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">

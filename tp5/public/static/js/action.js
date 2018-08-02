@@ -165,7 +165,7 @@ $(function(){
                         document.getElementById("login_captcha_img").click();
                         // document.getElementById()
                         // img.src = "/index.php/captcha?id=" + Math.random();
-                        // $("#login_capcha").val("");
+                        $("#login_capcha").val("");
                         break;
                     case 301: //username or password
                         $.ShowMsg(data.msg);

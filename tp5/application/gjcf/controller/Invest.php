@@ -24,11 +24,6 @@ class Invest extends Controller{
             return $status;
         }
 
-        $accountstatus = HelperApi::TestAccountInfo($this);
-        if($accountstatus !== true){
-            return $accountstatus;
-        }
-
         $projectid = $request->param('projectid');
 
         $userid = Session::get('userid');
@@ -45,14 +40,14 @@ class Invest extends Controller{
 
 
         $user = UserModel::get($userid);
-        if($project['status'] === 0){
+        if($project['ydctype'] === 0){
             //可用ydc类型
             if ($user->usableydc < $project->investydc) {
                 $json_arr = ['code' => 200, 'msg' => '可用余额不足'];
                 return json_encode($json_arr);
             }
 
-        }else if($project['status'] === 1) {
+        }else if($project['ydctype'] === 1) {
             //体验金类型
             if ($user->tasteydc < $project->investydc) {
                 $json_arr = ['code' => 201, 'msg' => '可用体验金不足'];

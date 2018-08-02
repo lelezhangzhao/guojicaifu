@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1533002140;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533103482;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"E:\share\project\trunk\tp5\public/../application/gjcf\view\index\index.html";i:1533187132;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1531971031;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533192414;s:60:"E:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532420336;}*/ ?>
 <html>
 <head>
     <title>主页</title>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
     <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=47"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=48"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">
@@ -135,7 +135,10 @@
             <th lay-data="{field:'caption'}">项目名称</th>
             <th lay-data="{field:'investydc', sort: true}">投资金额</th>
             <th lay-data="{field:'profitydc'}">收益</th>
+            <th lay-data="{field:'balancedays'}">收益天数</th>
+            <th lay-data="{field:'balanceperday'}">每日收益</th>
             <th lay-data="{field:'remaininvest'}">剩余投资额</th>
+            <th lay-data="{field:'projectpercent'}">投资进度</th>
             <th lay-data="{fixed: 'right', align:'center', toolbar: '#barDemo'}"></th>
         </tr>
         </thead>
@@ -150,43 +153,46 @@
     </div>
 </div>
 <script>
-    layui.use(['layer', 'table'], function(){
-        var table = layui.table;
+    $(function(){
+        layui.use(['layer', 'table'], function(){
+            var table = layui.table;
 
-        //监听工具条
-        table.on('tool(index_invest)', function(obj){
-            var data = obj.data;
-            if(obj.event === 'detail'){
-                layer.msg('ID：'+ data.id + ' 的查看操作');
-            } else if(obj.event === 'invest'){
-                $.ajax({
-                    type:"post",
-                    url:"/index.php/gjcf/invest/investproject",
-                    async:true,
-                    dateType:"json",
-                    data:{
-                        projectid:data.id
-                    },
-                    success:function(ajaxdata){
-                        ajaxdata = eval("(" + ajaxdata + ")");
-                        $.ShowMsg(ajaxdata.msg);
-                        //10,1,11,9,12,0,13
-                        switch(ajaxdata.code){
-                            case 0: //更新剩余投资额
-                                obj.update({
-                                    remaininvest: ajaxdata.remaininvest
-                                });
-                                break;
-                            default:
-                                break;
+            //监听工具条
+            table.on('tool(index_invest)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'detail'){
+                    layer.msg('ID：'+ data.id + ' 的查看操作');
+                } else if(obj.event === 'invest'){
+                    $.ajax({
+                        type:"post",
+                        url:"/index.php/gjcf/invest/investproject",
+                        async:true,
+                        dateType:"json",
+                        data:{
+                            projectid:data.id
+                        },
+                        success:function(ajaxdata){
+                            ajaxdata = eval("(" + ajaxdata + ")");
+                            $.ShowMsg(ajaxdata.msg);
+                            //10,1,11,9,12,0,13
+                            switch(ajaxdata.code){
+                                case 0: //更新剩余投资额
+                                    obj.update({
+                                        projectpercent: ajaxdata.projectpercent,
+                                        remaininvest: ajaxdata.remaininvest
+                                    });
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
-                    }
-                });
-            } else if(obj.event === 'edit'){
-                layer.alert('编辑行：<br>'+ JSON.stringify(data))
-            }
-        });
+                    });
+                } else if(obj.event === 'edit'){
+                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                }
+            });
 
+        });
     });
 </script>
 <script type="text/javascript">
