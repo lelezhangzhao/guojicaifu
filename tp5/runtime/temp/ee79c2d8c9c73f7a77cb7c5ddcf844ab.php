@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"H:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1533220077;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533219623;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"H:\share\project\trunk\tp5\public/../application/gjcf\view\invite\index.html";i:1533220296;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533219623;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
-    <title>账户</title>
+    <title>邀请链接</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -119,28 +119,28 @@
     #top_info{
         visibility:visible;
     }
-</style>
-<script type="text/javascript">
-    window.onload = GetUserInfo();
-</script>
 
+</style>
 <div class="layui-container" style="width:300;position:relative;left:0%">
-    <form action="" target="exec_target" class="layui-form layui-form-pane" >
+    <form action="javascript:;" class="layui-form layui-form-pane" >
         <div class="layui-form-item">
-            <input type="text" name="accountinfo_name" id="accountinfo_name" lay-verify="required" placeholder="姓名" autocomplete="off" class="layui-input" value="<?php echo $accountinfoname; ?>">
+            <label class="layui-form-label" style="width:300;">扫码注册：</label>
         </div>
         <div class="layui-form-item">
-            <input type="text" name="accountinfo_alipaynum" id="accountinfo_alipaynum" lay-verify="required" placeholder="支付宝账户" autocomplete="off" class="layui-input" value="<?php echo $accountinfoalipaynum; ?>">
+            <div id="invite_qrcode" height="300" width="300"><br/>
+        </div>
+        <br/>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width:300;">注册链接</label>
         </div>
         <div class="layui-form-item">
-            <button class="layui-btn" lay-submit="" id="accountinfo_getaccountinfotelidentify">获取手机验证码</button>
-        </div>
-        <div class="layui-form-item">
-            <input type="text" name="accountinfo_telidentify" id="accountinfo_telidentify" lay-verify="required" placeholder="手机验证码" autocomplete="off" class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn" lay-submit="" id="accountinfo_save">保存</button>
+            <textarea  cols="40" rows="3" id="invite_url" wrap="virtual" readonly="readonly"></textarea>
         </div>
     </form>
 </div>
-<iframe name="exec_target" hidden />
+
+<script type="text/javascript">
+
+    window.onload = GetInviteUrl();
+    window.attachEvent("onload", GetUserInfo());
+</script>

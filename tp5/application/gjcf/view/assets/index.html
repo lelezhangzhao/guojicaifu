@@ -1,0 +1,28 @@
+{include file="layout" title="我的资产" /}
+<style>
+    #top_info{
+        visibility:visible;
+    }
+</style>
+<script type="text/javascript">
+    window.onload = GetUserInfo();
+</script>
+<script type="text/javascript">
+    window.onload = GetMyAssets();
+</script>
+<div class="layui-container" style="width:300;position:relative;left:0%">
+    <form action="javascript:;" class="layui-form layui-form-pane" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">激活YDC：</label>
+            <label class="layui-form-label" id="assets_usableydc"></label>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">冻结YDC：</label>
+            <label class="layui-form-label" id="assets_freezenydc"></label>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">体验YDC：</label>
+            <label class="layui-form-label" id="assets_tasteydc"></label>
+        </div>
+    </form>
+</div>

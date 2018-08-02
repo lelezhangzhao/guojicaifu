@@ -1,9 +1,12 @@
 {include file="layout" title="提现" /}
 <script type="text/javascript">
-    window.onload=GetWithdrawYdc();
-
     $("#top_info").css("visibility", "visible");
-    $.LoadUserInfo();
+
+    window.onload=GetWithdrawYdc();
+    window.attachEvent("onload", GetUserInfo());
+
+
+
 
 </script>
 

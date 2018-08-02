@@ -22,49 +22,49 @@ function GetUrlParam(name) {
 
 
 $(function(){
-    $.ajax({
-        type:"post",
-        url:"/index.php/gjcf/utility/islogin",
-        async:true,
-        dataType:"json",
-        success:function(data){
-            data = eval("(" + data + ")");
-            switch(data.code){
-                case 0:
-                    $.ajax({
-                        type:"post",
-                        url:"/index.php/gjcf/userinfo/getheaderuserinfo",
-                        async:true,
-                        dataType:"json",
-                        success:function(data){
-                            data = eval("(" + data + ")");
-                            if(data.code === 0){
-                                $("#header_username").text(data.username);
-                                $("#header_userid").text(data.userid);
-                                $("#header_usableydc").text(data.usableydc);
-                                $("#header_freezenydc").text(data.freezenydc);
-                            }
-                        },
-                        error:function(hd, msg){
-                            $.ShowMsg(msg);
-                        }
-                    });
-                    break;
-                case 102:
-                    break;
-            }
-        },
-        error:function(hd, msg){
-            $.ShowMsg(msg);
-        }
-    });
+    // $.ajax({
+    //     type:"post",
+    //     url:"/index.php/gjcf/utility/islogin",
+    //     async:true,
+    //     dataType:"json",
+    //     success:function(data){
+    //         data = eval("(" + data + ")");
+    //         switch(data.code){
+    //             case 0:
+    //                 $.ajax({
+    //                     type:"post",
+    //                     url:"/index.php/gjcf/userinfo/getheaderuserinfo",
+    //                     async:true,
+    //                     dataType:"json",
+    //                     success:function(data){
+    //                         data = eval("(" + data + ")");
+    //                         if(data.code === 0){
+    //                             $("#header_username").text(data.username);
+    //                             $("#header_userid").text(data.userid);
+    //                             $("#header_usableydc").text(data.usableydc);
+    //                             $("#header_freezenydc").text(data.freezenydc);
+    //                         }
+    //                     },
+    //                     error:function(hd, msg){
+    //                         $.ShowMsg(msg);
+    //                     }
+    //                 });
+    //                 break;
+    //             case 102:
+    //                 break;
+    //         }
+    //     },
+    //     error:function(hd, msg){
+    //         $.ShowMsg(msg);
+    //     }
+    // });
 
     function IsLogin(){
         var returnCode = 0;
         $.ajax({
             type:"post",
             url:"/index.php/gjcf/utility/islogin",
-            async:false,
+            async:true,
             dataType:"json",
             success:function(data){
                 data = eval("(" + data + ")");
@@ -152,6 +152,10 @@ $(function(){
                         window.global_userid = data.userid;
                         window.global_usableydc = data.usableydc;
                         window.global_freezenydc = data.freezenydc;
+
+                        localStorage.setItem("username", data.username);
+                        localStorage.setItem("userid", data.userid);
+
                         $.OpenNewUrl("/index.php/gjcf/index/index");
                         break;
                     case 1:
@@ -595,6 +599,9 @@ $(function(){
     $("#header_ydcrecord").click(function(){
         $.OpenNewUrl("/index.php/gjcf/ydcrecord/index");
     });
+    $("#header_assets").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/assets/index");
+    });
     $("#header_fixaccountinfo").click(function(){
         $.OpenNewUrl("/index.php/gjcf/accountinfo/index");
     });
@@ -746,6 +753,58 @@ function GetWithdrawYdc(){
     });
 }
 
+function GetMyAssets(){
+    $(function(){
+
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/assets/getmyassets",
+            dataType:"json",
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        $("#assets_usableydc").html(data.usableydc);
+                        $("#assets_freezenydc").html(data.freezenydc);
+                        $("#assets_tasteydc").html(data.tasteydc);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    });
+}
+
+function GetUserInfo(){
+    $(function(){
+        $("#header_username").html(localStorage.getItem("username"));
+        $("#header_userid").html(localStorage.getItem("userid"));
+    });
+}
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date()
+    exdate.setDate(exdate.getDate()+expiredays)
+    document.cookie=c_name+ "=" +escape(value)+
+        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+function getCookie(c_name)
+{
+    if (document.cookie.length>0)
+    {
+        c_start=document.cookie.indexOf(c_name + "=")
+        if (c_start!=-1)
+        {
+            c_start=c_start + c_name.length+1
+            c_end=document.cookie.indexOf(";",c_start)
+            if (c_end==-1) c_end=document.cookie.length
+            return unescape(document.cookie.substring(c_start,c_end))
+        }
+    }
+    return ""
+}
 // function Login(username, password, capcha){
 //     $.ajax({
 //         type : "post", //提交方式

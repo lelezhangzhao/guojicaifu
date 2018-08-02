@@ -59,7 +59,8 @@ class Signup extends Controller{
         $user->status = 0;
         $user->role = 0;
         $user->usableydc = 0;
-        $user->tasteydc = 100;
+        $user->tasteydc = 1000;
+        $user->freezenydc = 0;
         $user->singnuptime = date('Y-m-d H:i:s');
         $user->latestlogintime = date('Y-m-d H:i:s');
         $user->hasinvest = 0;
@@ -72,7 +73,7 @@ class Signup extends Controller{
         $user->allowField(true)->save();
 
         //ydcrecord
-        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $user->freezenydc, 8);
+        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $user->id, $user->tasteydc, 8);
         $json_arr = ['code' => 0, 'msg' => '注册成功'];
         return json_encode($json_arr);
 

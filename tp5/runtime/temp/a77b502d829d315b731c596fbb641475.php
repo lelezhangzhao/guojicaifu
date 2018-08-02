@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"H:\share\project\trunk\tp5\public/../application/gjcf\view\accountinfo\index.html";i:1533220077;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533219623;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"H:\share\project\trunk\tp5\public/../application/gjcf\view\bonus\index.html";i:1533220099;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533219623;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
 <html>
 <head>
-    <title>账户</title>
+    <title>主页</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -115,32 +115,28 @@
 </html>
 
 
-<style>
-    #top_info{
-        visibility:visible;
-    }
-</style>
 <script type="text/javascript">
+    $("#top_info").css("visibility", "visible");
+
     window.onload = GetUserInfo();
+
 </script>
 
-<div class="layui-container" style="width:300;position:relative;left:0%">
-    <form action="" target="exec_target" class="layui-form layui-form-pane" >
-        <div class="layui-form-item">
-            <input type="text" name="accountinfo_name" id="accountinfo_name" lay-verify="required" placeholder="姓名" autocomplete="off" class="layui-input" value="<?php echo $accountinfoname; ?>">
-        </div>
-        <div class="layui-form-item">
-            <input type="text" name="accountinfo_alipaynum" id="accountinfo_alipaynum" lay-verify="required" placeholder="支付宝账户" autocomplete="off" class="layui-input" value="<?php echo $accountinfoalipaynum; ?>">
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn" lay-submit="" id="accountinfo_getaccountinfotelidentify">获取手机验证码</button>
-        </div>
-        <div class="layui-form-item">
-            <input type="text" name="accountinfo_telidentify" id="accountinfo_telidentify" lay-verify="required" placeholder="手机验证码" autocomplete="off" class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn" lay-submit="" id="accountinfo_save">保存</button>
-        </div>
-    </form>
+<div id="bottom">
+    <h2>分红</h2>
+    <table class="layui-table" lay-data="{height:332, url:'/index.php/gjcf/bonus/getbonus', id:'idTest'}" lay-filter="index_invest">
+        <thead>
+        <tr>
+            <th lay-data="{field:'count', sort: true, fixed: true}">直推人数</th>
+            <th lay-data="{field:'profit'}">分红额度</th>
+            <th lay-data="{field:'profitcount'}">分红人数</th>
+            <th lay-data="{field:'oneprofit', sort: true}">人均分红</th>
+        </tr>
+        </thead>
+    </table>
 </div>
-<iframe name="exec_target" hidden />
+<script>
+    layui.use(['layer', 'table'], function() {
+        var table = layui.table;
+    });
+</script>

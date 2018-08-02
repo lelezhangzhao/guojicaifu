@@ -2,6 +2,8 @@
 <script type="text/javascript">
     $("#top_info").css("visibility", "visible");
 
+    window.onload = GetUserInfo();
+
 </script>
 
 <div id="bottom">
@@ -55,6 +57,12 @@
                             //10,1,11,9,12,0,13
                             switch(ajaxdata.code){
                                 case 0: //更新剩余投资额
+//                                    obj.data.zt=res.data.zt;//更新数据
+//                                    var toolhtml;
+//                                    laytpl(tooltpl.innerHTML).render(obj.data, function(html){//tooltpl为toolbar的script模板id
+//                                        toolhtml = html;
+//                                    });
+//                                    tr.children('td[data-field="7"]').children('div').html(toolhtml);//7为当前表格工具列是表格的第几列
                                     obj.update({
                                         projectpercent: ajaxdata.projectpercent,
                                         remaininvest: ajaxdata.remaininvest
@@ -65,8 +73,6 @@
                             }
                         }
                     });
-                } else if(obj.event === 'edit'){
-                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
                 }
             });
 
