@@ -85,10 +85,11 @@ class Invest extends Controller{
 
                 }
 
-                $project_trans['curinvest'] += $project_trans['investydc'];
+                $cur_invest = $project_trans['curinvest'] + $project_trans['investydc'];
+                $project_trans['curinvest'] = $cur_invest;
                 $project_trans['remaininvest'] -= $project_trans['investydc'];
 
-                $project_trans['projectpercent'] = $project_trans['curinvest'] / $project_trans['totalinvest'] * 100 . '%';
+                $project_trans['projectpercent'] = $cur_invest / $project_trans['totalinvest'] * 100 . '%';
                 Db::name('project')->update($project_trans, ['curinvest' => $project_trans['curinvest'], 'remaininvest' => $project_trans['remaininvest']]);
                 Db::name('user')->update($user_trans);
 
@@ -179,6 +180,8 @@ class Invest extends Controller{
                 }
             }
         }
+        $project = ProjectModel::get($projectid);
+
         $json_arr = ['code' => 0, 'msg' => '投资成功', 'projectpercent' => $project->projectpercent, 'remaininvest' => $project->remaininvest];
         return json_encode($json_arr);
     }

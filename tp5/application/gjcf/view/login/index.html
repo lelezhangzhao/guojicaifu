@@ -1,9 +1,11 @@
 {include file="layout" title="登录" /}
-<style>
-    #top_info{
-        visibility:hidden;
-    }
-</style>
+
+<script type="text/javascript">
+
+
+    window.onload = LoginOnload();
+
+</script>
 
 <div class="layui-container" style="width:300;position:relative;left:0%">
     <form action="javascript:;" target="exec_target" class="layui-form layui-form-pane" >
@@ -20,7 +22,7 @@
             <img id="login_captcha_img" src="{:captcha_src()}" onclick="this.src='/index.php/captcha?id='+Math.random()" style="cursor: pointer" /><br />
         </div>
         <div class="layui-form-item">
-            <button class="layui-btn" lay-submit="" lay-filter="demo1" id="login_login">登录</button>
+            <button class="layui-btn" lay-submit="" id="login_login">登录</button>
         </div>
         <div class="layui-form-item">
             <button class="layui-btn" id="login_forgetpassword">忘记密码</button>
@@ -30,4 +32,5 @@
     </form>
 </div>
 <iframe name="exec_target" hidden />
+
 

@@ -25,24 +25,24 @@ class Index extends Controller{
             return $status;
         }
 
-        $page = $request->param('page');
-        $limit = $request->param('limit');
+//        $page = $request->param('page');
+//        $limit = $request->param('limit');
 
-        $tol = ($page - 1) * $limit;
+//        $tol = ($page - 1) * $limit;
 
-        $projectcount = Db::name('project')
-            ->where('status', 0)
-            ->count();
+//        $projectcount = Db::name('project')
+//            ->where('status', 0)
+//            ->count();
 
         $projects = Db::name('project')
             ->where('status', 0)
-            ->limit($tol, $limit)
+//            ->limit($tol, $limit)
             ->select();
 
 
         $list["msg"]="";
         $list["code"]=0;
-        $list["count"]=$projectcount;
+//        $list["count"]=$projectcount;
         $list["data"]=$projects;
         if(empty($projects)){
             $list["msg"]="暂无数据";

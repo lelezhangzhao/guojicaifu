@@ -153,6 +153,9 @@ $(function(){
                         window.global_usableydc = data.usableydc;
                         window.global_freezenydc = data.freezenydc;
 
+                        SetCookie("username", username);
+                        SetCookie("password", password);
+
                         localStorage.setItem("username", data.username);
                         localStorage.setItem("userid", data.userid);
 
@@ -508,7 +511,6 @@ $(function(){
 
     $("#header_project").click(function(){
         $.OpenNewUrl("/index.php/gjcf/index/index");
-        // GetProject();
     });
     $("#header_investrecord").click(function(){
         $.OpenNewUrl("/index.php/gjcf/investrecord/index");
@@ -783,14 +785,14 @@ function GetUserInfo(){
         $("#header_userid").html(localStorage.getItem("userid"));
     });
 }
-function setCookie(c_name,value,expiredays)
+function SetCookie(c_name,value,expiredays)
 {
     var exdate=new Date()
     exdate.setDate(exdate.getDate()+expiredays)
     document.cookie=c_name+ "=" +escape(value)+
         ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
 }
-function getCookie(c_name)
+function GetCookie(c_name)
 {
     if (document.cookie.length>0)
     {
@@ -805,32 +807,214 @@ function getCookie(c_name)
     }
     return ""
 }
-// function Login(username, password, capcha){
-//     $.ajax({
-//         type : "post", //提交方式
-//         url : "/index.php/gjcf/login/login", //路径
-//         contentType:"application/json",
-//         async:true,
-//         //参数
-//         data : {
-//             username : username,
-//             password : password,
-//             capcha : capcha
-//         },
-//         cache : false,
-//
-//         //返回普通的字符流不要写 dataType : "json"
-//         success : function(data) {
-//             alert(data);
-//         },
-//         error:function(){
-//             alert("error");
-//         },
-//
-//     });
-//
-// }
-//
+
+function GetProject(){
+    $(function(){
+        $.ajax({
+            type:"post",
+            async:true,
+            url:'/index.php/gjcf/index/getproject',
+            dataType:"json",
+            success:function(data){
+                switch(data.code){
+                    case 0:
+                        var strProject = "";
+                        for (var i = 0; i < data.data.length; i++){
+                            var that = data.data[i];
+                            strProject += AddProject(that.caption, that.investydc, that.profitydc, that.balancedays, that.balanceperday, that.id, that.projectpercent);
+                        }
+                        $("#index_project").html(strProject);
+                        layui.use('element', function(){
+                            element = layui.element;
+                            element.render('progress');
+                        });
+                        break;
+                    default:
+                        break;
+                }
+        }
+
+        });
+    });
+}
+
+function AddProject(project, invest, profit, investdays, investperday, projectid, projectpercent){
+    var str = "";
+    $(function(){
+        str = '<div class="layui-row layui-col-space15">' +
+            '<div class="layui-col-md12">' +
+            '<div class="layui-card">' +
+            '<div class="layui-card-header">'+project+'</div>' +
+            '<div class="layui-card-body">' +
+            '<div class="layui-row">' +
+            '<div class="layui-col-md10">' +
+            '<div class="layui-row" >' +
+            '<div class="layui-col-md2">' +
+            '<div class="layui-inline">' +
+            '<label class="layui-text">投资:</label>' +
+            '</div>' +
+            '<div class="layui-inline">'+invest+'</div>' +
+            '</div>' +
+            '<div class="layui-col-md2">' +
+            '<div class="layui-inline">收益:</div>' +
+            '<div class="layui-inline">'+profit+'</div>' +
+            '</div>' +
+            '<div class="layui-col-md3">' +
+            '<div class="layui-inline">收益天数:</div>' +
+            '<div class="layui-inline">'+investdays+'</div>' +
+            '</div>' +
+            '<div class="layui-col-md3">' +
+            '<div class="layui-inline">每日收益:</div>' +
+            '<div class="layui-inline">'+investperday+'</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="layui-col-md2" align="center" >' +
+            '<button class="layui-btn" id='+projectid+' onclick=Invest('+projectid+')>投资</button>' +
+            '</div>' +
+            '<div class="layui-col-md10" >' +
+            '<div class="layui-progress layui-progress-big" lay-showPercent="true">' +
+            '<div class="layui-progress-bar" lay-percent='+projectpercent+' id=index_percent'+projectid+'></div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+
+    });
+    return str;
+
+}
+
+function Invest(projectid){
+    $(function(){
+        $.ajax({
+            type:"post",
+            async:true,
+            url:"/index.php/gjcf/invest/InvestProject",
+            dataType:"json",
+            data:{
+                projectid:projectid
+            },
+            success:function(data){
+                data = eval("(" + data + ")");
+                switch(data.code){
+                    case 0:
+                        document.getElementById("index_percent"+projectid).setAttribute("lay-percent", data.projectpercent);
+                        layui.use("element", function(){
+                            element = layui.element;
+                            element.render("progress");
+                        });
+                        // alert(document.getElementById("index_percent"+projectid).getAttribute("lay-percent"));
+                        // $("#index_percent"+projectid).lay-percent = data.projectpercent;
+                        $.ShowMsg(data.msg);
+                        break;
+                    default:
+                        $.ShowMsg(data.msg);
+                        break;
+                }
+            }
+        });
+    });
+}
+
+function AccountinfoOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+}
+function AdminOnload(){
+
+}
+function AssetsOnload(){
+    $("#top_info").css("visibility", "visible");
+    GetUserInfo();
+    GetMyAssets();
+}
+function BalanceOnload(){
+
+}
+function BonusOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+}
+function ChargeOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+
+}
+function ChargeconfirmOnload(){
+
+}
+function ChargerecordOnload(){
+
+}
+function FixpasswordOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+}
+function ForgetpasswordOnload(){
+    $("#top_info").css("visibility", "hidden");
+}
+function IndexOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+
+    GetProject();
+}
+function InvestOnload(){
+
+}
+function InvestrecordOnload(){
+    $("#top_info").css("visibility", "visible");
+
+    GetUserInfo();
+}
+function InviteOnload(){
+    $("#top_info").css("visibility", "visible");
+    GetUserInfo();
+    GetInviteUrl();
+}
+function LoginOnload(){
+    $("#top_info").css("visibility", "hidden");
+    $("#login_username").val(GetCookie("username"));
+    $("#login_password").val(GetCookie("password"));
+}
+function ProjectOnload(){
+
+}
+function SignupOnload(){
+    $("#top_info").css("visibility", "hidden");
+    var referee = GetUrlParam('referee');
+    $("#signup_referee").val(referee);
+}
+function TeamOnload(){
+    $("#top_info").css("visibility", "visible");
+    GetUserInfo();
+    GetTeam();
+}
+function WithdrawOnload(){
+    $("#top_info").css("visibility", "visible");
+    GetUserInfo();
+
+    GetWithdrawYdc();
+}
+function WithdrawconfirmOnload(){
+
+}
+function YdcrecordOnload(){
+    $("#top_info").css("visibility", "visible");
+    GetUserInfo();
+}
+
+
+
+
 var clock="";
 var nums = 60;
 var btn;
