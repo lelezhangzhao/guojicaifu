@@ -36,13 +36,14 @@ class Balance extends Controller{
             return $isadmin;
         }
 
+        $curdata = date('Y-m-d', strtotime('2018-08-05'));
         $investrecord = InvestrecordModel::where('status', 0)->select();
 
         foreach($investrecord as $oneinvestrecord){
             //更新investrecord
             $project = ProjectModel::where('id', $oneinvestrecord->projectid)->find();
             $invest = InvestrecordModel::where('id', $oneinvestrecord->id)->find();
-            $diffday = (strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($invest->investtime)))) / 86400;
+            $diffday = (strtotime($curdata) - strtotime(date('Y-m-d', strtotime($invest->investtime)))) / 86400;
 
 
             if($diffday > $invest->paydays){

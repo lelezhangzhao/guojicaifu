@@ -1,10 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"H:\share\project\trunk\tp5\public/../application/gjcf\view\charge\index.html";i:1533220105;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1532007517;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533219623;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1532433712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"H:\share\project\trunk\tp5\public/../application/gjcf\view\charge\index.html";i:1533344036;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1533344036;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533345710;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1533344036;}*/ ?>
 <html>
 <head>
     <title>充值</title>
     <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
 
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
     <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=51"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=54"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">
@@ -20,14 +21,14 @@
     </script>
     <style>
         #top_info{
-            visibility:hidden;
+            display:none;
         }
     </style>
 
 </head>
 <body class="layui-layout-body">
 
-<div id="top_info">
+<div class="layui-container" id="top_info">
     <div class="layui-container" id="header_userinfo">
         <form class="layui-form layui-form-pane" action="javascript:;" >
             <!--<div class="layui-container" style="width:625;position:relative;left:0%">-->
@@ -115,14 +116,9 @@
 </html>
 
 
-<style>
-    #top_info{
-        visibility:visible;
-    }
 
-</style>
 <script type="text/javascript">
-    window.onload = GetUserInfo();
+    window.onload = ChargeOnload();
 </script>
 <div class="layui-container" style="width:300;position:relative;left:0%">
     <form action="javascript:;" class="layui-form layui-form-pane" >
@@ -138,7 +134,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label" style="width:300;">最低10元起充</label>
         </div>
-        <div class="layui-form-item">
+        <div class="layui-form-item" >
             <button class="layui-btn" lay-submit="" id="charge_ok">确定</button>
         </div>
     </form>

@@ -74,9 +74,14 @@ class Helper extends Controller{
 
     static public function TestLoginAndStatus($controller){
         if(false === self::IsLoginUp()){
-//            self::LoginFirst($controller);
-            $json_arr = ['code' => 102, 'msg' => '用户未登录'];
-            return json_encode($json_arr);
+//            $json_arr = ['code' => 102, 'msg' => '用户未登录'];
+//            return json_encode($json_arr);
+            $url = '/index.php/gjcf/login/index';
+            $str =  '<script type="text/javascript">';
+            $str .= "location.href='$url'";
+            $str .= "</script>";
+            return $str;
+
         }
         if(false === self::IsCurUserEnable()){
             $json_arr = ['code' => 100, 'msg' => '用户状态错误，请联系管理员'];

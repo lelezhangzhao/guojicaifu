@@ -9,7 +9,7 @@ if (window.XMLHttpRequest){
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-
+var telidentify = false;
 // function OpenNewUrl(url) {
 //     window.location.href = url;
 //     // window.open(url);
@@ -99,9 +99,10 @@ $(function(){
 
 
     $.ShowMsg = function(msg){
-        layui.use("layer", function(){
-            layer.msg(msg);
-        });
+        alert(msg);
+        // layui.use("layer", function(){
+        //     layer.msg(msg);
+        // });
     };
 
     $.OpenNewUrl = function(url){
@@ -616,8 +617,11 @@ $(function(){
     $("#header_invite").click(function(){
         $.OpenNewUrl("/index.php/gjcf/invite/index");
     });
-    $("#header_systemad").click(function(){
-        alert("systemad");
+    $("#header_systeminfo").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/systeminfo/index");
+    });
+    $("#header_getservice").click(function(){
+        $.OpenNewUrl("/index.php/gjcf/getservice/index");
     });
     $("#header_bonus").click(function(){
         $.OpenNewUrl("/index.php/gjcf/bonus/index");
@@ -782,7 +786,7 @@ function GetMyAssets(){
 function GetUserInfo(){
     $(function(){
         $("#header_username").html(localStorage.getItem("username"));
-        $("#header_userid").html(localStorage.getItem("userid"));
+        // $("#header_userid").html(localStorage.getItem("userid"));
     });
 }
 function SetCookie(c_name,value,expiredays)
@@ -851,20 +855,20 @@ function AddProject(project, invest, profit, investdays, investperday, projectid
             '<div class="layui-row" >' +
             '<div class="layui-col-md2">' +
             '<div class="layui-inline">' +
-            '<label class="layui-text">投资:</label>' +
+            '<label class="layui-text">本金:</label>' +
             '</div>' +
             '<div class="layui-inline">'+invest+'</div>' +
             '</div>' +
             '<div class="layui-col-md2">' +
-            '<div class="layui-inline">收益:</div>' +
+            '<div class="layui-inline">盈利:</div>' +
             '<div class="layui-inline">'+profit+'</div>' +
             '</div>' +
             '<div class="layui-col-md3">' +
-            '<div class="layui-inline">收益天数:</div>' +
+            '<div class="layui-inline">盈利天数:</div>' +
             '<div class="layui-inline">'+investdays+'</div>' +
             '</div>' +
             '<div class="layui-col-md3">' +
-            '<div class="layui-inline">每日收益:</div>' +
+            '<div class="layui-inline">每日盈利:</div>' +
             '<div class="layui-inline">'+investperday+'</div>' +
             '</div>' +
             '</div>' +
@@ -920,96 +924,150 @@ function Invest(projectid){
 }
 
 function AccountinfoOnload(){
-    $("#top_info").css("visibility", "visible");
+    $(function(){
+        if(false === telidentify){
+            $("#accountinfo_telidentify").css("display", "none");
+            $("#accountinfo_getaccountinfotelidentify").css("display", "none");
+        }
 
-    GetUserInfo();
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function AdminOnload(){
+    $(function(){
+    });
 
 }
 function AssetsOnload(){
-    $("#top_info").css("visibility", "visible");
-    GetUserInfo();
-    GetMyAssets();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+        GetMyAssets();
+    });
 }
 function BalanceOnload(){
+    $(function(){
+    });
 
 }
 function BonusOnload(){
-    $("#top_info").css("visibility", "visible");
-
-    GetUserInfo();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function ChargeOnload(){
-    $("#top_info").css("visibility", "visible");
-
-    GetUserInfo();
-
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function ChargeconfirmOnload(){
+    $(function(){
+    });
 
 }
 function ChargerecordOnload(){
+    $(function(){
+    });
 
 }
 function FixpasswordOnload(){
-    $("#top_info").css("visibility", "visible");
-
-    GetUserInfo();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function ForgetpasswordOnload(){
-    $("#top_info").css("visibility", "hidden");
+    $(function(){
+        if(false === telidentify){
+            $("#forgetpassword_telidentify").css("display", "none");
+            $("#forgetpassword_gettelidentify").css("display", "none");
+        }
+
+        $("#top_info").css("display", "none");
+    });
 }
 function IndexOnload(){
-    $("#top_info").css("visibility", "visible");
-
-    GetUserInfo();
-
-    GetProject();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+        GetProject();
+    });
 }
 function InvestOnload(){
+    $(function(){
+    });
 
 }
 function InvestrecordOnload(){
-    $("#top_info").css("visibility", "visible");
-
-    GetUserInfo();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function InviteOnload(){
-    $("#top_info").css("visibility", "visible");
-    GetUserInfo();
-    GetInviteUrl();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+        GetInviteUrl();
+    });
 }
 function LoginOnload(){
-    $("#top_info").css("visibility", "hidden");
-    $("#login_username").val(GetCookie("username"));
-    $("#login_password").val(GetCookie("password"));
+    $(function(){
+        $("#top_info").css("display", "none");
+        $("#login_username").val(GetCookie("username"));
+        $("#login_password").val(GetCookie("password"));
+    });
 }
 function ProjectOnload(){
-
+    $(function(){
+    });
 }
 function SignupOnload(){
-    $("#top_info").css("visibility", "hidden");
-    var referee = GetUrlParam('referee');
-    $("#signup_referee").val(referee);
+    $(function(){
+        if(false === telidentify){
+            $("#signup_telidentify").css("display", "none");
+            $("#signup_gettelidentify").css("display", "none");
+        }
+        $("#top_info").css("display", "none");
+        var referee = GetUrlParam('referee');
+
+        $("#signup_referee").val(referee);
+    });
+
 }
 function TeamOnload(){
-    $("#top_info").css("visibility", "visible");
-    GetUserInfo();
-    GetTeam();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+        GetTeam();
+    });
 }
 function WithdrawOnload(){
-    $("#top_info").css("visibility", "visible");
-    GetUserInfo();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+        GetWithdrawYdc();
+    });
+}
 
-    GetWithdrawYdc();
+function SysteminfoOnload(){
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 function WithdrawconfirmOnload(){
-
+    $(function(){
+    });
 }
 function YdcrecordOnload(){
-    $("#top_info").css("visibility", "visible");
-    GetUserInfo();
+    $(function(){
+        $("#top_info").css("display", "block");
+        GetUserInfo();
+    });
 }
 
 

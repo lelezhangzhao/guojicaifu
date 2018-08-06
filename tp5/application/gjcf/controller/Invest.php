@@ -119,66 +119,70 @@ class Invest extends Controller{
         $investrecord->paydays = 0;
         $investrecord->allowField(true)->save();
 
-        //三级推荐奖
-        $refereeprofit = RefereeprofitModel::where('id', 1)->find();
-        $refereeoneuser = UserModel::where('id', $user->referee)->find();
-        if(!empty($refereeoneuser)) {
-            $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
-            RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $projectid, $refereeoneydc);
-            $refereeoneuser->usableydc += $refereeoneydc;
-            $releasefreezenydc = 0;
-            if ($refereeoneuser->freezenydc > 0) {
-                if ($refereeoneuser->freezenydc > $refereeoneydc) {
-                    $releasefreezenydc = $refereeoneydc;
-                } else {
-                    $releasefreezenydc = $refereeoneuser->freezenydc;
-                }
-                $refereeoneuser->freezenydc -= $releasefreezenydc;
-                $refereeoneuser->usableydc += $releasefreezenydc;
-            }
-            $refereeoneuser->allowField(true)->save();
-            YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
-
-            $refereetwouser = UserModel::where('id', $refereeoneuser->referee)->find();
-            if (!empty($refereetwouser)) {
-                $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
-                RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $projectid, $refereetwoydc);
-                $refereetwouser->usableydc += $refereetwoydc;
+        if($project->ydctype === 0){
+            //可用额度投资，才有三难推荐奖
+            //三级推荐奖
+            $refereeprofit = RefereeprofitModel::where('id', 1)->find();
+            $refereeoneuser = UserModel::where('id', $user->referee)->find();
+            if(!empty($refereeoneuser)) {
+                $refereeoneydc = $project->investydc * $refereeprofit->refereeone;
+                RefereerecordModel::AddRefereerecord($refereeoneuser->id, 0, $user->id, $projectid, $refereeoneydc);
+                $refereeoneuser->usableydc += $refereeoneydc;
                 $releasefreezenydc = 0;
-                if ($refereetwouser->freezenydc > 0) {
-                    if ($refereetwouser->freezenydc > $refereetwoydc) {
-                        $releasefreezenydc = $refereetwoydc;
+                if ($refereeoneuser->freezenydc > 0) {
+                    if ($refereeoneuser->freezenydc > $refereeoneydc) {
+                        $releasefreezenydc = $refereeoneydc;
                     } else {
-                        $releasefreezenydc = $refereetwouser->freezenydc;
+                        $releasefreezenydc = $refereeoneuser->freezenydc;
                     }
-                    $refereetwouser->freezenydc -= $releasefreezenydc;
-                    $refereetwouser->usableydc += $releasefreezenydc;
+                    $refereeoneuser->freezenydc -= $releasefreezenydc;
+                    $refereeoneuser->usableydc += $releasefreezenydc;
                 }
+                $refereeoneuser->allowField(true)->save();
+                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereeoneuser->id, $refereeoneydc, 4);
 
-                $refereetwouser->allowField(true)->save();
-                YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereetwouser->id, $refereetwoydc, 5);
-
-                $refereethreeuser = UserModel::where('id', $refereetwouser->referee)->find();
-                if (!empty($refereethreeuser)) {
-                    $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
-                    RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $projectid, $refereethreeydc);
-                    $refereethreeuser->usableydc += $refereethreeydc;
+                $refereetwouser = UserModel::where('id', $refereeoneuser->referee)->find();
+                if (!empty($refereetwouser)) {
+                    $refereetwoydc = $project->investydc * $refereeprofit->refereetwo;
+                    RefereerecordModel::AddRefereerecord($refereetwouser->id, 1, $user->id, $projectid, $refereetwoydc);
+                    $refereetwouser->usableydc += $refereetwoydc;
                     $releasefreezenydc = 0;
-
-                    if ($refereethreeuser->freezenydc > 0) {
-                        if ($refereethreeuser->freezenydc > $refereethreeydc) {
-                            $releasefreezenydc = $refereethreeydc;
+                    if ($refereetwouser->freezenydc > 0) {
+                        if ($refereetwouser->freezenydc > $refereetwoydc) {
+                            $releasefreezenydc = $refereetwoydc;
                         } else {
-                            $releasefreezenydc = $refereethreeuser->freezenydc;
+                            $releasefreezenydc = $refereetwouser->freezenydc;
                         }
-                        $refereethreeuser->freezenydc -= $releasefreezenydc;
-                        $refereethreeuser->usableydc += $releasefreezenydc;
+                        $refereetwouser->freezenydc -= $releasefreezenydc;
+                        $refereetwouser->usableydc += $releasefreezenydc;
                     }
 
-                    $refereethreeuser->allowField(true)->save();
-                    YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereethreeuser->id, $refereethreeydc, 6);
+                    $refereetwouser->allowField(true)->save();
+                    YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereetwouser->id, $refereetwoydc, 5);
+
+                    $refereethreeuser = UserModel::where('id', $refereetwouser->referee)->find();
+                    if (!empty($refereethreeuser)) {
+                        $refereethreeydc = $project->investydc * $refereeprofit->refereethree;
+                        RefereerecordModel::AddRefereerecord($refereethreeuser->id, 1, $user->id, $projectid, $refereethreeydc);
+                        $refereethreeuser->usableydc += $refereethreeydc;
+                        $releasefreezenydc = 0;
+
+                        if ($refereethreeuser->freezenydc > 0) {
+                            if ($refereethreeuser->freezenydc > $refereethreeydc) {
+                                $releasefreezenydc = $refereethreeydc;
+                            } else {
+                                $releasefreezenydc = $refereethreeuser->freezenydc;
+                            }
+                            $refereethreeuser->freezenydc -= $releasefreezenydc;
+                            $refereethreeuser->usableydc += $releasefreezenydc;
+                        }
+
+                        $refereethreeuser->allowField(true)->save();
+                        YdcrecordModel::AddYdcRecord(date('Y-m-d H:i:s'), $refereethreeuser->id, $refereethreeydc, 6);
+                    }
                 }
             }
+
         }
         $project = ProjectModel::get($projectid);
 

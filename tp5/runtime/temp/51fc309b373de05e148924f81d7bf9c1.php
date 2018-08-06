@@ -1,7 +1,7 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"H:\share\project\trunk\tp5\public/../application/gjcf\view\assets\index.html";i:1533344036;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1533344036;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533385385;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1533344036;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"H:\share\project\trunk\tp5\public/../application/gjcf\view\getservice\index.html";i:1533453022;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\layout.html";i:1533451121;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\header.html";i:1533452218;s:60:"H:\share\project\trunk\tp5\application\gjcf\view\footer.html";i:1533451143;}*/ ?>
 <html>
 <head>
-    <title>我的资产</title>
+    <title>集团信息</title>
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/style.css?version=2" type="text/css" />
     <link rel="stylesheet" href="/static/dtree/dtree.css?version=4" type="text/css" />
-    <script type="text/javascript" src="/static/js/action.js?version=54"></script>
+    <script type="text/javascript" src="/static/js/action.js?version=55"></script>
     <script type="text/javascript" src="/static/qrcodejs/qrcode.min.js"></script>
     <script type="text/javascript" src="/static/dtree/dtree.js?version=4"></script>
     <script type="text/javascript">
@@ -98,7 +98,13 @@
                 <dd id="header_bonus"><a href="javascript:;">今日分红</a></dd>
             </dl>
         </li>
-        <!--<li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>-->
+        <li class="layui-nav-item">
+            <a href="javascript:;">系统公告</a>
+            <dl class="layui-nav-child">
+                <dd id="header_systeminfo"><a href="javascript:;">集团信息</a></dd>
+                <dd id="header_getservice"><a href="javascript:;">联系客服</a></dd>
+            </dl>
+        </li>
     </ul>
 </div>
 
@@ -113,29 +119,22 @@
 </script>
 
 </body>
+
 </html>
 
 
-
 <script type="text/javascript">
-    window.onload = AssetsOnload();
+    window.onload = SysteminfoOnload();
 </script>
-<!--<script type="text/javascript">-->
-    <!--window.onload = GetMyAssets();-->
-<!--</script>-->
-<div class="layui-container" style="width:300;position:relative;left:0%">
-    <form action="javascript:;" class="layui-form layui-form-pane" >
-        <div class="layui-form-item">
-            <label class="layui-form-label">激活YDC：</label>
-            <label class="layui-form-label" id="assets_usableydc"></label>
+
+
+<div class="layui-container" style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-card">
+            <div class="layui-card-header">联系客服</div>
+            <div class="layui-card-body">
+                客服微信：gjcfgfkf
+            </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">冻结YDC：</label>
-            <label class="layui-form-label" id="assets_freezenydc"></label>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">体验YDC：</label>
-            <label class="layui-form-label" id="assets_tasteydc"></label>
-        </div>
-    </form>
+    </div>
 </div>

@@ -231,12 +231,11 @@ values
 
 insert into international_project(caption, investydc, profitydc, balancedays, balanceperday, curinvest, remaininvest, totalinvest, begintime, status, ydctype, projectpercent)
 values
-("体验项目", 1000, 1000, 300, 3, 23000, 77000, 100000, "2018-07-19 14:00:00", 0, 1, '23%'),
-("谨源农场", 10, 20, 5, 4, 21500, 78500, 100000, "2018-07-19 14:00:00", 0, 0, '21.5%'),
-("雷诺科技", 100, 200, 5, 40, 70000, 30000, 100000, "2018-07-19 14:00:00", 0, 0, '70%'),
-("丽山旅游规划", 500, 1000, 5, 200, 68500, 31500, 100000, "2018-07-19 14:00:00", 0, 0, '68.5%'),
-("华闻创投", 1000, 2000, 5, 400, 14500, 85500, 100000, "2018-07-19 14:00:00", 0, 0, '14.5%'),
-("汇沃金融", 2000, 4000, 5, 800, 0, 100000, 100000, "2018-07-19 14:00:00", 1, 0, '0%');
+("体验项目(仅体验金可投)", 1000, 1000, 333, 3, 23000, 77000, 100000, "2018-07-19 14:00:00", 0, 1, '23%'),
+("雷诺科技", 20, 40, 5, 8, 70000, 30000, 100000, "2018-07-19 14:00:00", 0, 0, '70%'),
+("丽山旅游规划", 100, 200, 5, 40, 68500, 31500, 100000, "2018-07-19 14:00:00", 0, 0, '68.5%'),
+("华闻创投", 500, 1000, 5, 200, 14500, 85500, 100000, "2018-07-19 14:00:00", 0, 0, '14.5%'),
+("汇沃金融", 1000, 2000, 5, 400, 0, 100000, 100000, "2018-07-19 14:00:00", 0, 0, '0%');
 
 
 
@@ -245,4 +244,32 @@ values
 (0.1, 0.05, 0.03);
 
 
+   id                   int not null auto_increment,
+   createtime            timestamp null default current_timestamp,
+   userid           int,
+   ydc              float,
+   ydcrecordtype             int,
+   typename                varchar(10),
+   primary key (id)
+
+
+insert into international_ydcrecord(createtime, userid, ydc, ydcrecordtype, typename)
+values
+("2018-07-19 14:00:00", 123, 123, 0, "注册");
+
+
+
+ALTER TABLE international_bonusrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_chargerecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_dayprofit CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_investrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_loginrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_project CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_refereeone CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_refereeprofit CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_refereerecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_signrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_withdrawrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_ydcrecord CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE international_user CONVERT TO CHARACTER SET UTF8; 
 

@@ -52,6 +52,7 @@ class Chargeconfirm extends Controller{
             ->view('user',['name', 'alipaynum'] ,'user.id = chargerecord.userid')
             ->where('chargerecord.status', 0)
             ->limit($tol, $limit)
+            ->order('chargetime', 'desc')
             ->select();
 
 

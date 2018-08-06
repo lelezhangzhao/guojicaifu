@@ -49,21 +49,23 @@ class Forgetpassword extends Controller{
         $telidentify = $request->param('telidentify');
         $newpassword = $request->param('newpassword');
 
-        if(!Telidentify::TelIdentifyOk($telidentify)){
+        if(!Telidentify::TelIdentifyOk($telidentify)) {
             $json_arr = ['code' => 303, 'msg' => '手机验证码错误'];
-        }else{
-            $username = Session::get('fixedusername');
-            $user = UserModel::where('username', $username)->find();
-            $user->password = $newpassword;
-            $result = $this->validate($user, 'User');
-            if(true !== $result) {
-                $json_arr = ['code' => 400, 'msg' => $result];
-            } else {
-                $user->allowField(true)->save();
-            }
-            Session::delete('fixedusername');
-            $json_arr = ['code' => 0, 'msg' => '密码更新成功'];
+            return json_encode($json_arr);
         }
+
+
+        $username = Session::get('fixedusername');
+        $user = UserModel::where('username', $username)->find();
+        $user->password = $newpassword;
+        $result = $this->validate($user, 'User');
+        if(true !== $result) {
+            $json_arr = ['code' => 400, 'msg' => $result];
+        } else {
+            $user->allowField(true)->save();
+        }
+        Session::delete('fixedusername');
+        $json_arr = ['code' => 0, 'msg' => '密码更新成功'];
         return json_encode($json_arr);
     }
 }
